@@ -71,7 +71,28 @@ format:
 
 ## 部署到 github page 上
 
-這裡實在是困難重重，只能先筆記下摸索出來的方法。
+這裡實在是困難重重(對我來說)，只能先筆記下摸索出來的方法。
+
+> 先假設前置所需的 git 跟 Github 都設定完成。
+
+首先打開 Terminal ， cd 到 Project 資料夾，key 入:
+
+```bash
+quarto render
+```
+我的不知道為什麼會生成一個叫 `doc` 的資料夾，但 Github Page 只認 `docs`，所以生成後要修改檔名 !!!
+
+然後在最外層的`_quarto.yml`設定：
+
+```yaml
+project:
+  type: website
+  output-dir: docs
+```
+
+接著按照先前學過的，檢查確認 localhost 的 preiew 沒問題後，將本地端 push 到 Github repository。
+
+再來前往 Github repository setting / Pages ，將設定改成`mian\docs`。等待幾分鐘後，如果成功Pages的頁面會生成網址，可以點進去檢查。
 
 
 

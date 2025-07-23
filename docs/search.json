@@ -25,7 +25,7 @@
     "href": "posts/1_first/index.html#部署到-github-page-上",
     "title": "第一篇文章，來分享這個部落格是怎麼建立的",
     "section": "部署到 github page 上",
-    "text": "部署到 github page 上\n這裡實在是困難重重，只能先筆記下摸索出來的方法。"
+    "text": "部署到 github page 上\n這裡實在是困難重重(對我來說)，只能先筆記下摸索出來的方法。\n\n先假設前置所需的 git 跟 Github 都設定完成。\n\n首先打開 Terminal ， cd 到 Project 資料夾，key 入:\nquarto render\n我的不知道為什麼會生成一個叫 doc 的資料夾，但 Github Page 只認 docs，所以生成後要修改檔名 !!!\n然後在最外層的_quarto.yml設定：\nproject:\n  type: website\n  output-dir: docs\n接著按照先前學過的，檢查確認 localhost 的 preiew 沒問題後，將本地端 push 到 Github repository。\n再來前往 Github repository setting / Pages ，將設定改成mian\\docs。等待幾分鐘後，如果成功Pages的頁面會生成網址，可以點進去檢查。"
   },
   {
     "objectID": "posts/1_first/index.html#footnotes",
