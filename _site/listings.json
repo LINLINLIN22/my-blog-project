@@ -1,16 +1,16 @@
 [
   {
-    "listing": "/index.html",
-    "items": [
-      "/posts/1_first/index.html"
-    ]
-  },
-  {
     "listing": "/posts/1_first/index.html",
     "items": []
   },
   {
     "listing": "/about.html",
+    "items": [
+      "/posts/1_first/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
     "items": [
       "/posts/1_first/index.html"
     ]
