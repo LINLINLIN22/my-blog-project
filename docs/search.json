@@ -21,6 +21,13 @@
     "text": "功能調整\n\n首頁文章按日期最新排列\n若想所有文章按日期最新排列，可以在 Project 下最外層的 _quarto.yml 調整，首先撰寫文章的 index.qmd 的YMAL都要設定日期，這部分預設模板有給：\ndate: \"2025-07-23\"\n　再來是修改最外層的_quarto.yml，新增下面語法\nlisting:\n  contents: posts\n  sort: \"date desc\"  # 日期最新的在前面\n需要注意 yaml 的順序跟階層關係很重要，順序跟階層不對會報錯。\n\n\nlight / dark theme 切換\n一樣修改最外層的，語法如下：\nformat:\n  html:\n    theme:\n      light: flatly\n      dark: darkly\n這樣網站的右上角會出現一個小小的切換鈕，但個人覺得這個設計不太直觀，有機會再來研究看看可以怎麼改。"
   },
   {
+    "objectID": "posts/1_first/index.html#部署到-github-page-上",
+    "href": "posts/1_first/index.html#部署到-github-page-上",
+    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
+    "section": "部署到 github page 上",
+    "text": "部署到 github page 上\n這裡實在是困難重重，只能先筆記下摸索出來的方法。"
+  },
+  {
     "objectID": "posts/1_first/index.html#footnotes",
     "href": "posts/1_first/index.html#footnotes",
     "title": "第一篇文章，來分享這個部落格是怎麼建立的",
