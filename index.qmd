@@ -1,0 +1,19 @@
+---
+# title: "MyBlog"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
+---
+
+<!-- use quarto preview to exine website -->
+
+<!-- 或vscode點擊右上角 -->
+
+來寫 Blog 吧！
+

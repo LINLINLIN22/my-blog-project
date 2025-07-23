@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "紙魚ㄉ部落格",
+    "section": "",
+    "text": "來寫 Blog 吧！\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n第一篇文章，來分享這個部落格是怎麼建立的\n\n\n\nother\n\n\n\n\n\n\n\n\n\nJul 23, 2025\n\n\n紙魚\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Me",
+    "section": "",
+    "text": "有一天同事在我桌上放了零食，上面貼了一張便利貼，便利貼上面畫著一隻魚。所以我的部落格叫紙魚😊"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
+    "section": "",
+    "text": "緣起\n很早以前就想建立自己的小小網站了，雖然在這之前，我用過 Blogger 寫文章，不過用得不是很順手，後來忘記帳密就沒再用了。到近期我才發現自己比較偏好用特定指令寫文章，這件事還是因為因為要寫數學筆記辦了 hackmd 才發現的。\n不得不說， hackmd 是一個非常好用的網站，不只可以用自己熟悉的 markdown 語法寫文章，也可以練習當時還不怎麼熟悉的 html 語法，同時跟一般的線上 markdown editor 相比，它既可以用 code 畫心智圖跟流程圖，也可以發佈成網站。一度想說就這樣繼續用下去吧，但它對我來說有個小小的缺點：寫得文章越長越容易卡頓。"
+  },
+  {
+    "objectID": "posts/1_first/index.html",
+    "href": "posts/1_first/index.html",
+    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
+    "section": "",
+    "text": "緣起\n很早以前就想建立自己的小小網站了，雖然在這之前，我用過 Blogger 寫文章，不過用得不是很順手，後來忘記帳密就沒再用了。到近期我才發現自己比較偏好用特定指令寫文章，這件事還是因為因為要寫數學筆記辦了 hackmd 才發現的。\n不得不說， hackmd 是一個非常好用的網站，不只可以用自己熟悉的 markdown 語法寫文章，也可以練習當時還不怎麼熟悉的 html 語法，同時跟一般的線上 markdown editor 相比，它既可以用 code 畫心智圖跟流程圖，也可以發佈成網站。一度想說就這樣繼續用下去吧，但它對我來說有個小小的缺點：寫得文章越長越容易卡頓。\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/1_first/index.html#quarto-blog-project-的基本架構筆記",
+    "href": "posts/1_first/index.html#quarto-blog-project-的基本架構筆記",
+    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
+    "section": "Quarto Blog Project 的基本架構筆記",
+    "text": "Quarto Blog Project 的基本架構筆記\n就像許多個人網站的架構那樣，屬於 Blog Project 資料夾的最外層會有個用來當首頁的index.qmd，.qmd是 Quarto 的檔案格式之一，我個人的理解是類似 RMarkdown 可以寫 markdown 語法也可以跑程式，但它可以更沒有障礙的跑 python 的程式碼。1此外還有主要用來控制顯示網站 head 部分的 _quarto.yml，以及自我介紹用的about.qmd跟可以自定義 CSS 風格的 styles.css。\n存放文章的地方在資料夾 posts裡，每份文章都以資料夾的形式包著。文章的內容本體也是.qmd檔，可以直接修改，這篇文章也是用.qmd檔撰寫的。另外，文章資料夾的命名可以隨意，因為網站在渲染過程中會直接讀取posts下的所有資料夾，資料夾本身的名稱不會影響讀取。"
+  },
+  {
+    "objectID": "posts/1_first/index.html#功能調整",
+    "href": "posts/1_first/index.html#功能調整",
+    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
+    "section": "功能調整",
+    "text": "功能調整\n\n首頁文章按日期最新排列\n若想所有文章按日期最新排列，可以在 Project 下最外層的 _quarto.yml 調整，首先撰寫文章的 index.qmd 的YMAL都要設定日期，這部分預設模板有給：\ndate: \"2025-07-23\"\n　再來是修改最外層的_quarto.yml，新增下面語法\nlisting:\n  contents: posts\n  sort: \"date desc\"  # 日期最新的在前面\n需要注意 yaml 的順序跟階層關係很重要，順序跟階層不對會報錯。\n\n\nlight / dark theme 切換\n一樣修改最外層的，語法如下：\nformat:\n  html:\n    theme:\n      light: flatly\n      dark: darkly\n這樣網站的右上角會出現一個小小的切換鈕，但個人覺得這個設計不太直觀，有機會再來研究看看可以怎麼改。"
+  },
+  {
+    "objectID": "posts/1_first/index.html#footnotes",
+    "href": "posts/1_first/index.html#footnotes",
+    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nrmd可以使用python，但其原理是要通過R的套件使用，但qmd則是直接用python處理。↩︎"
+  },
+  {
+    "objectID": "about.html#最近文章",
+    "href": "about.html#最近文章",
+    "title": "About Me",
+    "section": "最近文章",
+    "text": "最近文章"
+  }
+]
