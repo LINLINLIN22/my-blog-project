@@ -1,0 +1,31 @@
+project:
+  type: website
+
+listing:
+  contents: posts
+  sort: "date desc"  # 日期最新的在前面
+
+website:
+  title: "紙魚ㄉ部落格"
+  page-navigation: true
+  navbar:
+    right:
+      - about.qmd
+      # - icon: github
+      #   href: https://github.com/
+      # - icon: twitter
+      #   href: https://twitter.com
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    css: styles.css
+
+
+
+
+
+
+
+
