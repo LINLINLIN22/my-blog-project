@@ -14,8 +14,8 @@ about:
     #   text: LinkedIn
     #   href: https://linkedin.com
     - icon: github
-      text: Github
-      href: https://github.com
+      text: My Github
+      href: https://github.com/LINLINLIN22
 
 ---
 
