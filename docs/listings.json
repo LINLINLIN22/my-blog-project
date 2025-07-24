@@ -1,18 +1,18 @@
 [
   {
-    "listing": "/posts/1_first/index.html",
+    "listing": "/posts/first-article/index.html",
     "items": []
   },
   {
     "listing": "/about.html",
     "items": [
-      "/posts/1_first/index.html"
+      "/posts/first-article/index.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
-      "/posts/1_first/index.html"
+      "/posts/first-article/index.html"
     ]
   }
 ]
