@@ -80,6 +80,13 @@ format:
 ```bash
 quarto render
 ```
+
+成功的話 terminal 會出現以下命令：
+
+```bash
+Output created: docs\index.html
+```
+
 我的不知道為什麼，第一次生成一個叫 `doc` 的資料夾，但 Github Page 只認 `docs`，所以生成後要修改檔名。
 
 然後在最外層的`_quarto.yml`設定：
