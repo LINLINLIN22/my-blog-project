@@ -13,6 +13,17 @@ format:
       light: flatly
       dark: darkly
     css: styles.css
+    toc: true
+    toc-location: body
+    toc-depth: 2
+    toc-title: "目錄"
+    # number-sections: true
+    # self-contained: true
+    # code-fold: true
+    # code-copy: true
+    # code-tools: true
+    # code-tools-position: top
+    # include-before-body: toc.html
 
 website:
   title: "紙魚ㄉ部落格"
