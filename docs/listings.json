@@ -6,13 +6,19 @@
   {
     "listing": "/about.html",
     "items": [
+      "/posts/jpyterbook/index.html",
       "/posts/first-article/index.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
+      "/posts/jpyterbook/index.html",
       "/posts/first-article/index.html"
     ]
+  },
+  {
+    "listing": "/posts/jpyterbook/index.html",
+    "items": []
   }
 ]
