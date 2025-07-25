@@ -1,14 +1,7 @@
 [
   {
-    "listing": "/posts/first-article/index.html",
+    "listing": "/posts/jpyterbook/index.html",
     "items": []
-  },
-  {
-    "listing": "/about.html",
-    "items": [
-      "/posts/jpyterbook/index.html",
-      "/posts/first-article/index.html"
-    ]
   },
   {
     "listing": "/index.html",
@@ -18,7 +11,14 @@
     ]
   },
   {
-    "listing": "/posts/jpyterbook/index.html",
+    "listing": "/about.html",
+    "items": [
+      "/posts/jpyterbook/index.html",
+      "/posts/first-article/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/first-article/index.html",
     "items": []
   }
 ]
