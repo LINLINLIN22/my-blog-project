@@ -28,6 +28,7 @@ image: "image.jpg"
 4. Quarto 會自動生出設定檔，先暫時不要動它，來試跑看看。試跑有2種方法:
 - 第一種：在 Terminal cd 到目前 Project 的資料夾，使用 `quarto preview` 指令。這會另外開啟常用瀏覽器檢視。
 - 第二種：在 Vscode 右上角有個 ![](icon.png) 的符號，點擊可在右側 preview 網頁渲染結果。
+
 兩種方法都不錯，我覺得第一種方法適合螢幕小或想要檢視不同瀏覽器運作情況的人，第二種適合電腦螢幕大時使用，看個人需求了。
 
 ##  Quarto Blog Project 的基本架構筆記
