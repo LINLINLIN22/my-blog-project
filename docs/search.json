@@ -17,43 +17,43 @@
     "objectID": "posts/jpyterbook/index.html#安裝-jupyter-book",
     "href": "posts/jpyterbook/index.html#安裝-jupyter-book",
     "title": "如何使用 Python jupyter-book 建立一本書",
-    "section": "2.1 安裝 jupyter-book",
-    "text": "2.1 安裝 jupyter-book\npip install -U jupyter-book"
+    "section": "安裝 jupyter-book",
+    "text": "安裝 jupyter-book\npip install -U jupyter-book"
   },
   {
     "objectID": "posts/jpyterbook/index.html#建立一本書的骨架",
     "href": "posts/jpyterbook/index.html#建立一本書的骨架",
     "title": "如何使用 Python jupyter-book 建立一本書",
-    "section": "2.2 建立一本書的骨架",
-    "text": "2.2 建立一本書的骨架\n使用命令行建立一個新的書籍專案：\njupyter-book create mybook/\n這會建立一個名為 mybook/ 的資料夾，裡面包含書籍的基本結構，包括 Markdown 與 Jupyter Notebook 範例，mybook/ 亦可以自行換成其他資料夾名稱。"
+    "section": "建立一本書的骨架",
+    "text": "建立一本書的骨架\n使用命令行建立一個新的書籍專案：\njupyter-book create mybook/\n這會建立一個名為 mybook/ 的資料夾，裡面包含書籍的基本結構，包括 Markdown 與 Jupyter Notebook 範例，mybook/ 亦可以自行換成其他資料夾名稱。"
   },
   {
     "objectID": "posts/jpyterbook/index.html#編輯內容",
     "href": "posts/jpyterbook/index.html#編輯內容",
     "title": "如何使用 Python jupyter-book 建立一本書",
-    "section": "2.3 編輯內容",
-    "text": "2.3 編輯內容\n\n從這裡開始就是在編輯時會重複執行的步驟！\n\n可以在 mybook/ 目錄中看到這些重要檔案和資料夾：\n\nmybook/_config.yml：書籍的設定（標題、主題、logo 等）\nmybook/_toc.yml：書籍目錄（控制章節順序）\nmybook/intro.md、mybook/chapters/*.ipynb：實際內容，可新增 Markdown 或 Notebook 檔案\n\n\n2.3.1 新增章節例子：\n\n在 mybook/ 下新增一個檔案，例如 chapter1.md\n在 _toc.yml 中加上該檔案的設定：\n\nformat: jb-book\nroot: intro\nchapters:\n  - file: chapter1"
+    "section": "編輯內容",
+    "text": "編輯內容\n\n從這裡開始就是在編輯時會重複執行的步驟！\n\n可以在 mybook/ 目錄中看到這些重要檔案和資料夾：\n\nmybook/_config.yml：書籍的設定（標題、主題、logo 等）\nmybook/_toc.yml：書籍目錄（控制章節順序）\nmybook/intro.md、mybook/chapters/*.ipynb：實際內容，可新增 Markdown 或 Notebook 檔案\n\n\n新增章節例子：\n\n在 mybook/ 下新增一個檔案，例如 chapter1.md\n在 _toc.yml 中加上該檔案的設定：\n\nformat: jb-book\nroot: intro\nchapters:\n  - file: chapter1"
   },
   {
     "objectID": "posts/jpyterbook/index.html#編譯網站",
     "href": "posts/jpyterbook/index.html#編譯網站",
     "title": "如何使用 Python jupyter-book 建立一本書",
-    "section": "2.4 編譯網站",
-    "text": "2.4 編譯網站\n在書籍資料夾中執行：\njupyter-book build mybook/\n這會自動產生靜態網站，輸出目錄為：\nmybook/_build/html/"
+    "section": "編譯網站",
+    "text": "編譯網站\n在書籍資料夾中執行：\njupyter-book build mybook/\n這會自動產生靜態網站，輸出目錄為：\nmybook/_build/html/"
   },
   {
     "objectID": "posts/jpyterbook/index.html#預覽網站",
     "href": "posts/jpyterbook/index.html#預覽網站",
     "title": "如何使用 Python jupyter-book 建立一本書",
-    "section": "2.5 預覽網站",
-    "text": "2.5 預覽網站\n使用瀏覽器打開以下檔案即可：\nmybook/_build/html/index.html\n或用 Python 的 HTTP server 預覽：\ncd mybook/_build/html\npython -m http.server\n然後打開瀏覽器到 http://localhost:8000\n\n\n注意：如果你有修改 _toc.yml 或其他設定，必須重新編譯網站才能看到變更，不然會顯示舊的內容。\n如果編譯網站後有做刪除頁面的動作，請到 _build/html/ 資料夾刪除對應的 html，不然他不會蓋到很笨我知道。\n執行後 terminal 的 powershell 非必要請不要關閉，因為它在運行 HTTP server。需要關閉可以在 terminal 視窗 輸入 Ctrl + C 停止服務。或是另開新的 terminal 視窗來執行其他命令。"
+    "section": "預覽網站",
+    "text": "預覽網站\n使用瀏覽器打開以下檔案即可：\nmybook/_build/html/index.html\n或用 Python 的 HTTP server 預覽：\ncd mybook/_build/html\npython -m http.server\n然後打開瀏覽器到 http://localhost:8000\n\n\n注意：如果你有修改 _toc.yml 或其他設定，必須重新編譯網站才能看到變更，不然會顯示舊的內容。\n如果編譯網站後有做刪除頁面的動作，請到 _build/html/ 資料夾刪除對應的 html，不然他不會蓋到很笨我知道。\n執行後 terminal 的 powershell 非必要請不要關閉，因為它在運行 HTTP server。需要關閉可以在 terminal 視窗 輸入 Ctrl + C 停止服務。或是另開新的 terminal 視窗來執行其他命令。"
   },
   {
     "objectID": "posts/jpyterbook/index.html#發布網站選擇性",
     "href": "posts/jpyterbook/index.html#發布網站選擇性",
     "title": "如何使用 Python jupyter-book 建立一本書",
-    "section": "2.6 發布網站（選擇性）",
-    "text": "2.6 發布網站（選擇性）\n可以把 _build/html 上傳到 GitHub Pages、Netlify、Vercel 等平台，或用 GitHub Actions 自動部署。"
+    "section": "發布網站（選擇性）",
+    "text": "發布網站（選擇性）\n可以把 _build/html 上傳到 GitHub Pages、Netlify、Vercel 等平台，或用 GitHub Actions 自動部署。"
   },
   {
     "objectID": "index.html",
@@ -67,14 +67,7 @@
     "href": "about.html",
     "title": "About Me",
     "section": "",
-    "text": "有一天同事在我桌上放了零食，上面貼了一張便利貼，便利貼上面畫著一隻魚。所以我的部落格叫紙魚😊"
-  },
-  {
-    "objectID": "about.html#最近文章",
-    "href": "about.html#最近文章",
-    "title": "About Me",
-    "section": "最近文章",
-    "text": "最近文章"
+    "text": "有一天同事在我桌上放了零食，上面貼了一張便利貼，便利貼上面畫著一隻魚。所以我的部落格叫紙魚😊\n\n\n\n\n\n\n\n\n\n\n\n如何使用 Python jupyter-book 建立一本書\n\n\n\n\n\n\n\n\nJul 25, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n第一篇文章，來分享這個部落格是怎麼建立的\n\n\n\n\n\n\n\n\nJul 23, 2025\n\n\n紙魚\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/first-article/index.html",
@@ -84,25 +77,32 @@
     "text": "很早以前就想建立自己的小小網站了，雖然在這之前，我用過 Blogger 寫文章，不過用得不是很順手，後來忘記帳密就沒再用了。到近期我才發現自己比較偏好用特定指令寫文章，這件事還是因為要寫數學筆記辦了 hackmd 才發現的。\n不得不說， hackmd 是一個非常好用的網站，不只可以用自己熟悉的 markdown 語法寫文章，也可以練習當時還不怎麼熟悉的 html 語法，同時跟一般的線上 markdown editor 相比，它既可以用 code 畫心智圖跟流程圖，也可以發佈成網站。一度想說就這樣繼續用下去吧，但它對我來說有個小小的缺點：寫的文章越長越容易卡頓。\n於是我開始異想天開：如果是自己建立的網站應該就不會卡了吧？\n在進入軟體業之前，我對網頁設計跟原理都沒有概念，進入軟體業之後雖然稍微有了一點”常識”，也接觸一些諸如 gitbook 等用來寫說明文件非常方便的軟體服務，但對於網頁是怎麼從寫成到上線，還是只有很模糊的：「呃…總之就是先在 localhost 寫一寫，再丟到測試機檢查，沒問題再丟到正式機吧？」過程中會用到的技術幾乎是0概念，但我還是很興奮地去研究各種可能的方案。\n第一個閃過的想法，是從頭學 html 跟 css 語法，自己刻一個網站，但我很快就發現非常花時間，而且要用其他引擎渲染 markdown 數學符號，實在是太麻煩。第二個想法是用 C# 建立網站，也是有同樣的問題，再加上 C# 的語法長得實在是看得不習慣(也可能是我只喜歡語法簡潔的東西，像是 markdown 或是 python，方案二也放棄了。\n第三個想法，就是用 python 或是 r 的相關套件來建立模板，有需要再自己改模板就好，不過上了研究所後會用來做筆記的檔案類型不只 .md 檔，還有 .ipynb、.rmd、.r等等，雖然很多都是 markdown 的延伸，但還是想要盡可能的在不改變副檔名的前提下整合他們。同時又想找美觀又可以調整 light/ dark theme 的模板來使用。就這樣多方考慮後我選擇了 Quarto 來作為我的模板，主要原因是官網上提供的範例無論是在提供的功能還是美觀方面看起來都非常吸引人！也支援前述提到的檔案格式，再加上官網上的教學看起來相當易懂，於是就來用用看了。想要看完整教學的可以的點此。"
   },
   {
-    "objectID": "posts/first-article/index.html#quarto-blog-project-的基本架構筆記",
-    "href": "posts/first-article/index.html#quarto-blog-project-的基本架構筆記",
+    "objectID": "posts/first-article/index.html#在本機localthost檢視網頁",
+    "href": "posts/first-article/index.html#在本機localthost檢視網頁",
     "title": "第一篇文章，來分享這個部落格是怎麼建立的",
-    "section": "Quarto Blog Project 的基本架構筆記",
-    "text": "Quarto Blog Project 的基本架構筆記\n就像許多個人網站的架構那樣，屬於 Blog Project 資料夾的最外層會有個用來當首頁的index.qmd，.qmd是 Quarto 的檔案格式之一，我個人的理解是類似 RMarkdown 可以寫 markdown 語法也可以跑程式，但它可以更沒有障礙的跑 python 的程式碼。1此外還有主要用來控制顯示網站 head 部分的 _quarto.yml，以及自我介紹用的about.qmd跟可以自定義 CSS 風格的 styles.css。\n存放文章的地方在資料夾 posts裡，每份文章都以資料夾的形式包著。文章的內容本體也是.qmd檔，可以直接修改，這篇文章也是用.qmd檔撰寫的。另外，文章資料夾的命名可以隨意，因為網站在渲染過程中會直接讀取posts下的所有資料夾，資料夾本身的名稱不會影響讀取。"
+    "section": "在本機(localthost)檢視網頁",
+    "text": "在本機(localthost)檢視網頁\n檢視網頁有2種方法:\n\n第一種：在 Terminal cd 到目前 Project 的資料夾，使用 quarto preview 指令。這會另外開啟常用瀏覽器檢視，指令碼複製如下：\n\nquarto preview\n\n第二種：在 Vscode 右上角有個  的符號，點擊可在右側 preview 網頁渲染結果。\n\n兩種方法都不錯，我覺得第一種方法適合螢幕小或想要檢視不同瀏覽器運作情況的人，第二種適合電腦螢幕大時使用，看個人需求了。\n知道怎麼檢視網頁後，接下來就可以認識 Blog Project 的架構跟調整設定了。"
   },
   {
-    "objectID": "posts/first-article/index.html#功能調整",
-    "href": "posts/first-article/index.html#功能調整",
+    "objectID": "posts/first-article/index.html#首頁文章按日期最新排列",
+    "href": "posts/first-article/index.html#首頁文章按日期最新排列",
     "title": "第一篇文章，來分享這個部落格是怎麼建立的",
-    "section": "功能調整",
-    "text": "功能調整\n\n首頁文章按日期最新排列\n若想所有文章按日期最新排列，可以在 Project 下最外層的 _quarto.yml 調整，首先撰寫文章的 index.qmd 的YMAL都要設定日期，這部分預設模板有給：\ndate: \"2025-07-23\"\n　再來是修改最外層的_quarto.yml，新增下面語法\nlisting:\n  contents: posts\n  sort: \"date desc\"  # 日期最新的在前面\n需要注意 yaml 的順序跟階層關係很重要，順序跟階層不對會報錯。\n\n\nlight / dark theme 切換\n一樣修改最外層的，語法如下：\nformat:\n  html:\n    theme:\n      light: flatly\n      dark: darkly\n這樣網站的右上角會出現一個小小的切換鈕，但個人覺得這個設計不太直觀，有機會再來研究看看可以怎麼改。"
+    "section": "首頁文章按日期最新排列",
+    "text": "首頁文章按日期最新排列\n若想所有文章按日期最新排列，可以在 Project 下最外層的 _quarto.yml 調整，首先撰寫文章的 index.qmd 的YMAL都要設定日期，這部分預設模板有給：\ndate: \"2025-07-23\"\n　再來是修改最外層的_quarto.yml，新增下面語法\nlisting:\n  contents: posts\n  sort: \"date desc\"  # 日期最新的在前面\n需要注意 yaml 的順序跟階層關係很重要，順序跟階層不對會報錯。"
   },
   {
-    "objectID": "posts/first-article/index.html#部署到-github-page-上",
-    "href": "posts/first-article/index.html#部署到-github-page-上",
+    "objectID": "posts/first-article/index.html#light-dark-theme-切換",
+    "href": "posts/first-article/index.html#light-dark-theme-切換",
     "title": "第一篇文章，來分享這個部落格是怎麼建立的",
-    "section": "部署到 github page 上",
-    "text": "部署到 github page 上\n這裡實在是困難重重(對我來說)，只能先筆記下摸索出來的方法。\n\n先假設前置所需的 git 跟 Github 都設定完成。\n\n首先打開 Terminal ， cd 到 Project 資料夾，key 入:\nquarto render\n成功的話 terminal 會出現以下命令：\nOutput created: docs\\index.html\n我的不知道為什麼，第一次生成一個叫 doc 的資料夾，但 Github Page 只認 docs，所以生成後要修改檔名。\n然後在最外層的_quarto.yml設定：\nproject:\n  type: website\n  output-dir: docs\n接著按照先前學過的，檢查確認 localhost 的 preiew 沒問題後，將本地端 push 到 Github repository。\n再來前往 Github repository setting / Pages ，將設定改成mian\\docs。等待幾分鐘後，如果成功Pages的頁面會生成網址，可以點進去檢查。"
+    "section": "light / dark theme 切換",
+    "text": "light / dark theme 切換\n一樣修改最外層的，語法如下：\nformat:\n  html:\n    theme:\n      light: flatly\n      dark: darkly\n這樣網站的右上角會出現一個小小的切換鈕，但個人覺得這個設計不太直觀，有機會再來研究看看可以怎麼改。"
+  },
+  {
+    "objectID": "posts/first-article/index.html#插入目錄在每篇文章",
+    "href": "posts/first-article/index.html#插入目錄在每篇文章",
+    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
+    "section": "插入目錄在每篇文章",
+    "text": "插入目錄在每篇文章\n一樣在最外層的 yaml 的 format:層下輸入\n    toc: true\n    toc-location: body\n    toc-depth: 2\n    toc-title: \"目錄\"\n    number-sections: false\n第一個語法會召喚開啟文章目錄，第二個則是目錄出現位置，body是文章開頭，另有left(文章左側)跟right(文章右側)可選。\n第三個是文章目錄在直接顯示時要顯示 header 幾，這裡的 2 表示在網頁剛載入時，目錄會顯示文章到 header 2 (markdown 語法 ## )為止的標題。注意如果toc-location設定為left或right，用滑鼠點擊大 header 還是可以展開底下所有的小 header，只是初始載入會隱藏。\nnumber-sections則是要不要幫每個 header 標上編號，格式按 header 大小為 1、1.1、1.1.1…，以此類推，我覺得很醜所以用false取消編號。如果這個語法沒有設定，會導致有些檔案格式的文章如.qmd不編號，.md卻編號的情況，因此如果要統一還是要強制設定。"
   },
   {
     "objectID": "posts/first-article/index.html#footnotes",
