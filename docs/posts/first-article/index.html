@@ -170,10 +170,9 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -365,7 +364,7 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">第一篇文章，來分享這個部落格是怎麼建立的</h1>
@@ -398,6 +397,28 @@ window.Quarto = {
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目錄</h2>
+   
+  <ul>
+  <li><a href="#緣起" id="toc-緣起" class="nav-link active" data-scroll-target="#緣起">緣起</a></li>
+  <li><a href="#簡單紀錄我的建立過程" id="toc-簡單紀錄我的建立過程" class="nav-link" data-scroll-target="#簡單紀錄我的建立過程">簡單紀錄我的建立過程</a>
+  <ul class="collapse">
+  <li><a href="#在本機localthost檢視網頁" id="toc-在本機localthost檢視網頁" class="nav-link" data-scroll-target="#在本機localthost檢視網頁">在本機(localthost)檢視網頁</a></li>
+  </ul></li>
+  <li><a href="#quarto-blog-project-的基本架構筆記" id="toc-quarto-blog-project-的基本架構筆記" class="nav-link" data-scroll-target="#quarto-blog-project-的基本架構筆記">Quarto Blog Project 的基本架構筆記</a></li>
+  <li><a href="#功能調整" id="toc-功能調整" class="nav-link" data-scroll-target="#功能調整">功能調整</a>
+  <ul class="collapse">
+  <li><a href="#首頁文章按日期最新排列" id="toc-首頁文章按日期最新排列" class="nav-link" data-scroll-target="#首頁文章按日期最新排列">首頁文章按日期最新排列</a></li>
+  <li><a href="#light-dark-theme-切換" id="toc-light-dark-theme-切換" class="nav-link" data-scroll-target="#light-dark-theme-切換">light / dark theme 切換</a></li>
+  <li><a href="#插入目錄在每篇文章" id="toc-插入目錄在每篇文章" class="nav-link" data-scroll-target="#插入目錄在每篇文章">插入目錄在每篇文章</a></li>
+  </ul></li>
+  <li><a href="#部署到-github-page-上" id="toc-部署到-github-page-上" class="nav-link" data-scroll-target="#部署到-github-page-上">部署到 github page 上</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
@@ -408,19 +429,7 @@ window.Quarto = {
 
 
 
-<nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">目錄</h2>
-   
-  <ul>
-  <li><a href="#緣起" id="toc-緣起">緣起</a></li>
-  <li><a href="#簡單紀錄我的建立過程" id="toc-簡單紀錄我的建立過程">簡單紀錄我的建立過程</a>
-  <ul>
-  <li><a href="#quarto-blog-project-的基本架構筆記" id="toc-quarto-blog-project-的基本架構筆記">Quarto Blog Project 的基本架構筆記</a></li>
-  <li><a href="#功能調整" id="toc-功能調整">功能調整</a></li>
-  <li><a href="#部署到-github-page-上" id="toc-部署到-github-page-上">部署到 github page 上</a></li>
-  </ul></li>
-  </ul>
-</nav>
+
 <section id="緣起" class="level1">
 <h1>緣起</h1>
 <p>很早以前就想建立自己的小小網站了，雖然在這之前，我用過 Blogger 寫文章，不過用得不是很順手，後來忘記帳密就沒再用了。到近期我才發現自己比較偏好用特定指令寫文章，這件事還是因為要寫數學筆記辦了 hackmd 才發現的。</p>
@@ -436,62 +445,83 @@ window.Quarto = {
 <li>按照官網指示下載檔案，再點選常用的 IDE，我是 Windows / Vscode 路線。</li>
 <li>按照官網指示，在 Vscode 安裝 Quarto 的 Extension。</li>
 <li>在Vscode的環境下新增檔案(File/New File…)，點選 “Quarto Project”，並選擇你想建立的網站類型，我是選擇 Blog Project。 <img src="select.png" class="img-fluid"></li>
-<li>Quarto 會自動生出設定檔，先暫時不要動它，來試跑看看。試跑有2種方法:</li>
+<li>Quarto 會自動生出設定sample檔。</li>
 </ol>
+<p>生成sample後先暫時不要動它，來試跑看看，也就是在本機(localthost)檢視網頁！</p>
+<section id="在本機localthost檢視網頁" class="level2">
+<h2 class="anchored" data-anchor-id="在本機localthost檢視網頁">在本機(localthost)檢視網頁</h2>
+<p>檢視網頁有2種方法:</p>
 <ul>
-<li>第一種：在 Terminal cd 到目前 Project 的資料夾，使用 <code>quarto preview</code> 指令。這會另外開啟常用瀏覽器檢視。</li>
+<li>第一種：在 Terminal cd 到目前 Project 的資料夾，使用 <code>quarto preview</code> 指令。這會另外開啟常用瀏覽器檢視，指令碼複製如下：</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
 <li>第二種：在 Vscode 右上角有個 <img src="icon.png" class="img-fluid"> 的符號，點擊可在右側 preview 網頁渲染結果。</li>
 </ul>
 <p>兩種方法都不錯，我覺得第一種方法適合螢幕小或想要檢視不同瀏覽器運作情況的人，第二種適合電腦螢幕大時使用，看個人需求了。</p>
-<section id="quarto-blog-project-的基本架構筆記" class="level2">
-<h2 class="anchored" data-anchor-id="quarto-blog-project-的基本架構筆記">Quarto Blog Project 的基本架構筆記</h2>
+<p>知道怎麼檢視網頁後，接下來就可以認識 Blog Project 的架構跟調整設定了。</p>
+</section>
+</section>
+<section id="quarto-blog-project-的基本架構筆記" class="level1">
+<h1>Quarto Blog Project 的基本架構筆記</h1>
 <p>就像許多個人網站的架構那樣，屬於 Blog Project 資料夾的最外層會有個用來當首頁的<code>index.qmd</code>，<code>.qmd</code>是 Quarto 的檔案格式之一，我個人的理解是類似 RMarkdown 可以寫 markdown 語法也可以跑程式，但它可以更沒有障礙的跑 python 的程式碼。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>此外還有主要用來控制顯示網站 head 部分的 <code>_quarto.yml</code>，以及自我介紹用的<code>about.qmd</code>跟可以自定義 CSS 風格的 <code>styles.css</code>。</p>
 <p>存放文章的地方在資料夾 <code>posts</code>裡，每份文章都以資料夾的形式包著。文章的內容本體也是<code>.qmd</code>檔，可以直接修改，這篇文章也是用<code>.qmd</code>檔撰寫的。另外，<strong>文章資料夾的命名可以隨意</strong>，因為網站在渲染過程中會直接讀取<code>posts</code>下的所有資料夾，資料夾本身的名稱不會影響讀取。</p>
 </section>
-<section id="功能調整" class="level2">
-<h2 class="anchored" data-anchor-id="功能調整">功能調整</h2>
-<section id="首頁文章按日期最新排列" class="level3">
-<h3 class="anchored" data-anchor-id="首頁文章按日期最新排列">首頁文章按日期最新排列</h3>
+<section id="功能調整" class="level1">
+<h1>功能調整</h1>
+<section id="首頁文章按日期最新排列" class="level2">
+<h2 class="anchored" data-anchor-id="首頁文章按日期最新排列">首頁文章按日期最新排列</h2>
 <p>若想所有文章按日期最新排列，可以在 Project 下最外層的 <code>_quarto.yml</code> 調整，首先撰寫文章的 <code>index.qmd</code> 的YMAL都要設定日期，這部分預設模板有給：</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2025-07-23"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2025-07-23"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>　再來是修改最外層的<code>_quarto.yml</code>，新增下面語法</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">listing</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">contents</span><span class="kw">:</span><span class="at"> posts</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sort</span><span class="kw">:</span><span class="at"> </span><span class="st">"date desc"</span><span class="co">  # 日期最新的在前面</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">listing</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">contents</span><span class="kw">:</span><span class="at"> posts</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">sort</span><span class="kw">:</span><span class="at"> </span><span class="st">"date desc"</span><span class="co">  # 日期最新的在前面</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>需要注意 yaml 的順序跟階層關係很重要，順序跟階層不對會報錯。</p>
 </section>
-<section id="light-dark-theme-切換" class="level3">
-<h3 class="anchored" data-anchor-id="light-dark-theme-切換">light / dark theme 切換</h3>
+<section id="light-dark-theme-切換" class="level2">
+<h2 class="anchored" data-anchor-id="light-dark-theme-切換">light / dark theme 切換</h2>
 <p>一樣修改最外層的，語法如下：</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">light</span><span class="kw">:</span><span class="at"> flatly</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">dark</span><span class="kw">:</span><span class="at"> darkly</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">light</span><span class="kw">:</span><span class="at"> flatly</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">dark</span><span class="kw">:</span><span class="at"> darkly</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>這樣網站的右上角會出現一個小小的切換鈕，但個人覺得這個設計不太直觀，有機會再來研究看看可以怎麼改。</p>
 </section>
+<section id="插入目錄在每篇文章" class="level2">
+<h2 class="anchored" data-anchor-id="插入目錄在每篇文章">插入目錄在每篇文章</h2>
+<p>一樣在最外層的 yaml 的 <code>format:</code>層下輸入</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-location</span><span class="kw">:</span><span class="at"> body</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc-title</span><span class="kw">:</span><span class="at"> </span><span class="st">"目錄"</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>第一個語法會<del>召喚</del>開啟文章目錄，第二個則是目錄出現位置，<code>body</code>是文章開頭，另有<code>left</code>(文章左側)跟<code>right</code>(文章右側)可選。</p>
+<p>第三個是文章目錄在直接顯示時要顯示 header 幾，這裡的 2 表示在網頁剛載入時，目錄會顯示文章到 header 2 (markdown 語法 <code>##</code> )為止的標題。注意如果<code>toc-location</code>設定為<code>left</code>或<code>right</code>，用滑鼠點擊大 header 還是可以展開底下所有的小 header，只是初始載入會隱藏。</p>
+<p><code>number-sections</code>則是要不要幫每個 header 標上編號，格式按 header 大小為 1、1.1、1.1.1…，以此類推，我覺得很醜所以用<code>false</code>取消編號。<strong>如果這個語法沒有設定，會導致有些檔案格式的文章如<code>.qmd</code>不編號，<code>.md</code>卻編號的情況</strong>，因此如果要統一還是要強制設定。</p>
 </section>
-<section id="部署到-github-page-上" class="level2">
-<h2 class="anchored" data-anchor-id="部署到-github-page-上">部署到 github page 上</h2>
+</section>
+<section id="部署到-github-page-上" class="level1">
+<h1>部署到 github page 上</h1>
 <p>這裡實在是困難重重(對我來說)，只能先筆記下摸索出來的方法。</p>
 <blockquote class="blockquote">
 <p>先假設前置所需的 git 跟 Github 都設定完成。</p>
 </blockquote>
 <p>首先打開 Terminal ， cd 到 Project 資料夾，key 入:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>成功的話 terminal 會出現以下命令：</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Output</span> created: docs<span class="dt">\i</span>ndex.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Output</span> created: docs<span class="dt">\i</span>ndex.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>我的不知道為什麼，第一次生成一個叫 <code>doc</code> 的資料夾，但 Github Page 只認 <code>docs</code>，所以生成後要修改檔名。</p>
 <p>然後在最外層的<code>_quarto.yml</code>設定：</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>接著按照先前學過的，檢查確認 localhost 的 preiew 沒問題後，將本地端 push 到 Github repository。</p>
 <p>再來前往 Github repository setting / Pages ，將設定改成<code>mian\docs</code>。等待幾分鐘後，如果成功Pages的頁面會生成網址，可以點進去檢查。</p>
 
 
 
-</section>
 </section>
 
 

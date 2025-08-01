@@ -25,13 +25,27 @@ image: "image.jpg"
 2. 按照官網指示，在 Vscode 安裝 Quarto 的 Extension。
 3. 在Vscode的環境下新增檔案(File/New File...)，點選 "Quarto Project"，並選擇你想建立的網站類型，我是選擇 Blog Project。
 ![](select.png)
-4. Quarto 會自動生出設定檔，先暫時不要動它，來試跑看看。試跑有2種方法:
-- 第一種：在 Terminal cd 到目前 Project 的資料夾，使用 `quarto preview` 指令。這會另外開啟常用瀏覽器檢視。
+4. Quarto 會自動生出設定sample檔。
+
+生成sample後先暫時不要動它，來試跑看看，也就是在本機(localthost)檢視網頁！
+
+## 在本機(localthost)檢視網頁
+
+檢視網頁有2種方法:
+
+- 第一種：在 Terminal cd 到目前 Project 的資料夾，使用 `quarto preview` 指令。這會另外開啟常用瀏覽器檢視，指令碼複製如下：
+
+```bash
+quarto preview
+```
+
 - 第二種：在 Vscode 右上角有個 ![](icon.png) 的符號，點擊可在右側 preview 網頁渲染結果。
 
 兩種方法都不錯，我覺得第一種方法適合螢幕小或想要檢視不同瀏覽器運作情況的人，第二種適合電腦螢幕大時使用，看個人需求了。
 
-##  Quarto Blog Project 的基本架構筆記
+知道怎麼檢視網頁後，接下來就可以認識 Blog Project 的架構跟調整設定了。
+
+#  Quarto Blog Project 的基本架構筆記
 
 就像許多個人網站的架構那樣，屬於 Blog Project 資料夾的最外層會有個用來當首頁的`index.qmd`，`.qmd`是 Quarto 的檔案格式之一，我個人的理解是類似 RMarkdown 可以寫 markdown 語法也可以跑程式，但它可以更沒有障礙的跑 python 的程式碼。[^1]此外還有主要用來控制顯示網站 head 部分的 `_quarto.yml`，以及自我介紹用的`about.qmd`跟可以自定義 CSS 風格的 `styles.css`。
 
@@ -40,9 +54,9 @@ image: "image.jpg"
 
 存放文章的地方在資料夾 `posts`裡，每份文章都以資料夾的形式包著。文章的內容本體也是`.qmd`檔，可以直接修改，這篇文章也是用`.qmd`檔撰寫的。另外，**文章資料夾的命名可以隨意**，因為網站在渲染過程中會直接讀取`posts`下的所有資料夾，資料夾本身的名稱不會影響讀取。
 
-## 功能調整
+# 功能調整
 
-### 首頁文章按日期最新排列
+## 首頁文章按日期最新排列
 
 若想所有文章按日期最新排列，可以在 Project 下最外層的 `_quarto.yml` 調整，首先撰寫文章的 `index.qmd` 的YMAL都要設定日期，這部分預設模板有給：
 
@@ -57,7 +71,7 @@ listing:
 ```
 需要注意 yaml 的順序跟階層關係很重要，順序跟階層不對會報錯。
 
-### light / dark theme 切換
+## light / dark theme 切換
 
 一樣修改最外層的，語法如下：
 
@@ -70,7 +84,26 @@ format:
 ```
 這樣網站的右上角會出現一個小小的切換鈕，但個人覺得這個設計不太直觀，有機會再來研究看看可以怎麼改。
 
-## 部署到 github page 上
+## 插入目錄在每篇文章
+
+一樣在最外層的 yaml 的 `format:`層下輸入
+
+```yaml
+    toc: true
+    toc-location: body
+    toc-depth: 2
+    toc-title: "目錄"
+    number-sections: false
+```
+
+第一個語法會~~召喚~~開啟文章目錄，第二個則是目錄出現位置，`body`是文章開頭，另有`left`(文章左側)跟`right`(文章右側)可選。
+
+第三個是文章目錄在直接顯示時要顯示 header 幾，這裡的 2 表示在網頁剛載入時，目錄會顯示文章到 header 2 (markdown 語法 `##` )為止的標題。注意如果`toc-location`設定為`left`或`right`，用滑鼠點擊大 header 還是可以展開底下所有的小 header，只是初始載入會隱藏。
+
+`number-sections`則是要不要幫每個 header 標上編號，格式按 header 大小為 1、1.1、1.1.1...，以此類推，我覺得很醜所以用`false`取消編號。**如果這個語法沒有設定，會導致有些檔案格式的文章如`.qmd`不編號，`.md`卻編號的情況**，因此如果要統一還是要強制設定。 
+
+
+# 部署到 github page 上
 
 這裡實在是困難重重(對我來說)，只能先筆記下摸索出來的方法。
 

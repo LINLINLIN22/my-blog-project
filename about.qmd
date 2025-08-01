@@ -3,9 +3,13 @@ title: "About Me"
 format:
   html:
     page-layout: full
+    toc: false
+    body-class: about-page
+    css: styles.css  # 確保這裡有加
 image: profile.jpg
 about:
   template: jolla
+  id: about-content
   links:
     # - icon: twitter
     #   text: Twitter
@@ -21,4 +25,5 @@ about:
 
 有一天同事在我桌上放了零食，上面貼了一張便利貼，便利貼上面畫著一隻魚。所以我的部落格叫紙魚😊
 
-## 最近文章
+<!-- ## 最近文章 -->
+
