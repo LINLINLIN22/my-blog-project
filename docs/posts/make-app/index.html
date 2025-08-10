@@ -406,7 +406,7 @@ window.Quarto = {
   <ul>
   <li><a href="#緣起" id="toc-緣起" class="nav-link active" data-scroll-target="#緣起">緣起</a>
   <ul class="collapse">
-  <li><a href="#使用環境" id="toc-使用環境" class="nav-link" data-scroll-target="#使用環境">使用環境</a></li>
+  <li><a href="#使用環境與套件" id="toc-使用環境與套件" class="nav-link" data-scroll-target="#使用環境與套件">使用環境與套件</a></li>
   </ul></li>
   <li><a href="#製作過程" id="toc-製作過程" class="nav-link" data-scroll-target="#製作過程">製作過程</a>
   <ul class="collapse">
@@ -450,16 +450,41 @@ window.Quarto = {
 <h1>緣起</h1>
 <p>因為最近覺得用眼過度，想要一個小玩具來提醒自己要定時休息，由於倒數計時的功能不會很複雜，自己用還可以客製化自己想要的功能，所以就來動手做做看！</p>
 <p>我先叫AI生了靜態倒數計時器的網頁，UI看起來很不錯：</p>
-<p><a href="image1.png">Alt text</a></p>
+<p><img src="image1.png" class="img-fluid"></p>
 <p>不過很就發現，它沒有辦法準時計時，因為瀏覽器會暫停閒置的網站，哭哭。</p>
 <p>然後我就把歪腦筋動到了用 python 製作 exe 上，之前只是耳聞過 python 可以做到，但我其實沒有嘗試過製作一個 exe 檔，正好是個機會 :) 就來試試看吧！</p>
-<section id="使用環境" class="level2">
-<h2 class="anchored" data-anchor-id="使用環境">使用環境</h2>
+<section id="使用環境與套件" class="level2">
+<h2 class="anchored" data-anchor-id="使用環境與套件">使用環境與套件</h2>
+<p><strong>使用環境</strong></p>
 <ul>
-<li>Windows 11</li>
-<li>python version: 3.12.5</li>
+<li><p>Windows 11</p></li>
+<li><p>python version: 3.12.5</p></li>
 </ul>
-<p>套件: - tkinter &gt; 製作 GUI 的基本套件，優點是簡單，缺點是有些陽春 - customtkinte &gt; 比較UI美觀的套件 - playsound &gt; 播放聲音用的套件 - pyinstaller &gt; 製作exe的套件</p>
+<p><strong>使用套件:</strong></p>
+<ul>
+<li>tkinter</li>
+</ul>
+<blockquote class="blockquote">
+<p>製作 GUI 的基本套件，優點是簡單，缺點是有些陽春</p>
+</blockquote>
+<ul>
+<li>customtkinte</li>
+</ul>
+<blockquote class="blockquote">
+<p>比較UI美觀的套件</p>
+</blockquote>
+<ul>
+<li>playsound</li>
+</ul>
+<blockquote class="blockquote">
+<p>播放聲音用的套件</p>
+</blockquote>
+<ul>
+<li>pyinstaller</li>
+</ul>
+<blockquote class="blockquote">
+<p>製作exe的套件</p>
+</blockquote>
 </section>
 </section>
 <section id="製作過程" class="level1">
@@ -546,6 +571,7 @@ window.Quarto = {
 <span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="co"># 啟動 GUI 主迴圈</span></span>
 <span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>root.mainloop()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>做出來的畫面像這樣：</p>
 <p><img src="image2.png" class="img-fluid"></p>
 <p>但用 <code>tkinter</code> 做出來的介面有點醜，於是改用<code>customtkinte</code>替代，再追加希望有聲音提醒的需求，於是有了第二版：</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> customtkinter <span class="im">as</span> ctk</span>
