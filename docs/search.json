@@ -1,5 +1,117 @@
 [
   {
+    "objectID": "posts/make-app/index.html",
+    "href": "posts/make-app/index.html",
+    "title": "第一次用python做exe，不會的問AI",
+    "section": "",
+    "text": "這篇文章有點流水帳，就是一篇製作玩具的過程隨筆。用AI寫程式可以做到自己以前做不到的，但遇到問題還是要想辦法解決，解決問題還是需要思考跟經驗，所以我想還是紀錄一下，供日後參考囉。"
+  },
+  {
+    "objectID": "posts/make-app/index.html#使用環境",
+    "href": "posts/make-app/index.html#使用環境",
+    "title": "第一次用python做exe，不會的問AI",
+    "section": "使用環境",
+    "text": "使用環境\n\nWindows 11\npython version: 3.12.5\n\n套件: - tkinter &gt; 製作 GUI 的基本套件，優點是簡單，缺點是有些陽春 - customtkinte &gt; 比較UI美觀的套件 - playsound &gt; 播放聲音用的套件 - pyinstaller &gt; 製作exe的套件"
+  },
+  {
+    "objectID": "posts/make-app/index.html#第一步開需求",
+    "href": "posts/make-app/index.html#第一步開需求",
+    "title": "第一次用python做exe，不會的問AI",
+    "section": "第一步：開需求",
+    "text": "第一步：開需求\n我的需求如下：\n\n每30分鐘跳視窗提醒休息5分鐘，使用者按按鈕再繼續計時。\n螢幕上要顯示剩下幾分鐘。\n以秒為單位更新畫面。"
+  },
+  {
+    "objectID": "posts/make-app/index.html#第二步丟ai生架構",
+    "href": "posts/make-app/index.html#第二步丟ai生架構",
+    "title": "第一次用python做exe，不會的問AI",
+    "section": "第二步：丟AI生架構",
+    "text": "第二步：丟AI生架構\n把需求丟給AI後，生了一個架構出來\nimport tkinter as tk\nfrom tkinter import messagebox\nimport time\nimport threading\n\n# 時間設定（秒）\nWORK_DURATION = 30 * 60   # 30分鐘\nBREAK_DURATION = 5 * 60   # 5分鐘\n\n# GUI 主視窗\nroot = tk.Tk()\nroot.title(\"番茄鐘計時器\")\nroot.geometry(\"320x180\")\nroot.resizable(False, False)\n\nstatus_label = tk.Label(root, text=\"準備中...\", font=(\"Arial\", 16))\nstatus_label.pack(pady=10)\n\ntime_label = tk.Label(root, text=\"剩餘時間：00:00\", font=(\"Arial\", 32))\ntime_label.pack(pady=10)\n\n# 控制計時的旗標\nstop_flag = threading.Event()\n\ndef format_time(seconds):\n    minutes = seconds // 60\n    secs = seconds % 60\n    return f\"{minutes:02}:{secs:02}\"\n\ndef run_timer(duration, status_text, done_message):\n    remaining = duration\n\n    # 更新狀態文字\n    root.after(0, lambda: status_label.config(text=status_text))\n\n    while remaining &gt;= 0 and not stop_flag.is_set():\n        display = f\"剩餘時間：{format_time(remaining)}\"\n        root.after(0, lambda d=display: time_label.config(text=d))\n        time.sleep(1)\n        remaining -= 1\n\n    if not stop_flag.is_set():\n        root.after(0, lambda: messagebox.showinfo(\"提醒\", done_message))\n\ndef timer_loop():\n    while not stop_flag.is_set():\n        run_timer(WORK_DURATION, \"⏱ 工作中\", \"⏰ 工作時間結束！請休息 5 分鐘\")\n        run_timer(BREAK_DURATION, \"☕ 休息中\", \"✅ 休息結束，準備進入下一輪\")\n\ndef start_timer():\n    stop_flag.clear()\n    threading.Thread(target=timer_loop, daemon=True).start()\n\ndef stop_timer():\n    stop_flag.set()\n    status_label.config(text=\"計時已停止\")\n    time_label.config(text=\"剩餘時間：00:00\")\n\n# 按鈕 UI\nbtn_frame = tk.Frame(root)\nbtn_frame.pack(pady=5)\n\nstart_btn = tk.Button(btn_frame, text=\"開始計時\", command=start_timer, font=(\"Arial\", 12))\nstart_btn.pack(side=tk.LEFT, padx=10)\n\nstop_btn = tk.Button(btn_frame, text=\"結束計時\", command=stop_timer, font=(\"Arial\", 12))\nstop_btn.pack(side=tk.RIGHT, padx=10)\n\n# 啟動 GUI 主迴圈\nroot.mainloop()\n\n但用 tkinter 做出來的介面有點醜，於是改用customtkinte替代，再追加希望有聲音提醒的需求，於是有了第二版：\nimport customtkinter as ctk\nimport time\nimport threading\nfrom tkinter import messagebox\nfrom playsound import playsound\n\nWORK_DURATION = 30 * 60\nBREAK_DURATION = 5 * 60\nSOUND_FILE = \"ding.mp3\"\n\nctk.set_appearance_mode(\"dark\")  # 或 \"light\"\nctk.set_default_color_theme(\"blue\")\n\napp = ctk.CTk()\napp.title(\"番茄鐘計時器\")\napp.geometry(\"360x220\")\n\nstatus_label = ctk.CTkLabel(app, text=\"準備中...\", font=(\"Arial\", 18))\nstatus_label.pack(pady=10)\n\ntime_label = ctk.CTkLabel(app, text=\"剩餘時間：00:00\", font=(\"Arial\", 32))\ntime_label.pack(pady=10)\n\nstop_flag = threading.Event()\n\ndef format_time(seconds):\n    minutes = seconds // 60\n    secs = seconds % 60\n    return f\"{minutes:02}:{secs:02}\"\n\ndef run_timer(duration, status_text, done_message):\n    remaining = duration\n    status_label.configure(text=status_text)\n    while remaining &gt;= 0 and not stop_flag.is_set():\n        time_label.configure(text=f\"剩餘時間：{format_time(remaining)}\")\n        time.sleep(1)\n        remaining -= 1\n    if not stop_flag.is_set():\n        threading.Thread(target=lambda: playsound(SOUND_FILE), daemon=True).start()\n        messagebox.showinfo(\"提醒\", done_message)\n\ndef timer_loop():\n    while not stop_flag.is_set():\n        run_timer(WORK_DURATION, \"⏱ 工作中\", \"⏰ 工作時間結束！請休息 5 分鐘\")\n        run_timer(BREAK_DURATION, \"☕ 休息中\", \"✅ 休息結束，準備進入下一輪\")\n\ndef start_timer():\n    stop_flag.clear()\n    threading.Thread(target=timer_loop, daemon=True).start()\n\ndef stop_timer():\n    stop_flag.set()\n    status_label.configure(text=\"計時已停止\")\n    time_label.configure(text=\"剩餘時間：00:00\")\n\nbtn_frame = ctk.CTkFrame(app)\nbtn_frame.pack(pady=10)\n\nstart_btn = ctk.CTkButton(btn_frame, text=\"開始計時\", command=start_timer)\nstart_btn.pack(side=\"left\", padx=10)\n\nstop_btn = ctk.CTkButton(btn_frame, text=\"結束計時\", command=stop_timer)\nstop_btn.pack(side=\"right\", padx=10)\n\napp.mainloop()\n介面長得像這樣：　\n\n好看多了！\n其實不用聲音檔，光有這樣的架構，再寫個 bat 呼叫腳本其實就能用了，但到這裡我開始越來越貪心，想要弄得更精細，於是又加了2個需求\n\n聲音檔分成2個，工作時和休息時的音效不同\n聲音只播一次，且要跟訊息一起出現"
+  },
+  {
+    "objectID": "posts/make-app/index.html#第三步微調程式與參數",
+    "href": "posts/make-app/index.html#第三步微調程式與參數",
+    "title": "第一次用python做exe，不會的問AI",
+    "section": "第三步：微調程式與參數",
+    "text": "第三步：微調程式與參數\n\n聲音檔分成2個\n實際上需要改動2個地方，一個是在函數run_timer增加區分工作跟休息的音效，另一個是在函數timer_loop中塞入2個聲音檔。音檔可以自行去網路上找喜歡的，並且建議轉成.wav檔格式，執行程式時比較不會出問題(像.mp3就常會有有時可以順利播放有時無法)\n# 主循環：工作 → 休息 → 循環\ndef timer_loop():\n    while not stop_flag.is_set():\n        run_timer(WORK_DURATION, \"⏱ 工作中\", \"⏰ 工作結束！請休息 5 分鐘\", SOUND_FILE)\n        run_timer(BREAK_DURATION, \"☕ 休息中\", \"✅ 休息結束，準備進入下一輪\", SOUND_FILE2)"
+  },
+  {
+    "objectID": "posts/make-app/index.html#聲音只播一次且跟訊息一起出現",
+    "href": "posts/make-app/index.html#聲音只播一次且跟訊息一起出現",
+    "title": "第一次用python做exe，不會的問AI",
+    "section": "聲音只播一次，且跟訊息一起出現",
+    "text": "聲音只播一次，且跟訊息一起出現\n這需要調整兩個函數：\n# 播放音效（非阻塞）\ndef play_sound(file):\n    try:\n        pygame.mixer.music.load(file)\n        pygame.mixer.music.play()\n    except Exception as e:\n        print(f\"⚠ 播放音效失敗：{e}\")\n\n# 執行計時器\n# 這裡使用非阻塞方式播放音效，避免阻塞主線\ndef run_timer(duration, status_text, done_message, sound_file):\n    remaining = duration\n    status_label.configure(text=status_text)\n\n    while remaining &gt;= 0 and not stop_flag.is_set():\n        time_label.configure(text=f\"剩餘時間：{format_time(remaining)}\")\n        time.sleep(1)\n        remaining -= 1\n\n    if not stop_flag.is_set():\n        play_sound(sound_file)  # ✅ 非阻塞播放音效\n        messagebox.showinfo(\"提醒\", done_message)  # ✅ 等待使用者按下「確定」\n\n配合打包成exe的調整\n因為py檔在執行程式時會認附加檔案的路徑，即使打包成exe後也是如此，因此需要就這一段做微調。\nimport os\nimport sys\n\n# 取得正確路徑（支援 pyinstaller 打包後的執行檔）\ndef resource_path(relative_path):\n    \"\"\"取得資源真實路徑（支援開發階段與打包後）\"\"\"\n    try:\n        base_path = sys._MEIPASS  # PyInstaller 的暫存資料夾\n    except Exception:\n        base_path = os.path.abspath(\".\")\n    return os.path.join(base_path, relative_path)\n\n# 使用方式：\nsound_file_path = resource_path(\"sound.wav\")\n# 程式使用 resource_path()，就可以正確找到聲音檔了。\n\n# 例如播放聲音\nimport playsound\nplaysound.playsound(sound_file_path)\n執行時，PyInstaller 會自動把聲音檔解壓到臨時目錄中，這樣就可以找到聲音檔了。"
+  },
+  {
+    "objectID": "posts/make-app/index.html#第四步打包成exe",
+    "href": "posts/make-app/index.html#第四步打包成exe",
+    "title": "第一次用python做exe，不會的問AI",
+    "section": "第四步：打包成exe",
+    "text": "第四步：打包成exe\n用pyinstaller進行打包，首先要先安裝套件:\npip install pyinstaller\n\n基本指令\n打包的基本指令為\npyinstaller your_script.py\n執行完成後系統會提示放在 .\\dist的資料夾下，具體結構為：\nyour_script/\n├── dist/\n│   └── your_script.exe  ← 可執行檔在這裡\n├── build/\n├── your_script.spec \nbuild/ 和 .spec 是中間產物，可以保留也可以刪除。\n除此之外還有常用附加指令：\n\n\n\n\n\n\n\n參數\n說明\n\n\n\n\n--onefile\n打包成單一 .exe 檔案（預設會拆成很多檔）\n\n\n--noconsole\n不顯示命令列（適合正式 GUI 程式），不輸入時點擊exe會跳出cmd畫面。\n\n\n--icon=icon.ico\n指定執行檔圖示\n\n\n\n\n實作注意事項： 1. --onefile建議必加，不然會跑出很多資料夾or檔案 有點像遊戲拆包 2. --noconsole 在測試階段可以不用加入，方便檢查程式被打包成exe後會不會有前面沒有出現過的錯誤訊息。\n\n\n\n加入附加檔\n假設加入的聲音為sounds.wav，那麼指令為：\n--add-data \"sounds.wav;.\"\n這裡的;後面是資料夾的意思，.表示跟主程式一樣放在同一個資料夾。如果有兩個就在後面繼續使用此指令。\n如果聲音檔跟主程式放在不同資料夾，像這樣：\nproject/\n├── main.py\n└── sounds/\n    ├── click.wav\n    └── error.wav\n那指令就是：\npyinstaller --onefile --add-data \"sounds;sounds\" main.py\n代表「把 sounds/ 整個資料夾加到 .exe 所在目錄中」\n\n\n加入icon但沒顯示\n--icon=icon.ico\n是顯示exe程式的圖示，可以自己找或加工一張png，再去轉成ico來用。生成exe後圖示不一定馬上會出現，通常過一段時間才會出現。"
+  },
+  {
+    "objectID": "posts/make-app/index.html#打包過程遇到的困難",
+    "href": "posts/make-app/index.html#打包過程遇到的困難",
+    "title": "第一次用python做exe，不會的問AI",
+    "section": "打包過程遇到的困難",
+    "text": "打包過程遇到的困難\n在測試py腳本時一切順利，不過在打包exe遇到套件沒有安裝的神奇狀況，而且問AI，是它給的做法都完全沒用，後來仔細觀察pyinstaller產出的log才發現原來是我平常都把套件都安裝在 venv 的虛擬環境下，但是 pyinstaller 在執行時沒有調整過就會自動找全域環境，於是就用指令啟動虛擬環境，確認虛擬環境下有安裝pyinstaller後再執行打包就沒問題了。\n中間還遇到一個有點蠢的問題XD，我常用的虛擬環境安裝在 “桌面” 下的資料夾，好死不死路徑名稱是中文的，導致專案在Vscode自動指定虛擬環境後還遇到因為無法辨識中文路徑而舞法啟用python的狀況XD。其實只要再建一個虛擬環境在C槽就好，但我就是不死心對原本的虛擬環境有感情ㄌ，一直找其他方法，後來用指令啟動虛擬環境後就好了，白繞了一點路XD。\n不過最後我還是乖乖建新的虛擬環境了，不然其他專案早晚會出問題"
+  },
+  {
+    "objectID": "posts/first-article/index.html",
+    "href": "posts/first-article/index.html",
+    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
+    "section": "",
+    "text": "很早以前就想建立自己的小小網站了，雖然在這之前，我用過 Blogger 寫文章，不過用得不是很順手，後來忘記帳密就沒再用了。到近期我才發現自己比較偏好用特定指令寫文章，這件事還是因為要寫數學筆記辦了 hackmd 才發現的。\n不得不說， hackmd 是一個非常好用的網站，不只可以用自己熟悉的 markdown 語法寫文章，也可以練習當時還不怎麼熟悉的 html 語法，同時跟一般的線上 markdown editor 相比，它既可以用 code 畫心智圖跟流程圖，也可以發佈成網站。一度想說就這樣繼續用下去吧，但它對我來說有個小小的缺點：寫的文章越長越容易卡頓。\n於是我開始異想天開：如果是自己建立的網站應該就不會卡了吧？\n在進入軟體業之前，我對網頁設計跟原理都沒有概念，進入軟體業之後雖然稍微有了一點”常識”，也接觸一些諸如 gitbook 等用來寫說明文件非常方便的軟體服務，但對於網頁是怎麼從寫成到上線，還是只有很模糊的：「呃…總之就是先在 localhost 寫一寫，再丟到測試機檢查，沒問題再丟到正式機吧？」過程中會用到的技術幾乎是0概念，但我還是很興奮地去研究各種可能的方案。\n第一個閃過的想法，是從頭學 html 跟 css 語法，自己刻一個網站，但我很快就發現非常花時間，而且要用其他引擎渲染 markdown 數學符號，實在是太麻煩。第二個想法是用 C# 建立網站，也是有同樣的問題，再加上 C# 的語法長得實在是看得不習慣(也可能是我只喜歡語法簡潔的東西，像是 markdown 或是 python，方案二也放棄了。\n第三個想法，就是用 python 或是 r 的相關套件來建立模板，有需要再自己改模板就好，不過上了研究所後會用來做筆記的檔案類型不只 .md 檔，還有 .ipynb、.rmd、.r等等，雖然很多都是 markdown 的延伸，但還是想要盡可能的在不改變副檔名的前提下整合他們。同時又想找美觀又可以調整 light/ dark theme 的模板來使用。就這樣多方考慮後我選擇了 Quarto 來作為我的模板，主要原因是官網上提供的範例無論是在提供的功能還是美觀方面看起來都非常吸引人！也支援前述提到的檔案格式，再加上官網上的教學看起來相當易懂，於是就來用用看了。想要看完整教學的可以的點此。"
+  },
+  {
+    "objectID": "posts/first-article/index.html#在本機localthost檢視網頁",
+    "href": "posts/first-article/index.html#在本機localthost檢視網頁",
+    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
+    "section": "在本機(localthost)檢視網頁",
+    "text": "在本機(localthost)檢視網頁\n檢視網頁有2種方法:\n\n第一種：在 Terminal cd 到目前 Project 的資料夾，使用 quarto preview 指令。這會另外開啟常用瀏覽器檢視，指令碼複製如下：\n\nquarto preview\n\n第二種：在 Vscode 右上角有個  的符號，點擊可在右側 preview 網頁渲染結果。\n\n兩種方法都不錯，我覺得第一種方法適合螢幕小或想要檢視不同瀏覽器運作情況的人，第二種適合電腦螢幕大時使用，看個人需求了。\n知道怎麼檢視網頁後，接下來就可以認識 Blog Project 的架構跟調整設定了。"
+  },
+  {
+    "objectID": "posts/first-article/index.html#首頁文章按日期最新排列",
+    "href": "posts/first-article/index.html#首頁文章按日期最新排列",
+    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
+    "section": "首頁文章按日期最新排列",
+    "text": "首頁文章按日期最新排列\n若想所有文章按日期最新排列，可以在 Project 下最外層的 _quarto.yml 調整，首先撰寫文章的 index.qmd 的YMAL都要設定日期，這部分預設模板有給：\ndate: \"2025-07-23\"\n　再來是修改最外層的_quarto.yml，新增下面語法\nlisting:\n  contents: posts\n  sort: \"date desc\"  # 日期最新的在前面\n需要注意 yaml 的順序跟階層關係很重要，順序跟階層不對會報錯。"
+  },
+  {
+    "objectID": "posts/first-article/index.html#light-dark-theme-切換",
+    "href": "posts/first-article/index.html#light-dark-theme-切換",
+    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
+    "section": "light / dark theme 切換",
+    "text": "light / dark theme 切換\n一樣修改最外層的，語法如下：\nformat:\n  html:\n    theme:\n      light: flatly\n      dark: darkly\n這樣網站的右上角會出現一個小小的切換鈕，但個人覺得這個設計不太直觀，有機會再來研究看看可以怎麼改。"
+  },
+  {
+    "objectID": "posts/first-article/index.html#插入目錄在每篇文章",
+    "href": "posts/first-article/index.html#插入目錄在每篇文章",
+    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
+    "section": "插入目錄在每篇文章",
+    "text": "插入目錄在每篇文章\n一樣在最外層的 yaml 的 format:層下輸入\n    toc: true\n    toc-location: body\n    toc-depth: 2\n    toc-title: \"目錄\"\n    number-sections: false\n第一個語法會召喚開啟文章目錄，第二個則是目錄出現位置，body是文章開頭，另有left(文章左側)跟right(文章右側)可選。\n第三個是文章目錄在直接顯示時要顯示 header 幾，這裡的 2 表示在網頁剛載入時，目錄會顯示文章到 header 2 (markdown 語法 ## )為止的標題。注意如果toc-location設定為left或right，用滑鼠點擊大 header 還是可以展開底下所有的小 header，只是初始載入會隱藏。\nnumber-sections則是要不要幫每個 header 標上編號，格式按 header 大小為 1、1.1、1.1.1…，以此類推，我覺得很醜所以用false取消編號。如果這個語法沒有設定，會導致有些檔案格式的文章如.qmd不編號，.md卻編號的情況，因此如果要統一還是要強制設定。"
+  },
+  {
+    "objectID": "posts/first-article/index.html#footnotes",
+    "href": "posts/first-article/index.html#footnotes",
+    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nrmd可以使用python，但其原理是要通過R的套件使用，但qmd則是直接用python處理。↩︎"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Me",
+    "section": "",
+    "text": "有一天同事在我桌上放了零食，上面貼了一張便利貼，便利貼上面畫著一隻魚。所以我的部落格叫紙魚😊\n\n\n\n\n\n\n\n\n\n\n\n第一次用python做exe，不會的問AI\n\n\n\n\n\n\n\n\nAug 9, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n如何使用 Python jupyter-book 建立一本書\n\n\n\n\n\n\n\n\nJul 25, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n第一篇文章，來分享這個部落格是怎麼建立的\n\n\n\n\n\n\n\n\nJul 23, 2025\n\n\n紙魚\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "紙魚ㄉ部落格",
+    "section": "",
+    "text": "來寫 Blog 吧！\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n第一次用python做exe，不會的問AI\n\n\n\nnote\n\npython\n\ntoys\n\n\n\n\n\n\n\n\n\nAug 9, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n如何使用 Python jupyter-book 建立一本書\n\n\n\nother\n\npython\n\n\n\n\n\n\n\n\n\nJul 25, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n第一篇文章，來分享這個部落格是怎麼建立的\n\n\n\nother\n\n\n\n\n\n\n\n\n\nJul 23, 2025\n\n\n紙魚\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "posts/jpyterbook/index.html",
     "href": "posts/jpyterbook/index.html",
     "title": "如何使用 Python jupyter-book 建立一本書",
@@ -54,61 +166,5 @@
     "title": "如何使用 Python jupyter-book 建立一本書",
     "section": "發布網站（選擇性）",
     "text": "發布網站（選擇性）\n可以把 _build/html 上傳到 GitHub Pages、Netlify、Vercel 等平台，或用 GitHub Actions 自動部署。"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "紙魚ㄉ部落格",
-    "section": "",
-    "text": "來寫 Blog 吧！\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n如何使用 Python jupyter-book 建立一本書\n\n\n\nother\n\npython\n\n\n\n\n\n\n\n\n\nJul 25, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n第一篇文章，來分享這個部落格是怎麼建立的\n\n\n\nother\n\n\n\n\n\n\n\n\n\nJul 23, 2025\n\n\n紙魚\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About Me",
-    "section": "",
-    "text": "有一天同事在我桌上放了零食，上面貼了一張便利貼，便利貼上面畫著一隻魚。所以我的部落格叫紙魚😊\n\n\n\n\n\n\n\n\n\n\n\n如何使用 Python jupyter-book 建立一本書\n\n\n\n\n\n\n\n\nJul 25, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n第一篇文章，來分享這個部落格是怎麼建立的\n\n\n\n\n\n\n\n\nJul 23, 2025\n\n\n紙魚\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/first-article/index.html",
-    "href": "posts/first-article/index.html",
-    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
-    "section": "",
-    "text": "很早以前就想建立自己的小小網站了，雖然在這之前，我用過 Blogger 寫文章，不過用得不是很順手，後來忘記帳密就沒再用了。到近期我才發現自己比較偏好用特定指令寫文章，這件事還是因為要寫數學筆記辦了 hackmd 才發現的。\n不得不說， hackmd 是一個非常好用的網站，不只可以用自己熟悉的 markdown 語法寫文章，也可以練習當時還不怎麼熟悉的 html 語法，同時跟一般的線上 markdown editor 相比，它既可以用 code 畫心智圖跟流程圖，也可以發佈成網站。一度想說就這樣繼續用下去吧，但它對我來說有個小小的缺點：寫的文章越長越容易卡頓。\n於是我開始異想天開：如果是自己建立的網站應該就不會卡了吧？\n在進入軟體業之前，我對網頁設計跟原理都沒有概念，進入軟體業之後雖然稍微有了一點”常識”，也接觸一些諸如 gitbook 等用來寫說明文件非常方便的軟體服務，但對於網頁是怎麼從寫成到上線，還是只有很模糊的：「呃…總之就是先在 localhost 寫一寫，再丟到測試機檢查，沒問題再丟到正式機吧？」過程中會用到的技術幾乎是0概念，但我還是很興奮地去研究各種可能的方案。\n第一個閃過的想法，是從頭學 html 跟 css 語法，自己刻一個網站，但我很快就發現非常花時間，而且要用其他引擎渲染 markdown 數學符號，實在是太麻煩。第二個想法是用 C# 建立網站，也是有同樣的問題，再加上 C# 的語法長得實在是看得不習慣(也可能是我只喜歡語法簡潔的東西，像是 markdown 或是 python，方案二也放棄了。\n第三個想法，就是用 python 或是 r 的相關套件來建立模板，有需要再自己改模板就好，不過上了研究所後會用來做筆記的檔案類型不只 .md 檔，還有 .ipynb、.rmd、.r等等，雖然很多都是 markdown 的延伸，但還是想要盡可能的在不改變副檔名的前提下整合他們。同時又想找美觀又可以調整 light/ dark theme 的模板來使用。就這樣多方考慮後我選擇了 Quarto 來作為我的模板，主要原因是官網上提供的範例無論是在提供的功能還是美觀方面看起來都非常吸引人！也支援前述提到的檔案格式，再加上官網上的教學看起來相當易懂，於是就來用用看了。想要看完整教學的可以的點此。"
-  },
-  {
-    "objectID": "posts/first-article/index.html#在本機localthost檢視網頁",
-    "href": "posts/first-article/index.html#在本機localthost檢視網頁",
-    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
-    "section": "在本機(localthost)檢視網頁",
-    "text": "在本機(localthost)檢視網頁\n檢視網頁有2種方法:\n\n第一種：在 Terminal cd 到目前 Project 的資料夾，使用 quarto preview 指令。這會另外開啟常用瀏覽器檢視，指令碼複製如下：\n\nquarto preview\n\n第二種：在 Vscode 右上角有個  的符號，點擊可在右側 preview 網頁渲染結果。\n\n兩種方法都不錯，我覺得第一種方法適合螢幕小或想要檢視不同瀏覽器運作情況的人，第二種適合電腦螢幕大時使用，看個人需求了。\n知道怎麼檢視網頁後，接下來就可以認識 Blog Project 的架構跟調整設定了。"
-  },
-  {
-    "objectID": "posts/first-article/index.html#首頁文章按日期最新排列",
-    "href": "posts/first-article/index.html#首頁文章按日期最新排列",
-    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
-    "section": "首頁文章按日期最新排列",
-    "text": "首頁文章按日期最新排列\n若想所有文章按日期最新排列，可以在 Project 下最外層的 _quarto.yml 調整，首先撰寫文章的 index.qmd 的YMAL都要設定日期，這部分預設模板有給：\ndate: \"2025-07-23\"\n　再來是修改最外層的_quarto.yml，新增下面語法\nlisting:\n  contents: posts\n  sort: \"date desc\"  # 日期最新的在前面\n需要注意 yaml 的順序跟階層關係很重要，順序跟階層不對會報錯。"
-  },
-  {
-    "objectID": "posts/first-article/index.html#light-dark-theme-切換",
-    "href": "posts/first-article/index.html#light-dark-theme-切換",
-    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
-    "section": "light / dark theme 切換",
-    "text": "light / dark theme 切換\n一樣修改最外層的，語法如下：\nformat:\n  html:\n    theme:\n      light: flatly\n      dark: darkly\n這樣網站的右上角會出現一個小小的切換鈕，但個人覺得這個設計不太直觀，有機會再來研究看看可以怎麼改。"
-  },
-  {
-    "objectID": "posts/first-article/index.html#插入目錄在每篇文章",
-    "href": "posts/first-article/index.html#插入目錄在每篇文章",
-    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
-    "section": "插入目錄在每篇文章",
-    "text": "插入目錄在每篇文章\n一樣在最外層的 yaml 的 format:層下輸入\n    toc: true\n    toc-location: body\n    toc-depth: 2\n    toc-title: \"目錄\"\n    number-sections: false\n第一個語法會召喚開啟文章目錄，第二個則是目錄出現位置，body是文章開頭，另有left(文章左側)跟right(文章右側)可選。\n第三個是文章目錄在直接顯示時要顯示 header 幾，這裡的 2 表示在網頁剛載入時，目錄會顯示文章到 header 2 (markdown 語法 ## )為止的標題。注意如果toc-location設定為left或right，用滑鼠點擊大 header 還是可以展開底下所有的小 header，只是初始載入會隱藏。\nnumber-sections則是要不要幫每個 header 標上編號，格式按 header 大小為 1、1.1、1.1.1…，以此類推，我覺得很醜所以用false取消編號。如果這個語法沒有設定，會導致有些檔案格式的文章如.qmd不編號，.md卻編號的情況，因此如果要統一還是要強制設定。"
-  },
-  {
-    "objectID": "posts/first-article/index.html#footnotes",
-    "href": "posts/first-article/index.html#footnotes",
-    "title": "第一篇文章，來分享這個部落格是怎麼建立的",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nrmd可以使用python，但其原理是要通過R的套件使用，但qmd則是直接用python處理。↩︎"
   }
 ]
