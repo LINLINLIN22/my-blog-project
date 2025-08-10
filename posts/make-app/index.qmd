@@ -40,11 +40,11 @@ image: "image.png"
 
 - tkinter
 
->  製作 GUI 的基本套件，優點是簡單，缺點是有些陽春
+>  製作 GUI 的基本套件，優點是簡單，缺點是UI有些陽春
 
 - customtkinte
 
-> 比較UI美觀的套件
+> UI比較美觀的套件，用來優化舊有UI。
 
 - playsound
 
@@ -303,6 +303,20 @@ playsound.playsound(sound_file_path)
 
 執行時，PyInstaller 會自動把聲音檔解壓到臨時目錄中，這樣就可以找到聲音檔了。
 
+> 如果不使用`resource_path()`會怎麼樣？
+>
+> 由於 PyInstaller  會把打包成一個 `.exe`。當執行這個 `.exe` 時，它會先解壓所有檔案到一個臨時目錄（通常是 %TEMP%\_MEIxxxxx），然後才開始執行程式。如果沒有`resource_path()`就會導致找不到檔案，因為它找到臨時目錄去了。
+
+### 加入自定義圖示{#ico}
+
+正常不做調整的情況下，視窗圖示為![](image4.png)，但我想換掉變成自己的。先找一個 `.png` 轉成 `.ico` 圖示，放進同一個專案資料夾。接下來要做的事跟前面的音檔類似 :
+
+ ```python
+# 設定視窗圖示
+icon_path = resource_path(ICON_FILE)  # 使用之前定義的資源路徑函數
+app.iconbitmap(icon_path)  # 必須是 .ico 格式
+ ```
+
 
 
 ## 第四步：打包成exe
@@ -340,9 +354,10 @@ your_script/
 | `--icon=icon.ico` | 指定執行檔圖示                   |
 
 > 實作注意事項：
+>
 > 1. `--onefile`建議必加，不然會跑出很多資料夾or檔案 ~~有點像遊戲拆包~~
+>
 > 2. `--noconsole` 在測試階段可以不用加入，方便檢查程式被打包成`exe`後會不會有前面沒有出現過的錯誤訊息。
-
 
 ### 加入附加檔
 
@@ -370,6 +385,9 @@ pyinstaller --onefile --add-data "sounds;sounds" main.py
 
 代表「把 `sounds/` 整個資料夾加到 `.exe` 所在目錄中」
 
+> 注意：
+>
+> 如果有[設定前面的圖示](#ico)，一樣需要用 `--add-data "XXX.ico;."`，不然它會找不到檔案。
 
 ### 加入icon但沒顯示
 
