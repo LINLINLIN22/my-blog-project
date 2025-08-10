@@ -21,26 +21,37 @@ image: "image.png"
 
 我先叫AI生了靜態倒數計時器的網頁，UI看起來很不錯：
 
-[Alt text](image1.png)
+![ ](image1.png)
 
 不過很就發現，它沒有辦法準時計時，因為瀏覽器會暫停閒置的網站，哭哭。
 
 然後我就把歪腦筋動到了用 python 製作 exe 上，之前只是耳聞過 python 可以做到，但我其實沒有嘗試過製作一個 exe 檔，正好是個機會 :) 就來試試看吧！
 
 
-## 使用環境
+## 使用環境與套件
+
+**使用環境**
 
 - Windows 11
+
 - python version: 3.12.5
 
-套件:
+**使用套件:**
+
 - tkinter
+
 >  製作 GUI 的基本套件，優點是簡單，缺點是有些陽春
+
 - customtkinte
+
 > 比較UI美觀的套件
+
 - playsound
+
 > 播放聲音用的套件
+
 - pyinstaller
+
 > 製作exe的套件
 
 
@@ -132,6 +143,8 @@ stop_btn.pack(side=tk.RIGHT, padx=10)
 # 啟動 GUI 主迴圈
 root.mainloop()
 ```
+
+做出來的畫面像這樣：
 
 ![](image2.png)
 
