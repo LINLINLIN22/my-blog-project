@@ -415,9 +415,7 @@ window.Quarto = {
   <li><a href="#第三步微調程式與參數" id="toc-第三步微調程式與參數" class="nav-link" data-scroll-target="#第三步微調程式與參數">第三步：微調程式與參數</a>
   <ul class="collapse">
   <li><a href="#聲音檔分成2個" id="toc-聲音檔分成2個" class="nav-link" data-scroll-target="#聲音檔分成2個">聲音檔分成2個</a></li>
-  </ul></li>
-  <li><a href="#聲音只播一次且跟訊息一起出現" id="toc-聲音只播一次且跟訊息一起出現" class="nav-link" data-scroll-target="#聲音只播一次且跟訊息一起出現">聲音只播一次，且跟訊息一起出現</a>
-  <ul class="collapse">
+  <li><a href="#聲音只播一次且跟訊息一起出現" id="toc-聲音只播一次且跟訊息一起出現" class="nav-link" data-scroll-target="#聲音只播一次且跟訊息一起出現">聲音只播一次，且跟訊息一起出現</a></li>
   <li><a href="#配合打包成exe的調整" id="toc-配合打包成exe的調整" class="nav-link" data-scroll-target="#配合打包成exe的調整">配合打包成exe的調整</a></li>
   </ul></li>
   <li><a href="#第四步打包成exe" id="toc-第四步打包成exe" class="nav-link" data-scroll-target="#第四步打包成exe">第四步：打包成exe</a>
@@ -659,9 +657,8 @@ window.Quarto = {
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        run_timer(WORK_DURATION, <span class="st">"⏱ 工作中"</span>, <span class="st">"⏰ 工作結束！請休息 5 分鐘"</span>, SOUND_FILE)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        run_timer(BREAK_DURATION, <span class="st">"☕ 休息中"</span>, <span class="st">"✅ 休息結束，準備進入下一輪"</span>, SOUND_FILE2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-</section>
-<section id="聲音只播一次且跟訊息一起出現" class="level2">
-<h2 class="anchored" data-anchor-id="聲音只播一次且跟訊息一起出現">聲音只播一次，且跟訊息一起出現</h2>
+<section id="聲音只播一次且跟訊息一起出現" class="level3">
+<h3 class="anchored" data-anchor-id="聲音只播一次且跟訊息一起出現">聲音只播一次，且跟訊息一起出現</h3>
 <p>這需要調整兩個函數：</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 播放音效（非阻塞）</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> play_sound(<span class="bu">file</span>):</span>
@@ -685,6 +682,7 @@ window.Quarto = {
 <span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> stop_flag.is_set():</span>
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        play_sound(sound_file)  <span class="co"># ✅ 非阻塞播放音效</span></span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        messagebox.showinfo(<span class="st">"提醒"</span>, done_message)  <span class="co"># ✅ 等待使用者按下「確定」</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="配合打包成exe的調整" class="level3">
 <h3 class="anchored" data-anchor-id="配合打包成exe的調整">配合打包成exe的調整</h3>
 <p>因為py檔在執行程式時會認附加檔案的路徑，即使打包成exe後也是如此，因此需要就這一段做微調。</p>
