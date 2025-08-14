@@ -274,6 +274,31 @@ def run_timer(duration, status_text, done_message, sound_file):
         messagebox.showinfo("提醒", done_message)  # ✅ 等待使用者按下「確定」
 ```
 
+### 自訂音效開啟/關閉
+
+這裡指的是自訂音效，window預設的視窗跳出音效不在此範圍。需要增加/修改的指令有：
+
+```python
+sound_enabled = ctk.BooleanVar(value=True)  # 預設開啟音效
+```
+
+這條程式需要放在主視窗 UI 剛建立的時候，也就是`app = ctk.CTk()`之後，不然會報錯。
+
+其次是修改 `play_sound()`：
+
+```python
+def play_sound(file):
+    if not sound_enabled.get():
+        return  # 如果沒勾選，就不播放音效
+    try:
+        pygame.mixer.music.load(file)
+        pygame.mixer.music.play()
+    except Exception as e:
+        print(f"⚠ 播放音效失敗：{e}")
+```
+
+就可以得到一個勾選是否要啟用音效的欄位了。
+
 
 ### 配合打包成exe的調整
 
@@ -389,7 +414,9 @@ pyinstaller --onefile --add-data "sounds;sounds" main.py
 >
 > 如果有[設定前面的圖示](#ico)，一樣需要用 `--add-data "XXX.ico;."`，不然它會找不到檔案。
 
-### 加入icon但沒顯示
+### 加入icon
+
+這裡指的是打包成 exe 時的圖示，指令為：
 
 ```bash
 --icon=icon.ico

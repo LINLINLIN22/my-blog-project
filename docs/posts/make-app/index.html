@@ -416,6 +416,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#聲音檔分成2個" id="toc-聲音檔分成2個" class="nav-link" data-scroll-target="#聲音檔分成2個">聲音檔分成2個</a></li>
   <li><a href="#聲音只播一次且跟訊息一起出現" id="toc-聲音只播一次且跟訊息一起出現" class="nav-link" data-scroll-target="#聲音只播一次且跟訊息一起出現">聲音只播一次，且跟訊息一起出現</a></li>
+  <li><a href="#自訂音效開啟關閉" id="toc-自訂音效開啟關閉" class="nav-link" data-scroll-target="#自訂音效開啟關閉">自訂音效開啟/關閉</a></li>
   <li><a href="#配合打包成exe的調整" id="toc-配合打包成exe的調整" class="nav-link" data-scroll-target="#配合打包成exe的調整">配合打包成exe的調整</a></li>
   <li><a href="#ico" id="toc-ico" class="nav-link" data-scroll-target="#ico">加入自定義圖示</a></li>
   </ul></li>
@@ -423,7 +424,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#基本指令" id="toc-基本指令" class="nav-link" data-scroll-target="#基本指令">基本指令</a></li>
   <li><a href="#加入附加檔" id="toc-加入附加檔" class="nav-link" data-scroll-target="#加入附加檔">加入附加檔</a></li>
-  <li><a href="#加入icon但沒顯示" id="toc-加入icon但沒顯示" class="nav-link" data-scroll-target="#加入icon但沒顯示">加入icon但沒顯示</a></li>
+  <li><a href="#加入icon" id="toc-加入icon" class="nav-link" data-scroll-target="#加入icon">加入icon</a></li>
   </ul></li>
   <li><a href="#打包過程遇到的困難" id="toc-打包過程遇到的困難" class="nav-link" data-scroll-target="#打包過程遇到的困難">打包過程遇到的困難</a></li>
   </ul></li>
@@ -684,28 +685,44 @@ window.Quarto = {
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        play_sound(sound_file)  <span class="co"># ✅ 非阻塞播放音效</span></span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        messagebox.showinfo(<span class="st">"提醒"</span>, done_message)  <span class="co"># ✅ 等待使用者按下「確定」</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="自訂音效開啟關閉" class="level3">
+<h3 class="anchored" data-anchor-id="自訂音效開啟關閉">自訂音效開啟/關閉</h3>
+<p>這裡指的是自訂音效，window預設的視窗跳出音效不在此範圍。需要增加/修改的指令有：</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sound_enabled <span class="op">=</span> ctk.BooleanVar(value<span class="op">=</span><span class="va">True</span>)  <span class="co"># 預設開啟音效</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>這條程式需要放在主視窗 UI 剛建立的時候，也就是<code>app = ctk.CTk()</code>之後，不然會報錯。</p>
+<p>其次是修改 <code>play_sound()</code>：</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> play_sound(<span class="bu">file</span>):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> sound_enabled.get():</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>  <span class="co"># 如果沒勾選，就不播放音效</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        pygame.mixer.music.load(<span class="bu">file</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        pygame.mixer.music.play()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"⚠ 播放音效失敗：</span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>就可以得到一個勾選是否要啟用音效的欄位了。</p>
+</section>
 <section id="配合打包成exe的調整" class="level3">
 <h3 class="anchored" data-anchor-id="配合打包成exe的調整">配合打包成exe的調整</h3>
 <p>因為py檔在執行程式時會認附加檔案的路徑，即使打包成exe後也是如此，因此需要就這一段做微調。</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 取得正確路徑（支援 pyinstaller 打包後的執行檔）</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> resource_path(relative_path):</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""取得資源真實路徑（支援開發階段與打包後）"""</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        base_path <span class="op">=</span> sys._MEIPASS  <span class="co"># PyInstaller 的暫存資料夾</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span>:</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        base_path <span class="op">=</span> os.path.abspath(<span class="st">"."</span>)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> os.path.join(base_path, relative_path)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用方式：</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>sound_file_path <span class="op">=</span> resource_path(<span class="st">"sound.wav"</span>)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 程式使用 resource_path()，就可以正確找到聲音檔了。</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 例如播放聲音</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> playsound</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>playsound.playsound(sound_file_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 取得正確路徑（支援 pyinstaller 打包後的執行檔）</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> resource_path(relative_path):</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""取得資源真實路徑（支援開發階段與打包後）"""</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        base_path <span class="op">=</span> sys._MEIPASS  <span class="co"># PyInstaller 的暫存資料夾</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span>:</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        base_path <span class="op">=</span> os.path.abspath(<span class="st">"."</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> os.path.join(base_path, relative_path)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用方式：</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>sound_file_path <span class="op">=</span> resource_path(<span class="st">"sound.wav"</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 程式使用 resource_path()，就可以正確找到聲音檔了。</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 例如播放聲音</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> playsound</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>playsound.playsound(sound_file_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>執行時，PyInstaller 會自動把聲音檔解壓到臨時目錄中，這樣就可以找到聲音檔了。</p>
 <blockquote class="blockquote">
 <p>如果不使用<code>resource_path()</code>會怎麼樣？</p>
@@ -715,19 +732,19 @@ window.Quarto = {
 <section id="ico" class="level3">
 <h3 class="anchored" data-anchor-id="ico">加入自定義圖示</h3>
 <p>正常不做調整的情況下，視窗圖示為<img src="image4.png" class="img-fluid">，但我想換掉變成自己的。先找一個 <code>.png</code> 轉成 <code>.ico</code> 圖示，放進同一個專案資料夾。接下來要做的事跟前面的音檔類似 :</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 設定視窗圖示</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>icon_path <span class="op">=</span> resource_path(ICON_FILE)  <span class="co"># 使用之前定義的資源路徑函數</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>app.iconbitmap(icon_path)  <span class="co"># 必須是 .ico 格式</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 設定視窗圖示</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>icon_path <span class="op">=</span> resource_path(ICON_FILE)  <span class="co"># 使用之前定義的資源路徑函數</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>app.iconbitmap(icon_path)  <span class="co"># 必須是 .ico 格式</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="第四步打包成exe" class="level2">
 <h2 class="anchored" data-anchor-id="第四步打包成exe">第四步：打包成exe</h2>
 <p>用<code>pyinstaller</code>進行打包，首先要先安裝套件:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pyinstaller</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pyinstaller</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="基本指令" class="level3">
 <h3 class="anchored" data-anchor-id="基本指令">基本指令</h3>
 <p>打包的基本指令為</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pyinstaller</span> your_script.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pyinstaller</span> your_script.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>執行完成後系統會提示放在 <code>.\dist</code>的資料夾下，具體結構為：</p>
 <pre><code>your_script/
 ├── dist/
@@ -773,7 +790,7 @@ window.Quarto = {
 <section id="加入附加檔" class="level3">
 <h3 class="anchored" data-anchor-id="加入附加檔">加入附加檔</h3>
 <p>假設加入的聲音為<code>sounds.wav</code>，那麼指令為：</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--add-data</span> <span class="st">"sounds.wav;."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--add-data</span> <span class="st">"sounds.wav;."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>這裡的<code>;</code>後面是資料夾的意思，<code>.</code>表示跟主程式一樣放在同一個資料夾。如果有兩個就在後面繼續使用此指令。</p>
 <p>如果聲音檔跟主程式放在不同資料夾，像這樣：</p>
 <pre><code>project/
@@ -782,16 +799,17 @@ window.Quarto = {
     ├── click.wav
     └── error.wav</code></pre>
 <p>那指令就是：</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pyinstaller</span> <span class="at">--onefile</span> <span class="at">--add-data</span> <span class="st">"sounds;sounds"</span> main.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pyinstaller</span> <span class="at">--onefile</span> <span class="at">--add-data</span> <span class="st">"sounds;sounds"</span> main.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>代表「把 <code>sounds/</code> 整個資料夾加到 <code>.exe</code> 所在目錄中」</p>
 <blockquote class="blockquote">
 <p>注意：</p>
 <p>如果有<a href="#ico">設定前面的圖示</a>，一樣需要用 <code>--add-data "XXX.ico;."</code>，不然它會找不到檔案。</p>
 </blockquote>
 </section>
-<section id="加入icon但沒顯示" class="level3">
-<h3 class="anchored" data-anchor-id="加入icon但沒顯示">加入icon但沒顯示</h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--icon=icon.ico</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="加入icon" class="level3">
+<h3 class="anchored" data-anchor-id="加入icon">加入icon</h3>
+<p>這裡指的是打包成 exe 時的圖示，指令為：</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">--icon=icon.ico</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>是顯示exe程式的圖示，可以自己找或加工一張png，再去轉成ico來用。生成exe後圖示不一定馬上會出現，通常過一段時間才會出現。</p>
 </section>
 </section>
