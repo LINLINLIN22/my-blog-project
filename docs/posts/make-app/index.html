@@ -170,6 +170,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../../main_styles.css">
 </head>
 
 <body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -355,6 +356,10 @@ window.Quarto = {
     <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About Me</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resources.html"> 
+<span class="menu-text">Study Resources</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -369,7 +374,6 @@ window.Quarto = {
     <div class="quarto-title column-body">
       <h1 class="title">第一次用python做exe，不會的問AI</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">note</div>
                 <div class="quarto-category">python</div>
                 <div class="quarto-category">toys</div>
               </div>
@@ -428,6 +432,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#打包過程遇到的困難" id="toc-打包過程遇到的困難" class="nav-link" data-scroll-target="#打包過程遇到的困難">打包過程遇到的困難</a></li>
   </ul></li>
+  <li><a href="#此-exe-檔背後執行原理" id="toc-此-exe-檔背後執行原理" class="nav-link" data-scroll-target="#此-exe-檔背後執行原理">此 exe 檔背後執行原理</a></li>
   <li><a href="#心得" id="toc-心得" class="nav-link" data-scroll-target="#心得">心得</a></li>
   </ul>
 </nav>
@@ -819,6 +824,11 @@ window.Quarto = {
 <p>中間還遇到一個有點蠢的問題XD，我常用的虛擬環境安裝在 “桌面” 下的資料夾，好死不死路徑名稱是中文的，導致專案在Vscode自動指定虛擬環境後還遇到因為無法辨識中文路徑而舞法啟用python的狀況XD。其實只要再建一個虛擬環境在C槽就好，但我就是不死心<del>對原本的虛擬環境有感情ㄌ</del>，一直找其他方法，後來用指令啟動虛擬環境後就好了，白繞了一點路XD。</p>
 <p><del>不過最後我還是乖乖建新的虛擬環境了，不然其他專案早晚會出問題</del></p>
 </section>
+</section>
+<section id="此-exe-檔背後執行原理" class="level1">
+<h1>此 exe 檔背後執行原理</h1>
+<p>涉及作業系統相關的知識，基礎用語請見<a href="https://medium.com/erens-tech-book/%E7%90%86%E8%A7%A3-process-thread-94a40721b492">此來源</a>。 每當執行一個 <code>.exe</code>，作業系統就會開一個新的 process，由這個 process 執行你的程式，並從主執行緒 ( main tread )開始跑起。在程式中用 <code>threading.Thread()</code> 則會再額外開新的tread，也就是說每按下一個按鈕事件，就會啟動一個新的 tread。</p>
+<p>這也讓目前的小程式有個問題，當過於頻繁地切換按鈕事件時程式容易當機，且容易有兩個按鈕 tread 同時在跑的狀況，是未來可以再精進的部分。</p>
 </section>
 <section id="心得" class="level1">
 <h1>心得</h1>

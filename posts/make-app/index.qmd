@@ -2,7 +2,7 @@
 title: "第一次用python做exe，不會的問AI"
 author: "紙魚"
 date: "2025-08-9"
-categories: [note,python,toys,]
+categories: [python,toys]
 image: "image.png"
 ## code cell
 # format:
@@ -431,6 +431,12 @@ pyinstaller --onefile --add-data "sounds;sounds" main.py
 中間還遇到一個有點蠢的問題XD，我常用的虛擬環境安裝在 "桌面" 下的資料夾，好死不死路徑名稱是中文的，導致專案在Vscode自動指定虛擬環境後還遇到因為無法辨識中文路徑而舞法啟用python的狀況XD。其實只要再建一個虛擬環境在C槽就好，但我就是不死心~~對原本的虛擬環境有感情ㄌ~~，一直找其他方法，後來用指令啟動虛擬環境後就好了，白繞了一點路XD。
 
 ~~不過最後我還是乖乖建新的虛擬環境了，不然其他專案早晚會出問題~~
+
+# 此 exe 檔背後執行原理
+
+涉及作業系統相關的知識，基礎用語請見[此來源](https://medium.com/erens-tech-book/%E7%90%86%E8%A7%A3-process-thread-94a40721b492)。 每當執行一個 `.exe`，作業系統就會開一個新的 process，由這個 process 執行你的程式，並從主執行緒 ( main tread )開始跑起。在程式中用 `threading.Thread()` 則會再額外開新的tread，也就是說每按下一個按鈕事件，就會啟動一個新的 tread。
+
+這也讓目前的小程式有個問題，當過於頻繁地切換按鈕事件時程式容易當機，且容易有兩個按鈕 tread 同時在跑的狀況，是未來可以再精進的部分。
 
 # 心得
 

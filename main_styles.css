@@ -1,0 +1,10 @@
+
+/* 隱藏 categories 標題 */
+h5.quarto-listing-category-title {
+  display: none; /* 隱藏原本的 h5 標題 */
+   font-size: inherit; /* 繼承字體大小 */
+   font-weight: inherit; /*繼承字體粗細 */
+   content: "Tags"; /*使用 content 屬性來顯示 "Tags" */ 
+}
+
+
