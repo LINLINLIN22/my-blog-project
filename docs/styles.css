@@ -2,3 +2,16 @@
 #listing-listing {
   display: none !important;
 }
+
+/* 只針對 resources 頁的 h2 移除底線 */
+body.resources-page h2 {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 1rem;
+}
+
+.quarto-color-scheme-toggle {
+    display: flex; /* flex container */
+    justify-content: center; /* Center horizontally in the container */
+    align-items: center; /* Centers vertically in the container */
+  }

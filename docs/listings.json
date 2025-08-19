@@ -1,19 +1,15 @@
 [
   {
-    "listing": "/posts/make-app/index.html",
-    "items": []
-  },
-  {
-    "listing": "/posts/first-article/index.html",
-    "items": []
-  },
-  {
-    "listing": "/about.html",
+    "listing": "/resources.html",
     "items": [
       "/posts/make-app/index.html",
       "/posts/jpyterbook/index.html",
       "/posts/first-article/index.html"
     ]
+  },
+  {
+    "listing": "/posts/jpyterbook/index.html",
+    "items": []
   },
   {
     "listing": "/index.html",
@@ -24,7 +20,19 @@
     ]
   },
   {
-    "listing": "/posts/jpyterbook/index.html",
+    "listing": "/about.html",
+    "items": [
+      "/posts/make-app/index.html",
+      "/posts/jpyterbook/index.html",
+      "/posts/first-article/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/first-article/index.html",
+    "items": []
+  },
+  {
+    "listing": "/posts/make-app/index.html",
     "items": []
   }
 ]
