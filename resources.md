@@ -12,6 +12,15 @@ format:
 
 ---
 
+# Quarto 相關
+
+**重要、資訊、警告區塊 code **
+
+- in Quarto, these are called Callout Blocks.
+
+- [Callout Blocks](https://quarto.org/docs/authoring/callouts.html)
+
+
 # 統計學相關 Statistic 
 
 ## Time series
@@ -27,6 +36,9 @@ format:
 
 # 數據科學 Data Science
 
+
+## Data mining
+
 **Introduction to Data Mining (Using R)**
 
 - by Pang-Ning Tan, Michael Steinbach, Anuj Karpatne and Vipin Kumar
@@ -39,6 +51,9 @@ format:
 - by Julia Silge and David Robinson 
 
 - [Text Mining with R](https://www.tidytextmining.com/)
+
+
+## Computer science
 
 **OS note**
 

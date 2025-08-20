@@ -83,9 +83,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -338,7 +338,7 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="b3RoZXI=">other <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cHl0aG9u">python <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dG95cw==">toys <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="b3RoZXI=">other <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cHl0aG9u">python <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cXVhcnRv">quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dG95cw==">toys <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -355,7 +355,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="cHl0aG9uJTJDdG95cw==" data-listing-date-sort="1754668800000" data-listing-file-modified-sort="1755596959058" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="966">
+<div class="quarto-post image-right" data-index="0" data-categories="cHl0aG9uJTJDdG95cw==" data-listing-date-sort="1754668800000" data-listing-file-modified-sort="1755684368316" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="966">
 <div class="thumbnail"><a href="./posts/make-app/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/make-app/image.png" class="thumbnail-image">
@@ -363,8 +363,11 @@ window.Quarto = {
 </a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/make-app/index.html" class="no-external">第一次用python做exe，不會的問AI</a>
+<a href="./posts/make-app/index.html" class="no-external">使用python做離線倒數計時器</a>
 </h3>
+<div class="listing-subtitle">
+<a href="./posts/make-app/index.html" class="no-external">第一次用python做exe，不會的問AI</a>
+</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
@@ -397,6 +400,9 @@ Aug 9, 2025
 <h3 class="no-anchor listing-title">
 <a href="./posts/jpyterbook/index.html" class="no-external">如何使用 Python jupyter-book 建立一本書</a>
 </h3>
+<div class="listing-subtitle">
+<a href="./posts/jpyterbook/index.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('b3RoZXI='); return false;">other</div>
@@ -419,7 +425,7 @@ Jul 25, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="b3RoZXI=" data-listing-date-sort="1753200000000" data-listing-file-modified-sort="1755157950318" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="403">
+<div class="quarto-post image-right" data-index="2" data-categories="b3RoZXIlMkNxdWFydG8=" data-listing-date-sort="1753200000000" data-listing-file-modified-sort="1755684244721" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="400">
 <div class="thumbnail"><a href="./posts/first-article/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/first-article/image.jpg" class="thumbnail-image">
@@ -427,11 +433,16 @@ Jul 25, 2025
 </a></div>
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/first-article/index.html" class="no-external">第一篇文章，來分享這個部落格是怎麼建立的</a>
+<a href="./posts/first-article/index.html" class="no-external">使用 Quarto 建立 Blog</a>
 </h3>
+<div class="listing-subtitle">
+<a href="./posts/first-article/index.html" class="no-external">第一篇文章，來分享這個部落格是怎麼建立的</a>
+</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('b3RoZXI='); return false;">other</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">quarto</div>
 
 </div>
 <div class="delink listing-description"><a href="./posts/first-article/index.html" class="no-external">

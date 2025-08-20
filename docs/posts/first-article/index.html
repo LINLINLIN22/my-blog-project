@@ -9,7 +9,7 @@
 <meta name="author" content="紙魚">
 <meta name="dcterms.date" content="2025-07-23">
 
-<title>第一篇文章，來分享這個部落格是怎麼建立的 – 紙魚ㄉ部落格</title>
+<title>使用 Quarto 建立 Blog – 紙魚ㄉ部落格</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -372,9 +372,11 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">第一篇文章，來分享這個部落格是怎麼建立的</h1>
+      <h1 class="title">使用 Quarto 建立 Blog</h1>
+            <p class="subtitle lead">第一篇文章，來分享這個部落格是怎麼建立的</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">other</div>
+                <div class="quarto-category">quarto</div>
               </div>
                   </div>
   </div>
@@ -479,7 +481,7 @@ window.Quarto = {
 │   └── post1/           ← 單篇文章的資料夾
 │         ├── index.qumd
 │         └── image.png
-├── _docs/               ← 用 github page 部署時會出現的資料夾 （自動產生）
+├── _docs/             ← 用 github page 部署時會出現的資料夾（自動產生）
 └── _site/               ← 渲染後輸出的網站內容（自動產生）</code></pre>
 <p>就像許多個人網站的架構那樣，屬於 Blog Project 資料夾的最外層會有個用來當首頁的<code>index.qmd</code>，<code>.qmd</code>是 Quarto 的檔案格式之一，我個人的理解是類似 RMarkdown 可以寫 markdown 語法也可以跑程式，但它可以更沒有障礙的跑 python 的程式碼。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>此外還有主要用來控制顯示網站 head 部分的 <code>_quarto.yml</code>，以及自我介紹用的<code>about.qmd</code>跟可以自定義 CSS 風格的 <code>styles.css</code>。</p>
 <p>存放文章的地方在資料夾 <code>posts</code>裡，每份文章都以資料夾的形式包著。文章的內容本體也是<code>.qmd</code>檔，可以直接修改，這篇文章也是用<code>.qmd</code>檔撰寫的。另外，<strong>文章資料夾的命名可以隨意</strong>，因為網站在渲染過程中會直接讀取<code>posts</code>下的所有資料夾，資料夾本身的名稱不會影響讀取。</p>

@@ -1,8 +1,9 @@
 ---
-title: "第一篇文章，來分享這個部落格是怎麼建立的"
+title: "使用 Quarto 建立 Blog"
+subtitle: "第一篇文章，來分享這個部落格是怎麼建立的"
 author: "紙魚"
 date: "2025-07-23"
-categories: [other]
+categories: [other, quarto]
 image: "image.jpg"
 ---
 
@@ -58,7 +59,7 @@ Quarto Blog Project      ← 專案資料夾
 │   └── post1/           ← 單篇文章的資料夾
 │         ├── index.qumd
 │         └── image.png
-├── _docs/               ← 用 github page 部署時會出現的資料夾 （自動產生）
+├── _docs/             ← 用 github page 部署時會出現的資料夾（自動產生）
 └── _site/               ← 渲染後輸出的網站內容（自動產生）
 ```
 
