@@ -1,5 +1,6 @@
 ---
-title: "第一次用python做exe，不會的問AI"
+title: "使用python做離線倒數計時器"
+subtitle: "第一次用python做exe，不會的問AI"
 author: "紙魚"
 date: "2025-08-9"
 categories: [python,toys]
