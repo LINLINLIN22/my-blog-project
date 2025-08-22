@@ -6,6 +6,7 @@ project:
 listing:
   contents: posts
   sort: "date desc"  # 日期最新的在前面
+  # categories: true 
 
 format:
   html:
@@ -32,6 +33,7 @@ website:
     right:
       - about.qmd
       - resources.md
+
       # - icon: github
       #   href: https://github.com/
       # - icon: twitter
