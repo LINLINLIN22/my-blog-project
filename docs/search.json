@@ -130,7 +130,7 @@
     "href": "index.html",
     "title": "紙魚ㄉ部落格",
     "section": "",
-    "text": "來寫 Blog 吧！\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n重新認識pytorch(1)\n\n\n從一個分類問題開始\n\n\n\n\n\n\n\n\nAug 21, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n使用python做離線倒數計時器\n\n\n第一次用python做exe，不會的問AI\n\n\n\npython\n\ntoys\n\n\n\n\n\n\n\n\n\nAug 9, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n如何使用 Python jupyter-book 建立一本書\n\n\n\n\n\n\nother\n\npython\n\n\n\n\n\n\n\n\n\nJul 25, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n使用 Quarto 建立 Blog\n\n\n第一篇文章，來分享這個部落格是怎麼建立的\n\n\n\nother\n\nquarto\n\n\n\n\n\n\n\n\n\nJul 23, 2025\n\n\n紙魚\n\n\n\n\n\nNo matching items"
+    "text": "來寫 Blog 吧！\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n重新認識pytorch(1)\n\n\n從一個分類問題開始\n\n\n\nnote\n\npython\n\npytorch\n\n\n\n\n\n\n\n\n\nAug 21, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n使用python做離線倒數計時器\n\n\n第一次用python做exe，不會的問AI\n\n\n\npython\n\ntoys\n\n\n\n\n\n\n\n\n\nAug 9, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n如何使用 Python jupyter-book 建立一本書\n\n\n\n\n\n\nother\n\npython\n\n\n\n\n\n\n\n\n\nJul 25, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n使用 Quarto 建立 Blog\n\n\n第一篇文章，來分享這個部落格是怎麼建立的\n\n\n\nother\n\nquarto\n\n\n\n\n\n\n\n\n\nJul 23, 2025\n\n\n紙魚\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/jpyterbook/index.html",
@@ -189,43 +189,43 @@
     "text": "發布網站（選擇性）\n可以把 _build/html 上傳到 GitHub Pages、Netlify、Vercel 等平台，或用 GitHub Actions 自動部署。"
   },
   {
-    "objectID": "posts/test/test.html",
-    "href": "posts/test/test.html",
+    "objectID": "posts/test/pytorch1.html",
+    "href": "posts/test/pytorch1.html",
     "title": "重新認識pytorch(1)",
     "section": "",
     "text": "為了研究 LSTM 與神經網路(neural network，以下簡稱 nn)，重新認識 pytorch 。"
   },
   {
-    "objectID": "posts/test/test.html#定義模型及函數",
-    "href": "posts/test/test.html#定義模型及函數",
+    "objectID": "posts/test/pytorch1.html#定義模型及函數",
+    "href": "posts/test/pytorch1.html#定義模型及函數",
     "title": "重新認識pytorch(1)",
     "section": "定義模型及函數",
     "text": "定義模型及函數\n因為只是模擬資料，我們略過區分訓練集與測試集的步驟，直接來建立模型。本次使用一個簡單的兩層nn模型LogicNet，這個模型可視作羅吉斯迴歸的延伸，只是多個隱藏層(hidden layer)的設定。一個 nn 模型中還會需要搭配損失函數，這裡配的是交叉熵損失函數(Cross-Entrop)用來做分類。\nLogicNet的模型結構與數學式分別如下：\nInput (inputdim)\n    │\n    ▼\nLinear1 ────► [Linear Layer: inputdim → hiddendim]\n    │\n    ▼\nTanh ───────► [非線性(NL): tanh]\n    │\n    ▼\nLinear2 ────► [Linear Layer: hiddendim → outputdim]\n    │\n    ▼\nOutput (logits)\n令：\n\n輸入：\\(\\mathbf{x} \\in \\mathbb{R}^{\\text{inputdim}}\\)\n第一層(Linear1)權重、偏差：\\(W_1, b_1\\)\n第二層(Linear2)權重、偏差：\\(W_2, b_2\\)\n\n那模型的輸出為：\n\\[\n\\begin{aligned}\n\\mathbf{h} &= \\tanh(W_1 \\mathbf{x} + b_1) \\quad \\text{（隱藏層輸出）} \\\\\n\\mathbf{z} &= W_2 \\mathbf{h} + b_2 \\quad \\text{（logits）} \\\\\n\\end{aligned}\n\\]\n最終輸出 \\(\\mathbf{z}\\) 是 未經 softmax 演算法 的 logits，這是為了符合 PyTorch 的 CrossEntropyLoss() 要求，因為它內部會自動做 softmax。\n\n\n\n\n\n\nsoftmax 演算法是什麼?\n\n\n\n\n\nsoftmax 本質上也屬於 activation function的一種，它能將一個含任意實數的K維向量 \\(z\\)「壓縮」到另一個K維實向量 \\(\\sigma (z)\\) ，使得每一個元素的範圍都在(0,1)之間，公式為：\n\\[\\sigma (z)_j=\\frac{e^{z_j}}{\\sum _{k=1}^{K}e^{z_{jk}}}\\]\n詳細可見wiki\n簡單來說，softmax 算出來的東西是機率。\n\n\n\n\n\n\n\n\n\n為什麼這裡 activation function 用 tanh？\n\n\n\n\ntanh 是一種非線性函數，將輸出壓在 \\([-1, 1]\\)\n適用於資料已經經過標準化（例如 make_moons 資料範圍在 ±1 內）\n也可以改用更為通用的 ReLU，它的收斂速度通常更快。不過 tanh 有時在小模型且資料差異大中表現穩定。\n\n\n\n整體建立模型的流程為：\n\n定義模型的網路結構\n將網路結構按前向傳播(forward propagation)建立\n利用架設好的介面，得到模型預測結果\n計算模型誤差，在反向傳播(back propagation)時使用\n\n程式部分我們建立可以控制input data 的 dimension、hidden dimension(=隱藏層數量)，output data 的 dimension等的模型函數。 code 如下，可另存 .py後再匯入到主程式裡：\n\nimport torch.nn as nn\nimport torch\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nclass LogicNet(nn.Module): \n    def __init__(self, inputdim, hiddendim, outputdim):\n        super(LogicNet,self).__init__()\n        self.Linear1 = nn.Linear(inputdim,hiddendim) # 連階層\n        self.Linear2 = nn.Linear(hiddendim,outputdim)\n        self.criterion = nn.CrossEntropyLoss() # 定義交叉熵\n\n    # 前向傳播\n    def forward(self, x):\n        x = self.Linear1(x) # 將資料傳入第一層\n        x = torch.tanh(x) # 做 NL\n        x = self.Linear2(x)\n        return x\n\n    def predict(self, x):\n        pred = torch.softmax(self.forward(x), dim=1)\n        return torch.argmax(pred,dim=1)\n\n    # 反向傳播\n    def getloss(self,x,y):\n        y_pred = self.forward(x)\n        loss = self.criterion(y_pred,y) # 計算loss CrossEntropy\n        return loss\n\n\n\n\n\n\n\n為什麼這裡所有函數都要包在 class 裡？\n\n\n\n\n\nPyTorch 中的所有神經網路模型都應繼承自 torch.nn.Module。這樣做的好處是：\n\n可以自動註冊所有子層（如 nn.Linear）\n支援 .to(device)、.eval()、.train() 等常用方法\n可以很簡單地使用 PyTorch 提供的訓練工具，例如 optimizer.step()、loss.backward() 等\n\n此外，從OOP的角度而言，把模型寫成一個class可以讓模型變成一個完整的物件，更易維護。\n\n\n\n這裡除了 activation function 外，還定義了 criterion，即 loss function。loss function是決定模型學習品質的關鍵，用來計算輸出值與目標值間的誤差。一般在連續的實數資料上會用 MSE ，不過在實務上會根據不同的結構、任務決定不同的 loss function ，這裡使用的是交叉熵損失函數(Cross Entropy Loss)，適用於分類問題。"
   },
   {
-    "objectID": "posts/test/test.html#建立模型",
-    "href": "posts/test/test.html#建立模型",
+    "objectID": "posts/test/pytorch1.html#建立模型",
+    "href": "posts/test/pytorch1.html#建立模型",
     "title": "重新認識pytorch(1)",
     "section": "建立模型",
     "text": "建立模型\n如前所述，我們現在來正式建立模型。因為模擬資料都是2維的，dimension = 2，隱藏層數量可以自行設定，這裡設定 3 個隱藏層：\n\nmodel = LogicNet(inputdim=2, hiddendim=3, outputdim =2)\noptimizer = torch.optim.Adam(model.parameters(), lr=0.01 )\n# 印出模型資訊\nprint(\"model structure and loss function/criterion: \\n\")\nprint(model)\nprint(\"optimizer is : \\n\")\nprint(optimizer)\n\nmodel structure and loss function/criterion: \n\nLogicNet(\n  (Linear1): Linear(in_features=2, out_features=3, bias=True)\n  (Linear2): Linear(in_features=3, out_features=2, bias=True)\n  (criterion): CrossEntropyLoss()\n)\noptimizer is : \n\nAdam (\nParameter Group 0\n    amsgrad: False\n    betas: (0.9, 0.999)\n    capturable: False\n    decoupled_weight_decay: False\n    differentiable: False\n    eps: 1e-08\n    foreach: None\n    fused: None\n    lr: 0.01\n    maximize: False\n    weight_decay: 0\n)\n\n\n\n學習率(learning rate)\nlr = 學習率(learning rate)learning rate，代表控制模型中梯度下降的速度，它決定了每次迭代的步長，使得optimizer向損失函數的最小值前進。數值越小，模型越能訓練準確，但相對應訓練較耗時。\n學習率與模型權重間的關係為：\n新權重= 舊權重- 學習率* 梯度\n\n\n最佳化器(optimizer)\n在模型訓練的過程中，往往難以一次就將權重參數調整好，需要透過多次迭代，搭配好的最佳化策略才可以實現。這裡的最佳化策略就是一個演算法，也就是梯度下降法。梯度下降法有很多種，因此也是一個可以調整的參數。\n在 pytorch 中，在訓練模型前需要先指定一個最佳化器物件，也就是最佳化器(optimizer)。實務上經常使用Adam作為最佳化器，數學式請見此。Adam本身包含很多參數，常用的有待最佳化權重參數(固定為model.parameters())及學習率。"
   },
   {
-    "objectID": "posts/test/test.html#訓練模型",
-    "href": "posts/test/test.html#訓練模型",
+    "objectID": "posts/test/pytorch1.html#訓練模型",
+    "href": "posts/test/pytorch1.html#訓練模型",
     "title": "重新認識pytorch(1)",
     "section": "訓練模型",
-    "text": "訓練模型\n在 pytorch 中，訓練模型前需先將資料轉成張量(Tensor)後再處理。\n\n張量\n張量是一種矩陣形式，可以理解成在一個大矩陣中分割出來的小矩陣。因此：\n\n0 dimension 的張量 = 純量 (Scalar)\n1 dimension 的張量 = 向量 (Vector)\n2 dimension 的張量 = 2\\(\\times\\)矩陣 (2$$2 Ｍatrix)\n\n圖示如下：\n\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nfig = plt.figure(figsize=(12, 4))\n\n# Scalar\nax1 = fig.add_subplot(1, 4, 1)\nax1.text(0.5, 0.5, '3', fontsize=24, ha='center', va='center')\nax1.set_title('0D Tensor (Scalar)')\nax1.axis('off')\n\n# Vector\nax2 = fig.add_subplot(1, 4, 2)\nvector = np.array([1, 2, 3])\nax2.imshow(vector.reshape(1, -1), cmap='Blues', aspect='auto')\nax2.set_title('1D Tensor (Vector)')\nax2.set_xticks(range(len(vector)))\nax2.set_yticks([])\nfor i, val in enumerate(vector):\n    ax2.text(i, 0, str(val), ha='center', va='center', color='black')\n\n# Matrix\nax3 = fig.add_subplot(1, 4, 3)\nmatrix = np.array([[1, 2, 3], [4, 5, 6]])\nax3.imshow(matrix, cmap='Greens')\nax3.set_title('2D Tensor (Matrix)')\nfor i in range(matrix.shape[0]):\n    for j in range(matrix.shape[1]):\n        ax3.text(j, i, str(matrix[i, j]), ha='center', va='center', color='black')\n\n# 3D Tensor\nax4 = fig.add_subplot(1, 4, 4, projection='3d')\n# Create a 3D tensor: 2x2x2 cube\ntensor3d = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])\ncolors = ['red', 'blue']\nfor z in range(tensor3d.shape[0]):\n    for y in range(tensor3d.shape[1]):\n        for x in range(tensor3d.shape[2]):\n            ax4.bar3d(x, y, z, 0.9, 0.9, 0.9, color=colors[z % 2], alpha=0.4)\n            ax4.text(x + 0.4, y + 0.4, z + 0.4, str(tensor3d[z, y, x]), ha='center')\n\nax4.set_title('3D Tensor')\nax4.set_xlabel('X')\nax4.set_ylabel('Y')\nax4.set_zlabel('Z')\n\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\n\n訓練模型與計算 loss\n回到正題，接著再訓練模型與計算 loss：\n\n## 訓練模型\n# 轉成張量\nxt = torch.from_numpy(X).type(torch.FloatTensor) # numpy to tensor\nyt =  torch.from_numpy(Y).type(torch.LongTensor)\nepochs = 1000 # 迭代次數\nlosses =[] #準備接收每一步的loss\nfor i in range(epochs):\n    loss = model.getloss(xt,yt)\n    losses.append(loss.item())\n    optimizer.zero_grad() #清空之前的梯度\n    loss.backward()\n    optimizer.step() #更新參數\n\n接著看看訓練結果：　\n\nimport matplotlib.pyplot as plt\n\nplt.plot(losses)\nplt.xlabel('Epoch')\nplt.ylabel('Loss')\nplt.title('Training Loss Over Time')\nplt.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\n或者先對 loss 值做平滑處理，再視覺化，可以使某些訓練過程中產生的loss線條看起來比較平滑。這裡以moving average為例：\n\ndef moving_average(a, w=10):\n    if len(a)&lt;w:\n        return a[:]\n    return [val if idx &lt; w else sum(a[(idx-w):idx])/w for idx, val in enumerate(a)]\n\ndef plot_losses(losses):\n    avgloss= moving_average(losses)\n    plt.figure(i)\n    plt.plot(range(len(avgloss)), avgloss, 'b--')\n    plt.xlabel('Epoch')\n    plt.ylabel('Loss')\n    plt.show()\n\nplot_losses(losses)"
+    "text": "訓練模型\n在 pytorch 中，訓練模型前需先將資料轉成張量(Tensor)後再處理。\n\n張量\n張量是一種矩陣形式，可以理解成在一個大矩陣中分割出來的小矩陣。因此：\n\n0 dimension 的張量 = 純量 (Scalar)\n1 dimension 的張量 = 向量 (Vector)\n2 dimension 的張量 = 2 \\(\\times\\) 矩陣 (2 \\(\\times\\) 2 Ｍatrix)\n\n圖示如下：\n\n\n\n訓練模型與計算 loss\n回到正題，接著再訓練模型與計算 loss：\n\n## 訓練模型\n# 轉成張量\nxt = torch.from_numpy(X).type(torch.FloatTensor) # numpy to tensor\nyt =  torch.from_numpy(Y).type(torch.LongTensor)\nepochs = 1000 # 迭代次數\nlosses =[] #準備接收每一步的loss\nfor i in range(epochs):\n    loss = model.getloss(xt,yt)\n    losses.append(loss.item())\n    optimizer.zero_grad() #清空之前的梯度\n    loss.backward()\n    optimizer.step() #更新參數\n\n接著看看訓練結果：　\n\nimport matplotlib.pyplot as plt\n\nplt.plot(losses)\nplt.xlabel('Epoch')\nplt.ylabel('Loss')\nplt.title('Training Loss Over Time')\nplt.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\n或者先對 loss 值做平滑處理，再視覺化，可以使某些訓練過程中產生的loss線條看起來比較平滑。這裡以moving average為例：\n\ndef moving_average(a, w=10):\n    if len(a)&lt;w:\n        return a[:]\n    return [val if idx &lt; w else sum(a[(idx-w):idx])/w for idx, val in enumerate(a)]\n\ndef plot_losses(losses):\n    avgloss= moving_average(losses)\n    plt.figure(i)\n    plt.plot(range(len(avgloss)), avgloss, 'b--')\n    plt.xlabel('Epoch')\n    plt.ylabel('Loss')\n    plt.show()\n\nplot_losses(losses)"
   },
   {
-    "objectID": "posts/test/test.html#評估模型",
-    "href": "posts/test/test.html#評估模型",
+    "objectID": "posts/test/pytorch1.html#評估模型",
+    "href": "posts/test/pytorch1.html#評估模型",
     "title": "重新認識pytorch(1)",
     "section": "評估模型",
     "text": "評估模型\naccuracy_score()是一個來自 sklearn.metrics 的函數，用來計算模型預測結果的 分類準確率（Accuracy），直觀理解為：模型預測正確的樣本數 / 全部樣本數。\n按klearn文件紀錄，詳細數學定義為：\nIf $_i$ is the predicted value of the $i$-th sample and \\(y_i\\) is the corresponding true value, then the fraction of correct predictions over \\(n_{samples}\\) samples is defined as:\n\\[\n\\text{Accuracy}(y, \\hat y) = \\frac{1}{n_{samples}} \\sum_{i=1}^{n_{samples}-1} \\mathbf{1}(\\hat{y}_i = y_i)\n\\]\nwhere \\(\\mathbf{1}(\\hat{y}_i = y_i)\\) is the indicator function, which equals 1 if the prediction is correct, and 0 otherwise.\ncode實際執行起來很簡單：\n\nfrom sklearn.metrics import accuracy_score\nprint(\"accuracy_score:\", accuracy_score(model.predict(xt),yt))\n\n除此之外，因為本次資料dimension只有2維，可以畫決策邊界圖看看分得如何：\n\ndef predict(x):\n    x = torch.from_numpy(x).type(torch.FloatTensor)\n    ans=model.predict(x)\n    return ans.numpy()\n\ndef plot_decision_boundary(pred_func, X, Y):\n    # 計算設定值範圍\n    x_min, x_max =X[:,0].min() - .5,X[:,0].max() + .5\n    y_min, y_max =X[:,1].min() - .5,X[:,1].max() + .5  \n    h = 0.01\n    # 生成網格矩陣\n    xx, yy=np.meshgrid(np.arange(x_min,x_max,h), np.arange(y_min,y_max,h))\n    Z = pred_func(np.c_[xx.ravel(),yy.ravel()])\n    Z = Z.reshape(xx.shape)\n    plt.contourf(xx,yy,Z,cmap=plt.cm.Spectral)\n    arg = np.squeeze(np.argwhere(Y==0),axis=1)\n    arg2 = np.squeeze(np.argwhere(Y==1),axis=1)\n    plt.scatter(X[arg,0],X[arg,1], s=100, c='r', marker='+')\n    plt.scatter(X[arg2,0],X[arg2,1], s=100, c='b', marker='+')\n    plt.show()\nplot_decision_boundary(lambda x: predict(x), xt.numpy(),yt.numpy())\n\n\n\n\n\n\n\n\n實際執行時，nn的 node 的初始值是隨機的，每次訓練過程都是從初始值開始調節，所以每次執行完做的模型評估結果都會有些微的不同，但accuracy_score()分數整體會在一個範圍浮動，差異不大。"
   },
   {
-    "objectID": "posts/test/test.html#保存模型",
-    "href": "posts/test/test.html#保存模型",
+    "objectID": "posts/test/pytorch1.html#保存模型",
+    "href": "posts/test/pytorch1.html#保存模型",
     "title": "重新認識pytorch(1)",
     "section": "保存模型",
     "text": "保存模型\n通常一個模型需要長時間的訓練，所以 pytorch 可以保存模型，供下次進行預訓練或直接使用：\ntorch.save(model.state_dict(),'./model.pth')\n這個model.pth便是模型檔案。如要載入模型，則可以：\nmodel.load_state_dict(torch.load('./model.pth'))\n執行後 model 中的值將跟model.pth同步。"

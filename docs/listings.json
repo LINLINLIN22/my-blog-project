@@ -2,7 +2,7 @@
   {
     "listing": "/resources.html",
     "items": [
-      "/posts/test/test.html",
+      "/posts/test/pytorch1.html",
       "/posts/make-app/index.html",
       "/posts/jpyterbook/index.html",
       "/posts/first-article/index.html"
@@ -19,7 +19,7 @@
   {
     "listing": "/about.html",
     "items": [
-      "/posts/test/test.html",
+      "/posts/test/pytorch1.html",
       "/posts/make-app/index.html",
       "/posts/jpyterbook/index.html",
       "/posts/first-article/index.html"
@@ -28,7 +28,7 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/test/test.html",
+      "/posts/test/pytorch1.html",
       "/posts/make-app/index.html",
       "/posts/jpyterbook/index.html",
       "/posts/first-article/index.html"
@@ -39,7 +39,7 @@
     "items": []
   },
   {
-    "listing": "/posts/test/test.html",
+    "listing": "/posts/test/pytorch1.html",
     "items": []
   }
 ]
