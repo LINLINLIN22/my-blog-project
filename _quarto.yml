@@ -5,8 +5,7 @@ project:
 
 listing:
   contents: posts
-  sort: "date desc"  # 日期最新的在前面
-  # categories: true 
+  sort: "date desc"  # 日期最新的在前面 
 
 format:
   html:
