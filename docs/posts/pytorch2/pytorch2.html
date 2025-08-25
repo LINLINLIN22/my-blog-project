@@ -432,6 +432,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#結果" id="toc-結果" class="nav-link" data-scroll-target="#結果">結果</a></li>
   </ul></li>
+  <li><a href="#結論" id="toc-結論" class="nav-link" data-scroll-target="#結論">結論</a></li>
   <li><a href="#補充為什麼有時候訓練出來都是-0-向量" id="toc-補充為什麼有時候訓練出來都是-0-向量" class="nav-link" data-scroll-target="#補充為什麼有時候訓練出來都是-0-向量">補充：為什麼有時候訓練出來都是 0 向量</a>
   <ul class="collapse">
   <li><a href="#問題現象" id="toc-問題現象" class="nav-link" data-scroll-target="#問題現象">問題現象</a></li>
@@ -460,7 +461,7 @@ window.Quarto = {
 
 
 <p>RNN，全名為循環神經網路(Recurrent Neural Network)，是具有記憶功能的模型。它可以發現樣本彼此之間的相互關係，適合處理 series data 的特徵 ，可應用於處理文字資料分類及time series等。</p>
-<p>RNN 限制有：</p>
+<p>RNN 的主要限制有：</p>
 <ul>
 <li><p><strong>梯度消失或爆炸</strong>：RNN 訓練深層時會不穩定</p></li>
 <li><p><strong>長期依賴問題</strong>：無法記住太久以前的資訊</p></li>
@@ -470,7 +471,10 @@ window.Quarto = {
 <li>GRU（Gated Recurrent Unit）</li>
 </ul></li>
 </ul>
-<p>現今更常用的是 Transformer，但 RNN 在資源有限或學習原理時仍很有價值。</p>
+<p>現今更常用的是 Transformer 模型，但 RNN 在資源有限或學習原理時仍很有價值。本次暫時不使用 pytorch 套件，除了簡單介紹 RNN 外，也會藉由實作手刻一個簡單的 RNN。</p>
+<blockquote class="blockquote">
+<p>主要內容引用自 「李金洪. 2022. 全格局使用 PyTorch - 深度學習和圖神經網路 - 基礎篇. 深智數位」第 7.5 節。</p>
+</blockquote>
 <section id="rnn-的模型結構" class="level1">
 <h1>RNN 的模型結構</h1>
 <div id="cell-2" class="cell" data-execution_count="1">
@@ -482,9 +486,9 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p><span class="math inline">\(\{x_t\}\)</span>表示 input；<span class="math inline">\(\{y_t\}\)</span> 表示 output； <span class="math inline">\(\{h_t\}\)</span>表示 hidden layer；藍色箭頭表示依順序( 即 time series 中的 <span class="math inline">\(t\)</span> )產生的權重，在一開始還沒有東西，隨著 <span class="math inline">\(t\)</span> 增加而影響每次產生的 output</p>
+<p><span class="math inline">\(\{x_t\}\)</span>表示 input；<span class="math inline">\(\{y_t\}\)</span> 表示 output； <span class="math inline">\(\{h_t\}\)</span>表示 hidden layer；藍色箭頭表示依順序( 即 time series 中的 <span class="math inline">\(t\)</span> )產生的權重，在一開始還沒有東西，隨著 <span class="math inline">\(t\)</span> 增加而影響每次產生的 output，這就是 RNN 的記憶功能特性。</p>
 <p>上圖為模型逐漸隨著<span class="math inline">\(t = 5\)</span>增加而呈現的流程圖，如果是一般情形則如下圖：</p>
-<div id="cell-4" class="cell" data-execution_count="2">
+<div id="cell-4" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -553,9 +557,9 @@ window.Quarto = {
 <section id="模型定義" class="level2">
 <h2 class="anchored" data-anchor-id="模型定義">模型定義</h2>
 <p>因為是手刻，所以激勵函數及其導函數需自行指定，這裡用的 <span class="math inline">\(\sigma (.)\)</span> 是</p>
-<p><span class="math inline">\(\frac{1}{1+e^{-x}}\)</span></p>
+<p><span class="math display">\[\frac{1}{1+e^{-x}}\]</span></p>
 <p>其導數為：</p>
-<p><span class="math inline">\(\frac{e^{-x}}{1+e^{-x}}=\frac{1}{1+e^{-x}}(1-\frac{1}{1+e^{-x}})\)</span></p>
+<p><span class="math display">\[\frac{e^{-x}}{1+e^{-x}}=\frac{1}{1+e^{-x}}(1-\frac{1}{1+e^{-x}})\]</span></p>
 <div id="cell-8" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> copy, numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -574,7 +578,7 @@ window.Quarto = {
 </div>
 <section id="定義模型參數" class="level3">
 <h3 class="anchored" data-anchor-id="定義模型參數">定義模型參數</h3>
-<p>再來定義模型參數，這裡我們將隱藏層的權重設為<code>synapse_0</code>(輸入及輸出符合 hidden dimension)；輸出層的權重設為<code>synapse_1</code>。</p>
+<p>再來在建立模型前，先定義模型參數，這裡我們將隱藏層的權重設為<code>synapse_0</code>(輸入及輸出符合 hidden dimension)；輸出層的權重設為<code>synapse_1</code>。</p>
 <div id="cell-10" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> <span class="fl">0.1</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>input_dim <span class="op">=</span> <span class="dv">2</span> <span class="co"># (a, b)</span></span>
@@ -606,6 +610,7 @@ window.Quarto = {
 </section>
 <section id="執行模型正向" class="level2">
 <h2 class="anchored" data-anchor-id="執行模型正向">執行模型：正向</h2>
+<p>實際執行模型時，會讓資料先做正向 (方向是起點到終點)，然後再做反向更新權重(方向為終點回到起點)。</p>
 <section id="任務說明概念" class="level4">
 <h4 class="anchored" data-anchor-id="任務說明概念">任務說明（概念）</h4>
 <p>我們的目標是： 對兩個二進位數 <span class="math inline">\(a\)</span>、<span class="math inline">\(b\)</span>，每一個位元進行減法 <span class="math inline">\(c = a - b\)</span> 的預測。 這裡的模型是一個簡單的 RNN，用來<strong>逐位</strong>（bit-by-bit）預測輸出 <span class="math inline">\(c\)</span> 的每一位元 <span class="math inline">\(c_t\)</span>，其中 <span class="math inline">\(t\)</span> 表示時間步，從最低位（右邊）往左處理。</p>
@@ -759,32 +764,33 @@ e_t = y_t - \hat{y}_t
 <section id="code" class="level3">
 <h3 class="anchored" data-anchor-id="code">code</h3>
 <p>開始執行，先做正向：</p>
-<div id="cell-12" class="cell" data-execution_count="6">
+<div id="cell-12" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> RNN_positive(a, b, c):</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> np.zeros_like(c)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    overallError <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    layer_1_values <span class="op">=</span> [np.zeros((<span class="dv">1</span>, hidden_dim))]</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    layer_2_deltas <span class="op">=</span> []</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> position <span class="kw">in</span> <span class="bu">range</span>(binary_dim):</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># input genarate and output genarate</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        X <span class="op">=</span> np.array([[a[binary_dim <span class="op">-</span> position <span class="op">-</span> <span class="dv">1</span>], b[binary_dim <span class="op">-</span> position <span class="op">-</span> <span class="dv">1</span>]]])</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># X = X.reshape(1, 2)  # 明確定義為 2D（1 row, 2 columns）</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 正解</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> np.array([[c[binary_dim <span class="op">-</span> position <span class="op">-</span> <span class="dv">1</span>]]]).T </span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># (input + hidden) -&gt; new hidden</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        layer_1 <span class="op">=</span> sigmoid(np.dot(X,synapse_0)) <span class="op">+</span> np.dot(layer_1_values[<span class="op">-</span><span class="dv">1</span>],synapse_h) <span class="co"># 出來 1 x hidden_dim 需轉置</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        layer_2 <span class="op">=</span> sigmoid(np.dot(layer_1, synapse_1))</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        <span class="co"># hidden*( matrix of hidden to output) -&gt; output</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        layer_2_error <span class="op">=</span> y <span class="op">-</span> layer_2</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        layer_2_deltas.append((layer_2_error)<span class="op">*</span>sigmoid_output_to_deriv(layer_2))</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        overallError <span class="op">+=</span> np.<span class="bu">abs</span>(layer_2_error[<span class="dv">0</span>])</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        d[binary_dim <span class="op">-</span> position <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> np.<span class="bu">round</span>(layer_2[<span class="dv">0</span>][<span class="dv">0</span>])</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        layer_1_values.append(copy.deepcopy(layer_1))</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        future_layer_1_delta <span class="op">=</span> np.zeros(hidden_dim)</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> d, layer_1_values, layer_2_deltas, overallError</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 定義模型參數 (前面已做過)</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> np.zeros_like(c)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    overallError <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    layer_1_values <span class="op">=</span> [np.zeros((<span class="dv">1</span>, hidden_dim))]</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    layer_2_deltas <span class="op">=</span> []</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> position <span class="kw">in</span> <span class="bu">range</span>(binary_dim):</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># input genarate and output genarate</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        X <span class="op">=</span> np.array([[a[binary_dim <span class="op">-</span> position <span class="op">-</span> <span class="dv">1</span>], b[binary_dim <span class="op">-</span> position <span class="op">-</span> <span class="dv">1</span>]]])</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># X = X.reshape(1, 2)  # 明確定義為 2D（1 row, 2 columns）</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># 正解</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> np.array([[c[binary_dim <span class="op">-</span> position <span class="op">-</span> <span class="dv">1</span>]]]).T </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># (input + hidden) -&gt; new hidden</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        layer_1 <span class="op">=</span> sigmoid(np.dot(X,synapse_0)) <span class="op">+</span> np.dot(layer_1_values[<span class="op">-</span><span class="dv">1</span>],synapse_h) <span class="co"># 出來 1 x hidden_dim 需轉置</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        layer_2 <span class="op">=</span> sigmoid(np.dot(layer_1, synapse_1))</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># hidden*( matrix of hidden to output) -&gt; output</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        layer_2_error <span class="op">=</span> y <span class="op">-</span> layer_2</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        layer_2_deltas.append((layer_2_error)<span class="op">*</span>sigmoid_output_to_deriv(layer_2))</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        overallError <span class="op">+=</span> np.<span class="bu">abs</span>(layer_2_error[<span class="dv">0</span>])</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        d[binary_dim <span class="op">-</span> position <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> np.<span class="bu">round</span>(layer_2[<span class="dv">0</span>][<span class="dv">0</span>])</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        layer_1_values.append(copy.deepcopy(layer_1))</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        future_layer_1_delta <span class="op">=</span> np.zeros(hidden_dim)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> d, layer_1_values, layer_2_deltas, overallError</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -861,7 +867,7 @@ code 逐列解說
 </section>
 <section id="執行模型反向" class="level2">
 <h2 class="anchored" data-anchor-id="執行模型反向">執行模型：反向</h2>
-<p>整體流程為：</p>
+<p>這裡因為 RNN 的特性，反向時會加入 BPTT 演算法處理。理論部分在此略過，直接說明流程，整體流程為：</p>
 <p>給定時間步 <span class="math inline">\(t = T-1, T-2, \dots, 0\)</span>，反向傳播的數學表達為：</p>
 <ol type="1">
 <li>計算隱藏層 delta</li>
@@ -934,8 +940,8 @@ W_{hh} \leftarrow W_{hh} + \eta \cdot \Delta W_{hh}
 <td>隱藏層（上一步）→ 隱藏層</td>
 </tr>
 <tr class="odd">
-<td><code>\eta</code></td>
-<td><span class="math inline">\(\text{lr}\)</span></td>
+<td><code>lr</code></td>
+<td><span class="math inline">\(\eta\)</span></td>
 <td>學習率</td>
 </tr>
 </tbody>
@@ -1231,6 +1237,10 @@ True value: [1 0 0 1 1 1 1 1]
 </div>
 <p>可以發現有隨著資料量增加訓練越來越好的趨勢。</p>
 </section>
+</section>
+<section id="結論" class="level1">
+<h1>結論</h1>
+<p>這次我們手刻了一個簡單的 RNN，並用它來解決退位減法的問題，藉此理解它的運作原理。為了幫助理解，我略過一些數學細節。詳細可以參考其他書籍，或是前面提到的 main reference。</p>
 </section>
 <section id="補充為什麼有時候訓練出來都是-0-向量" class="level1">
 <h1>補充：為什麼有時候訓練出來都是 0 向量</h1>
