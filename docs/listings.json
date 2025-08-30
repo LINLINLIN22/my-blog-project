@@ -2,6 +2,7 @@
   {
     "listing": "/resources.html",
     "items": [
+      "/posts/pytorch3/pytorch3.html",
       "/posts/pytorch2/pytorch2.html",
       "/posts/pytorch1/pytorch1.html",
       "/posts/make-app/index.html",
@@ -10,35 +11,7 @@
     ]
   },
   {
-    "listing": "/posts/pytorch1/pytorch1.html",
-    "items": []
-  },
-  {
-    "listing": "/posts/jpyterbook/index.html",
-    "items": []
-  },
-  {
-    "listing": "/index.html",
-    "items": [
-      "/posts/pytorch2/pytorch2.html",
-      "/posts/pytorch1/pytorch1.html",
-      "/posts/make-app/index.html",
-      "/posts/jpyterbook/index.html",
-      "/posts/first-article/index.html"
-    ]
-  },
-  {
-    "listing": "/about.html",
-    "items": [
-      "/posts/pytorch2/pytorch2.html",
-      "/posts/pytorch1/pytorch1.html",
-      "/posts/make-app/index.html",
-      "/posts/jpyterbook/index.html",
-      "/posts/first-article/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/first-article/index.html",
+    "listing": "/posts/pytorch2/pytorch2.html",
     "items": []
   },
   {
@@ -46,7 +19,41 @@
     "items": []
   },
   {
-    "listing": "/posts/pytorch2/pytorch2.html",
+    "listing": "/posts/first-article/index.html",
+    "items": []
+  },
+  {
+    "listing": "/about.html",
+    "items": [
+      "/posts/pytorch3/pytorch3.html",
+      "/posts/pytorch2/pytorch2.html",
+      "/posts/pytorch1/pytorch1.html",
+      "/posts/make-app/index.html",
+      "/posts/jpyterbook/index.html",
+      "/posts/first-article/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/pytorch3/pytorch3.html",
+      "/posts/pytorch2/pytorch2.html",
+      "/posts/pytorch1/pytorch1.html",
+      "/posts/make-app/index.html",
+      "/posts/jpyterbook/index.html",
+      "/posts/first-article/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/jpyterbook/index.html",
+    "items": []
+  },
+  {
+    "listing": "/posts/pytorch1/pytorch1.html",
+    "items": []
+  },
+  {
+    "listing": "/posts/pytorch3/pytorch3.html",
     "items": []
   }
 ]
