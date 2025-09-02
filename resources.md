@@ -52,7 +52,15 @@ format:
 
 - [Text Mining with R](https://www.tidytextmining.com/)
 
+## NLP
 
+**Stanford NLP Group**
+
+- Including slides and notes 
+
+- [CS224N: Natural Language Processing with Deep Learning](https://web.stanford.edu/class/cs224n/index.html)
+
+ 
 ## Computer science
 
 **OS note**
