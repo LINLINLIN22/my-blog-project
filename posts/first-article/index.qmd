@@ -122,6 +122,15 @@ format:
 `number-sections`則是要不要幫每個 header 標上編號，格式按 header 大小為 1、1.1、1.1.1...，以此類推，我覺得很醜所以用`false`取消編號。**如果這個語法沒有設定，會導致有些檔案格式的文章如`.qmd`不編號，`.md`卻編號的情況**，因此如果要統一還是要強制設定。 
 
 
+## 轉換檔名
+
+`.qmd`為 Quarto 官方提供的檔案格式，雖然用它寫 markdown + run python 很好用，但有時候要 render 時卻會出錯，找不出問題時有一個暴力硬解法－轉換副檔名為`.ipynb`。
+
+```bash
+quarto convert your_file.qmd --to ipynb
+```
+轉換後大致上可以無痛 work ，但有時有些設定會跑掉，還是要先 preview 檢查。
+
 # 部署到 github page 上
 
 這裡實在是困難重重(對我來說)，只能先筆記下摸索出來的方法。
@@ -157,7 +166,7 @@ project:
 
 # 延伸閱讀
 
-本文只記錄了我的建立過程，很多 Quarto 可以玩的設定都沒紀錄，如果還想看看其他人怎麼玩的話：
+本文只記錄了我的建立過程，很多 Quarto 可以玩的設定跟不同安裝路線都沒紀錄，如果還想看看其他人怎麼玩的話：
 
 - [https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html](https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html)
 

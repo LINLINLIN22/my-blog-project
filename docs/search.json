@@ -21,6 +21,13 @@
     "text": "Data mining\nIntroduction to Data Mining (Using R)\n\nby Pang-Ning Tan, Michael Steinbach, Anuj Karpatne and Vipin Kumar\nIntroduction to Data Mining\n\nText Mining with R\n\nby Julia Silge and David Robinson\nText Mining with R"
   },
   {
+    "objectID": "resources.html#nlp",
+    "href": "resources.html#nlp",
+    "title": "Study Resources",
+    "section": "NLP",
+    "text": "NLP\nStanford NLP Group\n\nIncluding slides and notes\nCS224N: Natural Language Processing with Deep Learning"
+  },
+  {
     "objectID": "resources.html#computer-science",
     "href": "resources.html#computer-science",
     "title": "Study Resources",
@@ -152,6 +159,13 @@
     "title": "使用 Quarto 建立 Blog",
     "section": "插入目錄在每篇文章",
     "text": "插入目錄在每篇文章\n一樣在最外層的 _quarto.yaml 的 format:層下輸入\n    toc: true\n    toc-location: body\n    toc-depth: 2\n    toc-title: \"目錄\"\n    number-sections: false\n第一個語法會召喚開啟文章目錄，第二個則是目錄出現位置，body是文章開頭，另有left(文章左側)跟right(文章右側)可選。\n第三個是文章目錄在直接顯示時要顯示 header 幾，這裡的 2 表示在網頁剛載入時，目錄會顯示文章到 header 2 (markdown 語法 ## )為止的標題。\n\n注意如果前面的toc-location設定為left或right，用滑鼠點擊大 header 還是可以展開底下所有的小 header，只是初始載入會隱藏。\n\nnumber-sections則是要不要幫每個 header 標上編號，格式按 header 大小為 1、1.1、1.1.1…，以此類推，我覺得很醜所以用false取消編號。如果這個語法沒有設定，會導致有些檔案格式的文章如.qmd不編號，.md卻編號的情況，因此如果要統一還是要強制設定。"
+  },
+  {
+    "objectID": "posts/first-article/index.html#轉換檔名",
+    "href": "posts/first-article/index.html#轉換檔名",
+    "title": "使用 Quarto 建立 Blog",
+    "section": "轉換檔名",
+    "text": "轉換檔名\n.qmd為 Quarto 官方提供的檔案格式，雖然用它寫 markdown + run python 很好用，但有時候要 render 時卻會出錯，找不出問題時有一個暴力硬解法－轉換副檔名為.ipynb。\nquarto convert your_file.qmd --to ipynb\n轉換後大致上可以無痛 work ，但有時有些設定會跑掉，還是要先 preview 檢查。"
   },
   {
     "objectID": "posts/first-article/index.html#footnotes",
