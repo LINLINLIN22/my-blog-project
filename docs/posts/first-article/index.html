@@ -420,6 +420,7 @@ window.Quarto = {
   <li><a href="#首頁文章按日期最新排列" id="toc-首頁文章按日期最新排列" class="nav-link" data-scroll-target="#首頁文章按日期最新排列">首頁文章按日期最新排列</a></li>
   <li><a href="#light-dark-theme-切換" id="toc-light-dark-theme-切換" class="nav-link" data-scroll-target="#light-dark-theme-切換">light / dark theme 切換</a></li>
   <li><a href="#插入目錄在每篇文章" id="toc-插入目錄在每篇文章" class="nav-link" data-scroll-target="#插入目錄在每篇文章">插入目錄在每篇文章</a></li>
+  <li><a href="#轉換檔名" id="toc-轉換檔名" class="nav-link" data-scroll-target="#轉換檔名">轉換檔名</a></li>
   </ul></li>
   <li><a href="#部署到-github-page-上" id="toc-部署到-github-page-上" class="nav-link" data-scroll-target="#部署到-github-page-上">部署到 github page 上</a></li>
   <li><a href="#延伸閱讀" id="toc-延伸閱讀" class="nav-link" data-scroll-target="#延伸閱讀">延伸閱讀</a></li>
@@ -523,6 +524,12 @@ window.Quarto = {
 </blockquote>
 <p><code>number-sections</code>則是要不要幫每個 header 標上編號，格式按 header 大小為 1、1.1、1.1.1…，以此類推，我覺得很醜所以用<code>false</code>取消編號。<strong>如果這個語法沒有設定，會導致有些檔案格式的文章如<code>.qmd</code>不編號，<code>.md</code>卻編號的情況</strong>，因此如果要統一還是要強制設定。</p>
 </section>
+<section id="轉換檔名" class="level2">
+<h2 class="anchored" data-anchor-id="轉換檔名">轉換檔名</h2>
+<p><code>.qmd</code>為 Quarto 官方提供的檔案格式，雖然用它寫 markdown + run python 很好用，但有時候要 render 時卻會出錯，找不出問題時有一個暴力硬解法－轉換副檔名為<code>.ipynb</code>。</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> convert your_file.qmd <span class="at">--to</span> ipynb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>轉換後大致上可以無痛 work ，但有時有些設定會跑掉，還是要先 preview 檢查。</p>
+</section>
 </section>
 <section id="部署到-github-page-上" class="level1">
 <h1>部署到 github page 上</h1>
@@ -531,20 +538,20 @@ window.Quarto = {
 <p>先假設前置所需的 git 跟 Github 都設定完成。</p>
 </blockquote>
 <p>首先打開 Terminal ， cd 到 Project 資料夾，key 入:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>成功的話 terminal 會出現以下命令：</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Output</span> created: docs<span class="dt">\i</span>ndex.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Output</span> created: docs<span class="dt">\i</span>ndex.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>我的不知道為什麼，第一次生成一個叫 <code>doc</code> 的資料夾，但 Github Page 只認 <code>docs</code>，所以生成後要修改檔名。</p>
 <p>然後在最外層的<code>_quarto.yml</code>設定：</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>接著按照先前學過的，檢查確認 localhost 的 preiew 沒問題後，將本地端 push 到 Github repository。</p>
 <p>再來前往 Github repository setting / Pages ，將設定改成<code>mian\docs</code>。等待幾分鐘後，如果成功Pages的頁面會生成網址，可以點進去檢查。</p>
 </section>
 <section id="延伸閱讀" class="level1">
 <h1>延伸閱讀</h1>
-<p>本文只記錄了我的建立過程，很多 Quarto 可以玩的設定都沒紀錄，如果還想看看其他人怎麼玩的話：</p>
+<p>本文只記錄了我的建立過程，很多 Quarto 可以玩的設定跟不同安裝路線都沒紀錄，如果還想看看其他人怎麼玩的話：</p>
 <ul>
 <li><p><a href="https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html">https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html</a></p></li>
 <li><p><a href="https://beamilz.com/posts/2022-06-05-creating-a-blog-with-quarto/en/">https://beamilz.com/posts/2022-06-05-creating-a-blog-with-quarto/en/</a></p></li>
