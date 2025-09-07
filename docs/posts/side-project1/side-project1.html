@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="紙魚">
+<meta name="dcterms.date" content="2025-09-07">
 
-<title>紙魚ㄉ部落格</title>
+<title>Side Project - 簡易預估搭乘新竹客運假日從新竹到台中的時間 – 紙魚ㄉ部落格</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,32 +22,67 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cc63fce9873912f1bbbccf05079cc9ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-08799928d293638fe9563d5c5a2794e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-cc63fce9873912f1bbbccf05079cc9ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-cc63fce9873912f1bbbccf05079cc9ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-08799928d293638fe9563d5c5a2794e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-cc63fce9873912f1bbbccf05079cc9ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -83,9 +120,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: [{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
+      searchColumns: [],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -133,7 +170,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="main_styles.css">
+<link rel="stylesheet" href="../../main_styles.css">
 </head>
 
 <body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -305,7 +342,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">紙魚ㄉ部落格</span>
     </a>
   </div>
@@ -316,11 +353,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resources.html"> 
+    <a class="nav-link" href="../../resources.html"> 
 <span class="menu-text">Study Resources</span></a>
   </li>  
 </ul>
@@ -332,282 +369,205 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block"></header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
-<!-- sidebar -->
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Side Project - 簡易預估搭乘新竹客運假日從新竹到台中的時間</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">side project</div>
+                <div class="quarto-category">python</div>
+                <div class="quarto-category">LSTM</div>
+              </div>
+                  </div>
+  </div>
+    
   
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>紙魚 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 7, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目錄</h2>
+   
+  <ul>
+  <li><a href="#前言" id="toc-前言" class="nav-link active" data-scroll-target="#前言">前言</a></li>
+  <li><a href="#需求架構" id="toc-需求架構" class="nav-link" data-scroll-target="#需求架構">需求架構</a></li>
+  <li><a href="#建立過程" id="toc-建立過程" class="nav-link" data-scroll-target="#建立過程">建立過程</a>
+  <ul class="collapse">
+  <li><a href="#資料來源簡介" id="toc-資料來源簡介" class="nav-link" data-scroll-target="#資料來源簡介">資料來源簡介</a></li>
+  <li><a href="#清資料" id="toc-清資料" class="nav-link" data-scroll-target="#清資料">清資料</a></li>
+  <li><a href="#訓練資料" id="toc-訓練資料" class="nav-link" data-scroll-target="#訓練資料">訓練資料</a>
+  <ul class="collapse">
+  <li><a href="#指定-lstm-的原因" id="toc-指定-lstm-的原因" class="nav-link" data-scroll-target="#指定-lstm-的原因">指定 LSTM 的原因</a></li>
+  <li><a href="#模型架構" id="toc-模型架構" class="nav-link" data-scroll-target="#模型架構">模型架構</a></li>
+  <li><a href="#模型參數設定" id="toc-模型參數設定" class="nav-link" data-scroll-target="#模型參數設定">模型參數設定</a></li>
+  <li><a href="#相關訓練數據" id="toc-相關訓練數據" class="nav-link" data-scroll-target="#相關訓練數據">相關訓練數據</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="TFNUTQ==">LSTM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bm90ZQ==">note <span class="quarto-category-count">(3)</span></div><div class="category" data-category="b3RoZXI=">other <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cHl0aG9u">python <span class="quarto-category-count">(6)</span></div><div class="category" data-category="cHl0b3JjaA==">pytorch <span class="quarto-category-count">(3)</span></div><div class="category" data-category="cXVhcnRv">quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2lkZSUyMHByb2plY3Q=">side project <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dG95cw==">toys <span class="quarto-category-count">(1)</span></div></div></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
-<!-- use quarto preview to exine website -->
-<!-- 或vscode點擊右上角 -->
-<p>來寫 Blog 吧！</p>
+
+<section id="前言" class="level1">
+<h1>前言</h1>
+<p>這個 Side Project 的發想完全來自我個人生活中的需求。</p>
+<p>以前在大學時認識了一些台中人，或是畢業後留在台中工作的人，加上在在大學生活期間我愛上在台中的生活，畢業後即使在台北工作，有空時我還是會跟朋友約一約，前一天回到新竹，隔天搭乘新竹客運跟著新竹的朋友一起跑到朝馬去找老朋友吃飯、聊天、唱歌。不過這種難得的假日聚會，住在台中的朋友總是會事先負責訂位，確保我們都有店可去。而我們呢，則是負責不要遲到XD</p>
+<p>通常為了避免遲到，我跟朋友通常會搭早一點的客運出發。長久搭下來，主要影響客運的因素為會不會在路上塞車，經驗上來說，到台中時都會塞一小段。自從知道交通部有國道車流的開放資料後，我就想嘗試看看用國道的資料建模，看看能不能用神奇的 “占卜” ，讓我們成為時間精算師，再也不要搭這麼早的客運了！XD</p>
+</section>
+<section id="需求架構" class="level1">
+<h1>需求架構</h1>
+<p>我的需求架構為：</p>
+<ul>
+<li>建一個簡單的網站，當使用者輸入客運出發時間時，會顯示客運預計到達朝馬(台灣大道)的時間。</li>
+</ul>
+<p>不過因為我手上只有國道的車流資料，實際客運會在市區停留靠站，所幸花費時間基本上都是固定的，所以我<strong>只有預測客運在國道上的時間</strong>，市區停留靠站固定設定為45分鐘。</p>
+<p>此外，因為設備跟預算上的限制，我的預測資料是事先準備好(預測好)，再交由網站呈現。</p>
+<p>最後做出來的東西，先用 Streamlit 套件來Demo：</p>
+<p><img src="side-project1.png" class="img-fluid"></p>
+<p><del>但其實好像可以直接用HTML+CSS+JavaScripts靜態網頁的架構，因為我的模型沒有包在裡面XD</del></p>
+</section>
+<section id="建立過程" class="level1">
+<h1>建立過程</h1>
+<p>主要流程為：</p>
+<pre><code>下載交通部2024資料 → 清洗資料 → 補齊缺失資料 → LSTM模型建模 → 產出資料 → Web 呈現 </code></pre>
+<p>因為這次使用的資料類型為 single time series，<del>加上懶得去找其他變量的關係</del>，所以完全沒有做特徵工程。</p>
+<section id="資料來源簡介" class="level2">
+<h2 class="anchored" data-anchor-id="資料來源簡介">資料來源簡介</h2>
+<p>使用來源為交通度高公局交通資料庫的開放資料，<a href="https://tisvcloud.freeway.gov.tw/history/motc20/Section/">網址</a>。</p>
+<p>我使用的欄位有：</p>
+<ul>
+<li><p>SectionID</p></li>
+<li><p>Travel_Speed</p></li>
+</ul>
+<p>以及在檔名擷取時間。</p>
+</section>
+<section id="清資料" class="level2">
+<h2 class="anchored" data-anchor-id="清資料">清資料</h2>
+<p>主要流程為：</p>
+<ol type="1">
+<li><p>將資料按2024年國定假日、符合新竹-台中的 Section 按 SectionID 爬下來</p></li>
+<li><p>補齊遺失值，基本使用 Cubic Spline 補齊遺失值，如果補出來的資料太不合理，例如嚴重超過速限，則考慮那一天的資料都移除。所幸只有228那天有問題，只移除這一天。</p></li>
+<li><p>最後用敘事性統計觀察資料有無異常。</p></li>
+</ol>
+</section>
+<section id="訓練資料" class="level2">
+<h2 class="anchored" data-anchor-id="訓練資料">訓練資料</h2>
+<p>流程：</p>
+<ol type="1">
+<li><p>區分 training set, valid set，test set 為2025上半年的資料。</p></li>
+<li><p>訓練模型</p></li>
+<li><p>計算valid set RMSE、畫圖觀察</p></li>
+<li><p>確認OK後，拿 test set 試試</p></li>
+<li><p>計算test set RMSE、畫圖觀察</p></li>
+</ol>
+<p>確認都可以後再依 section 產出預測資料。</p>
+<section id="指定-lstm-的原因" class="level3">
+<h3 class="anchored" data-anchor-id="指定-lstm-的原因">指定 LSTM 的原因</h3>
+<p><del>因為我想玩還有我很懶</del>，原先在指定 LSTM 之前，有先考慮過使用 ARIMA 或是 SARIMA 模型來進行預測，不過指定這種經典的統計模型的缺點是滿吃對資料的觀察能力，我太菜了，沒有人在旁邊指導我撞牆可能會撞很久。此外，一直以來有耳聞過 LSTM 的用於 series data 的強大，也有看過一些與其他模型的預測能力比較的論文，神經網路家族的模型雖然複雜，但沒有特殊的統計假設，因此考慮後決定用 LSTM 模型來進行預測。</p>
+</section>
+<section id="模型架構" class="level3">
+<h3 class="anchored" data-anchor-id="模型架構">模型架構</h3>
+<p>試了好幾個參數後，得出的最好的模型架構與效果為</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LSTMModel(nn.Module):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, input_size<span class="op">=</span><span class="dv">4</span>, hidden_layer_size<span class="op">=</span><span class="dv">16</span>, output_size<span class="op">=</span><span class="dv">1</span>, num_layers<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.hidden_layer_size <span class="op">=</span> hidden_layer_size</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.num_layers <span class="op">=</span> num_layers</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.lstm <span class="op">=</span> nn.LSTM(input_size, hidden_layer_size, num_layers, batch_first<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.linear <span class="op">=</span> nn.Linear(hidden_layer_size, output_size)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, input_seq):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        batch_size <span class="op">=</span> input_seq.size(<span class="dv">0</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        h0 <span class="op">=</span> torch.zeros(<span class="va">self</span>.num_layers, batch_size, <span class="va">self</span>.hidden_layer_size).to(input_seq.device)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        c0 <span class="op">=</span> torch.zeros(<span class="va">self</span>.num_layers, batch_size, <span class="va">self</span>.hidden_layer_size).to(input_seq.device)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        lstm_out, _ <span class="op">=</span> <span class="va">self</span>.lstm(input_seq, (h0, c0))</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        out <span class="op">=</span> <span class="va">self</span>.linear(lstm_out[:, <span class="op">-</span><span class="dv">1</span>, :])</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="模型參數設定" class="level3">
+<h3 class="anchored" data-anchor-id="模型參數設定">模型參數設定</h3>
+<p>基本參數為</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 訓練參數</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>seq_length <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>predict_step <span class="op">=</span> <span class="dv">15</span> <span class="co">#一次預測15分鐘</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>patience <span class="op">=</span> <span class="dv">5</span> <span class="co"># early stop</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Early stopping at epoch 12.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>LSTM模型指定參數為</p>
+<pre><code>LSTMModel(
+  (lstm): LSTM(4, 16, batch_first=True)
+  (linear): Linear(in_features=16, out_features=1, bias=True)
+)</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>device <span class="op">=</span> torch.device(<span class="st">'cuda'</span> <span class="cf">if</span> torch.cuda.is_available() <span class="cf">else</span> <span class="st">'cpu'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LSTMModel().to(device)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>loss_function <span class="op">=</span> nn.MSELoss()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> torch.optim.Adam(model.parameters(), lr<span class="op">=</span><span class="fl">0.001</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="相關訓練數據" class="level3">
+<h3 class="anchored" data-anchor-id="相關訓練數據">相關訓練數據</h3>
+<p>RMSE 部分：</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>set</th>
+<th>RMSE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>valid set</td>
+<td>3.0401</td>
+</tr>
+<tr class="even">
+<td>test set</td>
+<td>6.0785</td>
+</tr>
+</tbody>
+</table>
+<p><img src="side-project2.png" class="img-fluid"> ▲ valid set 前 200 筆真實值(藍線)跟預測值(橘線)觀察圖</p>
+<p><img src="side-project3.png" class="img-fluid"> ▲ test set 真實值(藍線)跟預測值(橘線)觀察圖，可以看到除了部分超過速限的資料外，整體還行。</p>
 
 
 
+</section>
+</section>
+</section>
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="c2lkZSUyMHByb2plY3QlMkNweXRob24lMkNMU1RN" data-listing-date-sort="1757174400000" data-listing-file-modified-sort="1757255571017" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="284">
-<div class="thumbnail"><a href="./posts/side-project1/side-project1.html" class="no-external">
 
-<img loading="lazy" src="./posts/side-project1/side-project1.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/side-project1/side-project1.html" class="no-external">Side Project - 簡易預估搭乘新竹客運假日從新竹到台中的時間</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/side-project1/side-project1.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('c2lkZSUyMHByb2plY3Q='); return false;">side project</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TFNUTQ=='); return false;">LSTM</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/side-project1/side-project1.html" class="no-external">
-這個 Side Project 的發想完全來自我個人生活中的需求。
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/side-project1/side-project1.html" class="no-external">
-<div class="listing-date">
-Sep 7, 2025
-</div>
-<div class="listing-author">
-紙魚
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="bm90ZSUyQ3B5dGhvbiUyQ3B5dG9yY2g=" data-listing-date-sort="1756310400000" data-listing-file-modified-sort="1756568576240" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="421">
-<div class="thumbnail"><a href="./posts/pytorch3/pytorch3.html" class="no-external">
-
-<img loading="lazy" src="./posts/pytorch3/image.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/pytorch3/pytorch3.html" class="no-external">重新認識pytorch(3)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/pytorch3/pytorch3.html" class="no-external">LSTM簡介與實作</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bm90ZQ=='); return false;">note</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHl0b3JjaA=='); return false;">pytorch</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/pytorch3/pytorch3.html" class="no-external">
-LSTM（Long Short-Term Memory）模型是 RNN 的延伸，主要目的在於改善 RNN 梯度爆炸以及長期依賴的問題。
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/pytorch3/pytorch3.html" class="no-external">
-<div class="listing-date">
-Aug 28, 2025
-</div>
-<div class="listing-author">
-紙魚
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="bm90ZSUyQ3B5dGhvbiUyQ3B5dG9yY2g=" data-listing-date-sort="1755964800000" data-listing-file-modified-sort="1756098085542" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2325">
-<div class="thumbnail"><a href="./posts/pytorch2/pytorch2.html" class="no-external">
-
-<img loading="lazy" src="./posts/pytorch2/image.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/pytorch2/pytorch2.html" class="no-external">重新認識pytorch(2)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/pytorch2/pytorch2.html" class="no-external">了解RNN</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bm90ZQ=='); return false;">note</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHl0b3JjaA=='); return false;">pytorch</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/pytorch2/pytorch2.html" class="no-external">
-RNN，全名為循環神經網路(Recurrent Neural Network)，是具有記憶功能的模型。它可以發現樣本彼此之間的相互關係，適合處理 series data 的特徵 ，可應用於處理文字資料分類及time series等。
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/pytorch2/pytorch2.html" class="no-external">
-<div class="listing-date">
-Aug 24, 2025
-</div>
-<div class="listing-author">
-紙魚
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="bm90ZSUyQ3B5dGhvbiUyQ3B5dG9yY2g=" data-listing-date-sort="1755705600000" data-listing-file-modified-sort="1756043930719" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="433">
-<div class="thumbnail"><a href="./posts/pytorch1/pytorch1.html" class="no-external">
-
-<img loading="lazy" src="./posts/pytorch1/image.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/pytorch1/pytorch1.html" class="no-external">重新認識pytorch(1)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/pytorch1/pytorch1.html" class="no-external">從一個分類問題開始</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bm90ZQ=='); return false;">note</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHl0b3JjaA=='); return false;">pytorch</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/pytorch1/pytorch1.html" class="no-external">
-為了研究 LSTM 與神經網路(neural network，以下簡稱 nn)，重新認識 pytorch 。
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/pytorch1/pytorch1.html" class="no-external">
-<div class="listing-date">
-Aug 21, 2025
-</div>
-<div class="listing-author">
-紙魚
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="cHl0aG9uJTJDdG95cw==" data-listing-date-sort="1754668800000" data-listing-file-modified-sort="1756043930715" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="966">
-<div class="thumbnail"><a href="./posts/make-app/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/make-app/image.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/make-app/index.html" class="no-external">使用python做離線倒數計時器</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/make-app/index.html" class="no-external">第一次用python做exe，不會的問AI</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('dG95cw=='); return false;">toys</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/make-app/index.html" class="no-external">
-這篇文章有點流水帳，就是一篇製作玩具的過程隨筆。用AI寫程式可以做到自己以前做不到的，但遇到問題還是要想辦法解決，解決問題還是需要思考跟經驗，所以我想還是紀錄一下，供日後參考囉。
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/make-app/index.html" class="no-external">
-<div class="listing-date">
-Aug 9, 2025
-</div>
-<div class="listing-author">
-紙魚
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="b3RoZXIlMkNweXRob24=" data-listing-date-sort="1753372800000" data-listing-file-modified-sort="1755145708878" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="120">
-<div class="thumbnail"><a href="./posts/jpyterbook/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/jpyterbook/logo.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/jpyterbook/index.html" class="no-external">如何使用 Python jupyter-book 建立一本書</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/jpyterbook/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('b3RoZXI='); return false;">other</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cHl0aG9u'); return false;">python</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/jpyterbook/index.html" class="no-external">
-說到 jupyter-book，可能很多人會想到 Jupyter Notebook，但這裡指的是一個 python 套件，用來建立線上書籍的工具，特別適合用於副檔名為 <code>.ipynb</code> 的 Jupyter Notebook 。最後產出的網站類似 gitbook 或是 bookdown 的靜態網站，適合用來寫教學、筆記或是書籍。也是在我使用…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/jpyterbook/index.html" class="no-external">
-<div class="listing-date">
-Jul 25, 2025
-</div>
-<div class="listing-author">
-紙魚
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="b3RoZXIlMkNxdWFydG8=" data-listing-date-sort="1753200000000" data-listing-file-modified-sort="1757255698674" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="419">
-<div class="thumbnail"><a href="./posts/first-article/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/first-article/image.jpg" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/first-article/index.html" class="no-external">使用 Quarto 建立 Blog</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/first-article/index.html" class="no-external">第一篇文章，來分享這個部落格是怎麼建立的</a>
-</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('b3RoZXI='); return false;">other</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cXVhcnRv'); return false;">quarto</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/first-article/index.html" class="no-external">
-很早以前就想建立自己的小小網站了，雖然在這之前，我用過 Blogger 寫文章，不過用得不是很順手，後來忘記帳密就沒再用了。到近期我才發現自己比較偏好用特定指令寫文章，這件事還是因為要寫數學筆記辦了 hackmd 才發現的。
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/first-article/index.html" class="no-external">
-<div class="listing-date">
-Jul 23, 2025
-</div>
-<div class="listing-author">
-紙魚
-</div>
-</a>
-</div>
-</div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->

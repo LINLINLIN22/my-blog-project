@@ -2,6 +2,7 @@
   {
     "listing": "/resources.html",
     "items": [
+      "/posts/side-project1/side-project1.html",
       "/posts/pytorch3/pytorch3.html",
       "/posts/pytorch2/pytorch2.html",
       "/posts/pytorch1/pytorch1.html",
@@ -11,41 +12,7 @@
     ]
   },
   {
-    "listing": "/posts/pytorch2/pytorch2.html",
-    "items": []
-  },
-  {
-    "listing": "/posts/make-app/index.html",
-    "items": []
-  },
-  {
-    "listing": "/posts/first-article/index.html",
-    "items": []
-  },
-  {
-    "listing": "/about.html",
-    "items": [
-      "/posts/pytorch3/pytorch3.html",
-      "/posts/pytorch2/pytorch2.html",
-      "/posts/pytorch1/pytorch1.html",
-      "/posts/make-app/index.html",
-      "/posts/jpyterbook/index.html",
-      "/posts/first-article/index.html"
-    ]
-  },
-  {
-    "listing": "/index.html",
-    "items": [
-      "/posts/pytorch3/pytorch3.html",
-      "/posts/pytorch2/pytorch2.html",
-      "/posts/pytorch1/pytorch1.html",
-      "/posts/make-app/index.html",
-      "/posts/jpyterbook/index.html",
-      "/posts/first-article/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/jpyterbook/index.html",
+    "listing": "/posts/pytorch3/pytorch3.html",
     "items": []
   },
   {
@@ -53,7 +20,47 @@
     "items": []
   },
   {
-    "listing": "/posts/pytorch3/pytorch3.html",
+    "listing": "/posts/jpyterbook/index.html",
+    "items": []
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/side-project1/side-project1.html",
+      "/posts/pytorch3/pytorch3.html",
+      "/posts/pytorch2/pytorch2.html",
+      "/posts/pytorch1/pytorch1.html",
+      "/posts/make-app/index.html",
+      "/posts/jpyterbook/index.html",
+      "/posts/first-article/index.html"
+    ]
+  },
+  {
+    "listing": "/about.html",
+    "items": [
+      "/posts/side-project1/side-project1.html",
+      "/posts/pytorch3/pytorch3.html",
+      "/posts/pytorch2/pytorch2.html",
+      "/posts/pytorch1/pytorch1.html",
+      "/posts/make-app/index.html",
+      "/posts/jpyterbook/index.html",
+      "/posts/first-article/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/first-article/index.html",
+    "items": []
+  },
+  {
+    "listing": "/posts/make-app/index.html",
+    "items": []
+  },
+  {
+    "listing": "/posts/pytorch2/pytorch2.html",
+    "items": []
+  },
+  {
+    "listing": "/posts/side-project1/side-project1.html",
     "items": []
   }
 ]
