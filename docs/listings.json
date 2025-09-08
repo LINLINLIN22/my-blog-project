@@ -2,6 +2,7 @@
   {
     "listing": "/resources.html",
     "items": [
+      "/posts/book-review/book-review.html",
       "/posts/side-project1/side-project1.html",
       "/posts/pytorch3/pytorch3.html",
       "/posts/pytorch2/pytorch2.html",
@@ -24,8 +25,13 @@
     "items": []
   },
   {
-    "listing": "/index.html",
+    "listing": "/posts/book-review/book-review.html",
+    "items": []
+  },
+  {
+    "listing": "/about.html",
     "items": [
+      "/posts/book-review/book-review.html",
       "/posts/side-project1/side-project1.html",
       "/posts/pytorch3/pytorch3.html",
       "/posts/pytorch2/pytorch2.html",
@@ -36,8 +42,9 @@
     ]
   },
   {
-    "listing": "/about.html",
+    "listing": "/index.html",
     "items": [
+      "/posts/book-review/book-review.html",
       "/posts/side-project1/side-project1.html",
       "/posts/pytorch3/pytorch3.html",
       "/posts/pytorch2/pytorch2.html",

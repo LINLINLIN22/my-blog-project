@@ -23,6 +23,15 @@ format:
 
 # 統計學相關 Statistic 
 
+
+**“Modern Statistical Methods for Astronomy**
+
+- a personal summary and resource hub for materials derived from “Modern Statistical Methods for Astronomy” by Eric D. Feigelson and G. Jogesh Bab
+
+- Summary note of review some statistic technique using on regression, time series analysis, nonparametric method, smoothing... etc
+
+- [book summary](https://shihyuntang.github.io/tutorials/astro-stat/)
+
 ## Time series
 
 **Forecasting: Principles and Practice (Using R)**
@@ -30,6 +39,7 @@ format:
 - by Rob J Hyndman, George Athanasopoulos
 
 - [Forecasting: Principles and Practice](https://f0nzie.github.io/hyndman-bookdown-rsuite/index.html)
+
 
 
 
