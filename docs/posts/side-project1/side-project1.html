@@ -423,6 +423,11 @@ window.Quarto = {
   <li><a href="#相關訓練數據" id="toc-相關訓練數據" class="nav-link" data-scroll-target="#相關訓練數據">相關訓練數據</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#需要改進的地方" id="toc-需要改進的地方" class="nav-link" data-scroll-target="#需要改進的地方">需要改進的地方</a>
+  <ul class="collapse">
+  <li><a href="#模型預測部分" id="toc-模型預測部分" class="nav-link" data-scroll-target="#模型預測部分">模型預測部分</a></li>
+  <li><a href="#uiux-設計" id="toc-uiux-設計" class="nav-link" data-scroll-target="#uiux-設計">UIUX 設計</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -455,11 +460,13 @@ window.Quarto = {
 <p>最後做出來的東西，先用 Streamlit 套件來Demo：</p>
 <p><img src="side-project1.png" class="img-fluid"></p>
 <p><del>但其實好像可以直接用HTML+CSS+JavaScripts靜態網頁的架構，因為我的模型沒有包在裡面XD</del></p>
+<p>正式版的 demo 網址 <a href="https://sideprojectapp-hwmfunbcl8sadxbpuvte4p.streamlit.app/">點此</a></p>
+<p>目前覺得各方面來說有很多需要改進的地方，待會來提。</p>
 </section>
 <section id="建立過程" class="level1">
 <h1>建立過程</h1>
 <p>主要流程為：</p>
-<pre><code>下載交通部2024資料 → 清洗資料 → 補齊缺失資料 → LSTM模型建模 → 產出資料 → Web 呈現 </code></pre>
+<pre><code>下載交通部資料 → 清洗資料 → 補齊缺失資料 → 區分 training set, valid set, test set → LSTM模型建模 → 產出資料 → Web 呈現 </code></pre>
 <p>因為這次使用的資料類型為 single time series，<del>加上懶得去找其他變量的關係</del>，所以完全沒有做特徵工程。</p>
 <section id="資料來源簡介" class="level2">
 <h2 class="anchored" data-anchor-id="資料來源簡介">資料來源簡介</h2>
@@ -470,6 +477,7 @@ window.Quarto = {
 <li><p>Travel_Speed</p></li>
 </ul>
 <p>以及在檔名擷取時間。</p>
+<p>我的訓練資料為 2024 年屬於國定假日範圍的資料，其中有 10 % 的資料屬於訓練階段的 valid set ， 其餘 90% 為 training set；用來測試模型的 test set 為 2025年上半年國定假日範圍的資料，期間為 1/1 ~ 8/30 。</p>
 </section>
 <section id="清資料" class="level2">
 <h2 class="anchored" data-anchor-id="清資料">清資料</h2>
@@ -493,7 +501,8 @@ window.Quarto = {
 <p>確認都可以後再依 section 產出預測資料。</p>
 <section id="指定-lstm-的原因" class="level3">
 <h3 class="anchored" data-anchor-id="指定-lstm-的原因">指定 LSTM 的原因</h3>
-<p><del>因為我想玩還有我很懶</del>，原先在指定 LSTM 之前，有先考慮過使用 ARIMA 或是 SARIMA 模型來進行預測，不過指定這種經典的統計模型的缺點是滿吃對資料的觀察能力，我太菜了，沒有人在旁邊指導我撞牆可能會撞很久。此外，一直以來有耳聞過 LSTM 的用於 series data 的強大，也有看過一些與其他模型的預測能力比較的論文，神經網路家族的模型雖然複雜，但沒有特殊的統計假設，因此考慮後決定用 LSTM 模型來進行預測。</p>
+<p><del>因為我想玩還有我很懶</del>，原先在指定 LSTM 之前，有先考慮過使用 ARIMA 或是 SARIMA 模型來進行預測，不過指定這種經典的統計模型的缺點是滿吃對資料的觀察能力，我太菜了，沒有人在旁邊指導我撞牆可能會撞很久。此外，一直以來有耳聞過 LSTM 的用於 series data 的強大，也有看過一些與其他模型的預測能力比較的論文，<a href="https://ieeexplore.ieee.org/abstract/document/9691669/">像是這篇</a>。</p>
+<p>神經網路家族的模型雖然複雜，但沒有特殊的統計假設；而且 LSTM 模型適合預測沒有突發事件影響的資料，我的資料搜查範圍僅限假日，基本上沒有突發事件影響。因此考慮後決定用 LSTM 模型來進行預測。</p>
 </section>
 <section id="模型架構" class="level3">
 <h3 class="anchored" data-anchor-id="模型架構">模型架構</h3>
@@ -525,7 +534,7 @@ window.Quarto = {
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">30</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>patience <span class="op">=</span> <span class="dv">5</span> <span class="co"># early stop</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Early stopping at epoch 12.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>LSTM模型指定參數為</p>
+<p>最終設定的 LSTM 模型指定參數為</p>
 <pre><code>LSTMModel(
   (lstm): LSTM(4, 16, batch_first=True)
   (linear): Linear(in_features=16, out_features=1, bias=True)
@@ -558,10 +567,27 @@ window.Quarto = {
 </table>
 <p><img src="side-project2.png" class="img-fluid"> ▲ valid set 前 200 筆真實值(藍線)跟預測值(橘線)觀察圖</p>
 <p><img src="side-project3.png" class="img-fluid"> ▲ test set 真實值(藍線)跟預測值(橘線)觀察圖，可以看到除了部分超過速限的資料外，整體還行。</p>
-
-
-
+<p>無論是 valid set 還是 test set 的 RMSE 跟繪圖結果，看起來都相當不錯，但實際執行預測下半年的資料後，還是覺得有些問題。</p>
 </section>
+</section>
+</section>
+<section id="需要改進的地方" class="level1">
+<h1>需要改進的地方</h1>
+<section id="模型預測部分" class="level2">
+<h2 class="anchored" data-anchor-id="模型預測部分">模型預測部分</h2>
+<p>雖然 LSTM 模型的表現從數據看起來相當不錯，不過實際預測結果的 TravelSpeed 卻經常保持在平穩的線上，這跟我實際搭車的經驗不太符合，細想後我認為有 2 個原因：</p>
+<ol type="1">
+<li><p>TravelSpeed 的定義跟搭乘客運的時速沒有關係</p></li>
+<li><p>LSTM 模型適合預測沒有遭遇突發重大變化的資料，反過來說當沒有太大變化的資料時間步細分成數分鐘時，LSTM 模型的預測也不會有太大的變化</p></li>
+</ol>
+<p>其中 1. 可能是主要原因，只能說搞清楚資料定義真的真的很重要QQ</p>
+</section>
+<section id="uiux-設計" class="level2">
+<h2 class="anchored" data-anchor-id="uiux-設計">UIUX 設計</h2>
+<p>目前將資料部署在 streamlit 平台上，雖然有不用切換程式語言、使用語言直觀簡潔、不用自己重新設計 UIUX 等優點，但實際部署後網路載入速度實在是太慢了，而且也沒有 RWD 設計。再來是日期及時間表單的選擇，原先我希望能顯示只有我已經預測好的時間區間，但實際發現他的日期跟時間套件沒有這樣選，如果要做到我要的效果，可能需要從現有的 streamlit 輸入元件指令中找一個最符合我想像的，再轉換資料型別成 date time 格式以利後續處理資料。</p>
+
+
+
 </section>
 </section>
 

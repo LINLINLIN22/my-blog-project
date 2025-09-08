@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="紙魚">
+<meta name="dcterms.date" content="2025-09-08">
 
-<title>Study Resources – 紙魚ㄉ部落格</title>
+<title>讀書筆記-數據分析的力量 Google、Uber都在用的因果關係思考法 – 紙魚ㄉ部落格</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,29 +25,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cc63fce9873912f1bbbccf05079cc9ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-08799928d293638fe9563d5c5a2794e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-cc63fce9873912f1bbbccf05079cc9ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-cc63fce9873912f1bbbccf05079cc9ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-08799928d293638fe9563d5c5a2794e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-cc63fce9873912f1bbbccf05079cc9ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -83,9 +85,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: [{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+      searchColumns: [],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -133,8 +135,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="main_styles.css">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../main_styles.css">
 </head>
 
 <body class="floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -302,11 +303,11 @@ window.Quarto = {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">紙魚ㄉ部落格</span>
     </a>
   </div>
@@ -317,11 +318,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./resources.html" aria-current="page"> 
+    <a class="nav-link" href="../../resources.html"> 
 <span class="menu-text">Study Resources</span></a>
   </li>  
 </ul>
@@ -333,104 +334,293 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
-<!-- sidebar -->
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">讀書筆記-數據分析的力量 Google、Uber都在用的因果關係思考法</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">reading note</div>
+              </div>
+                  </div>
+  </div>
+    
   
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>紙魚 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 8, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目錄</h2>
+   
+  <ul>
+  <li><a href="#書籍資訊簡介" id="toc-書籍資訊簡介" class="nav-link active" data-scroll-target="#書籍資訊簡介">書籍資訊簡介</a></li>
+  <li><a href="#書籍摘要" id="toc-書籍摘要" class="nav-link" data-scroll-target="#書籍摘要">書籍摘要</a>
+  <ul class="collapse">
+  <li><a href="#隨機對照實驗-rct" id="toc-隨機對照實驗-rct" class="nav-link" data-scroll-target="#隨機對照實驗-rct">隨機對照實驗 (RCT)</a>
+  <ul class="collapse">
+  <li><a href="#假設" id="toc-假設" class="nav-link" data-scroll-target="#假設">假設</a></li>
+  <li><a href="#注意點" id="toc-注意點" class="nav-link" data-scroll-target="#注意點">注意點</a></li>
+  <li><a href="#優缺點" id="toc-優缺點" class="nav-link" data-scroll-target="#優缺點">優缺點</a></li>
+  </ul></li>
+  <li><a href="#rd-設計" id="toc-rd-設計" class="nav-link" data-scroll-target="#rd-設計">RD 設計</a>
+  <ul class="collapse">
+  <li><a href="#假設-1" id="toc-假設-1" class="nav-link" data-scroll-target="#假設-1">假設</a></li>
+  <li><a href="#注意點-1" id="toc-注意點-1" class="nav-link" data-scroll-target="#注意點-1">注意點</a></li>
+  <li><a href="#優缺" id="toc-優缺" class="nav-link" data-scroll-target="#優缺">優缺</a></li>
+  <li><a href="#例子" id="toc-例子" class="nav-link" data-scroll-target="#例子">例子</a></li>
+  </ul></li>
+  <li><a href="#堆集分析bunching-analysis" id="toc-堆集分析bunching-analysis" class="nav-link" data-scroll-target="#堆集分析bunching-analysis">堆集分析(Bunching Analysis)</a>
+  <ul class="collapse">
+  <li><a href="#假設-2" id="toc-假設-2" class="nav-link" data-scroll-target="#假設-2">假設</a></li>
+  <li><a href="#注意點-2" id="toc-注意點-2" class="nav-link" data-scroll-target="#注意點-2">注意點</a></li>
+  <li><a href="#例子-1" id="toc-例子-1" class="nav-link" data-scroll-target="#例子-1">例子</a></li>
+  <li><a href="#優缺-1" id="toc-優缺-1" class="nav-link" data-scroll-target="#優缺-1">優缺</a></li>
+  </ul></li>
+  <li><a href="#縱橫資料分析" id="toc-縱橫資料分析" class="nav-link" data-scroll-target="#縱橫資料分析">縱橫資料分析</a>
+  <ul class="collapse">
+  <li><a href="#假設-3" id="toc-假設-3" class="nav-link" data-scroll-target="#假設-3">假設</a></li>
+  <li><a href="#注意點-3" id="toc-注意點-3" class="nav-link" data-scroll-target="#注意點-3">注意點</a></li>
+  <li><a href="#例子-2" id="toc-例子-2" class="nav-link" data-scroll-target="#例子-2">例子</a></li>
+  <li><a href="#優缺-2" id="toc-優缺-2" class="nav-link" data-scroll-target="#優缺-2">優缺</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#方法論的限制" id="toc-方法論的限制" class="nav-link" data-scroll-target="#方法論的限制">方法論的限制</a></li>
+  <li><a href="#延伸閱讀" id="toc-延伸閱讀" class="nav-link" data-scroll-target="#延伸閱讀">延伸閱讀</a></li>
+  <li><a href="#小心得" id="toc-小心得" class="nav-link" data-scroll-target="#小心得">小心得</a></li>
+  </ul>
+</nav>
+</nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Study Resources</h1>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-page">
-
-    
-  
-    
-  </div>
-  
 
 
-</header>
 
-
-<p>各種有用或有趣的網路學習資料彙整。</p>
-<hr>
-<section id="quarto-相關" class="level1">
-<h1>Quarto 相關</h1>
-<p><strong>重要、資訊、警告區塊 code </strong></p>
+<section id="書籍資訊簡介" class="level1">
+<h1>書籍資訊簡介</h1>
 <ul>
-<li><p>in Quarto, these are called Callout Blocks.</p></li>
-<li><p><a href="https://quarto.org/docs/authoring/callouts.html">Callout Blocks</a></p></li>
+<li>數據分析的力量 Google、Uber都在用的因果關係思考法</li>
+<li><a href="https://www.books.com.tw/products/0010779908?srsltid=AfmBOorDKOOHvAhDoc-UL6Lm9pYDZ4_boShGDfCS74wQSbI4cGq2TkFK">book information</a></li>
 </ul>
 </section>
-<section id="統計學相關-statistic" class="level1">
-<h1>統計學相關 Statistic</h1>
-<p><strong>“Modern Statistical Methods for Astronomy</strong></p>
+<section id="書籍摘要" class="level1">
+<h1>書籍摘要</h1>
+<p>本書介紹一些實證計量經濟學用過的分析手法與實例，包含： 隨機對照實驗 (RCT)、RD 設計(Regression Discontinuity)、堆集分析(Bunching Analysis)、縱橫資料分析等</p>
+<section id="隨機對照實驗-rct" class="level2">
+<h2 class="anchored" data-anchor-id="隨機對照實驗-rct">隨機對照實驗 (RCT)</h2>
+<p>將實驗區分為介入組跟比較組，藉由探究兩者的介入效果(Treatment Effect)，即：有介入的組-沒有介入的組的效果</p>
 <ul>
-<li><p>a personal summary and resource hub for materials derived from “Modern Statistical Methods for Astronomy” by Eric D. Feigelson and G. Jogesh Bab</p></li>
-<li><p>Summary note of review some statistic technique using on regression, time series analysis, nonparametric method, smoothing… etc</p></li>
-<li><p><a href="https://shihyuntang.github.io/tutorials/astro-stat/">book summary</a></p></li>
+<li><p>介入組：有受到政策/措施影響的組別</p></li>
+<li><p>比較組：沒有受到政策/措施影響的組別</p></li>
 </ul>
-<section id="time-series" class="level2">
-<h2 class="anchored" data-anchor-id="time-series">Time series</h2>
-<p><strong>Forecasting: Principles and Practice (Using R)</strong></p>
+<blockquote class="blockquote">
+<p>在商業領域，RCT = A/B test</p>
+</blockquote>
+<section id="假設" class="level3">
+<h3 class="anchored" data-anchor-id="假設">假設</h3>
 <ul>
-<li><p>by Rob J Hyndman, George Athanasopoulos</p></li>
-<li><p><a href="https://f0nzie.github.io/hyndman-bookdown-rsuite/index.html">Forecasting: Principles and Practice</a></p></li>
+<li>如果沒有介入(政策/措施的影響)，比較組的平均 <span class="math inline">\(Y_C\)</span> 會與介入組的平均 <span class="math inline">\(Y_T\)</span> 相同</li>
+</ul>
+</section>
+<section id="注意點" class="level3">
+<h3 class="anchored" data-anchor-id="注意點">注意點</h3>
+<ol type="1">
+<li><p>妥善建立群組</p></li>
+<li><p>一定要隨機分組</p></li>
+<li><p>各組樣本數需充足</p></li>
+</ol>
+</section>
+<section id="優缺點" class="level3">
+<h3 class="anchored" data-anchor-id="優缺點">優缺點</h3>
+<p>優</p>
+<ol type="1">
+<li><p>因果關係強</p></li>
+<li><p>分析手法與結果具透明性</p></li>
+</ol>
+<p>缺</p>
+<ol type="1">
+<li>實施成本高昂</li>
+</ol>
+</section>
+</section>
+<section id="rd-設計" class="level2">
+<h2 class="anchored" data-anchor-id="rd-設計">RD 設計</h2>
+<ul>
+<li><p>當 RCT 無法使用時使用，可將 RD 設計想成在界線附近自然發生的 RCT。</p></li>
+<li><p>利用自然實驗(= 猶如人工作出實驗的自然發生情況)分析</p></li>
+</ul>
+<section id="假設-1" class="level3">
+<h3 class="anchored" data-anchor-id="假設-1">假設</h3>
+<ul>
+<li>如果 <span class="math inline">\(X\)</span> 未在界線上變動，<span class="math inline">\(Y\)</span> 就不會在界線上發生跳躍</li>
+</ul>
+<blockquote class="blockquote">
+<p>實務上是個不容易證實的假設</p>
+</blockquote>
+</section>
+<section id="注意點-1" class="level3">
+<h3 class="anchored" data-anchor-id="注意點-1">注意點</h3>
+<ul>
+<li><p>要先找出「界線」上，僅因一種因素(<span class="math inline">\(X\)</span>)發生不連續變化的情況</p></li>
+<li><p>需要檢驗其他因素是否也會導致 <span class="math inline">\(Y\)</span> 在界線上發生跳躍，如果會，那 RD 假設就不成立，結果解釋會不準確。</p></li>
+</ul>
+</section>
+<section id="優缺" class="level3">
+<h3 class="anchored" data-anchor-id="優缺">優缺</h3>
+<p>優：</p>
+<ol type="1">
+<li><p>只要不違反假設就可以證實因果關係</p></li>
+<li><p>實施成本比 RCT 低廉</p></li>
+</ol>
+<p>缺：</p>
+<ol type="1">
+<li>只能測試在界線附近的人之因果關係，離界線很遠的人，需要加上其他假設，否則無法解釋</li>
+</ol>
+</section>
+<section id="例子" class="level3">
+<h3 class="anchored" data-anchor-id="例子">例子</h3>
+<ul>
+<li>南北地理界線的電價差異是否導致家庭用電量變動</li>
 </ul>
 </section>
 </section>
-<section id="數據科學-data-science" class="level1">
-<h1>數據科學 Data Science</h1>
-<section id="data-mining" class="level2">
-<h2 class="anchored" data-anchor-id="data-mining">Data mining</h2>
-<p><strong>Introduction to Data Mining (Using R)</strong></p>
+<section id="堆集分析bunching-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="堆集分析bunching-analysis">堆集分析(Bunching Analysis)</h2>
+<p>一樣在 RCT 無法使用時使用，利用資料階梯狀的變化分析因果關係</p>
+<section id="假設-2" class="level3">
+<h3 class="anchored" data-anchor-id="假設-2">假設</h3>
 <ul>
-<li><p>by Pang-Ning Tan, Michael Steinbach, Anuj Karpatne and Vipin Kumar</p></li>
-<li><p><a href="https://mhahsler.github.io/Introduction_to_Data_Mining_R_Examples/book/index.html">Introduction to Data Mining</a></p></li>
-</ul>
-<p><strong>Text Mining with R</strong></p>
-<ul>
-<li><p>by Julia Silge and David Robinson</p></li>
-<li><p><a href="https://www.tidytextmining.com/">Text Mining with R</a></p></li>
+<li>如果 <span class="math inline">\(X\)</span> 並<strong>未</strong>呈階梯狀變化，<span class="math inline">\(Y\)</span>分布會平滑，不會在界線上堆集。</li>
 </ul>
 </section>
-<section id="nlp" class="level2">
-<h2 class="anchored" data-anchor-id="nlp">NLP</h2>
-<p><strong>Stanford NLP Group</strong></p>
+<section id="注意點-2" class="level3">
+<h3 class="anchored" data-anchor-id="注意點-2">注意點</h3>
 <ul>
-<li><p>Including slides and notes</p></li>
-<li><p><a href="https://web.stanford.edu/class/cs224n/index.html">CS224N: Natural Language Processing with Deep Learning</a></p></li>
+<li><p>評估某個呈階梯狀變化的因素是否能用於分析</p></li>
+<li><p>導致資料呈階梯狀變化的因素只有一個，沒有其他人</p></li>
+<li><p>需要分析誘因大幅變化的分界點上發生的堆集，檢驗人 or 企業對誘因變化有甚麼反應/因果關係</p></li>
 </ul>
 </section>
-<section id="computer-science" class="level2">
-<h2 class="anchored" data-anchor-id="computer-science">Computer science</h2>
-<p><strong>OS note</strong></p>
+<section id="例子-1" class="level3">
+<h3 class="anchored" data-anchor-id="例子-1">例子</h3>
 <ul>
-<li><p>A note about OS, including Process, Memory, File System, and more.</p></li>
-<li><p><a href="https://blog.d0ngy3.com/p/os/">https://blog.d0ngy3.com/p/os/</a></p></li>
+<li><p>汽車越大台，油耗規定是否越寬鬆</p></li>
+<li><p>所得稅的稅率是否影響工作方式</p></li>
 </ul>
 </section>
+<section id="優缺-1" class="level3">
+<h3 class="anchored" data-anchor-id="優缺-1">優缺</h3>
+<p>優：</p>
+<ol type="1">
+<li><p>假設成立，效果便近似 RCT</p></li>
+<li><p>分析結果易於理解</p></li>
+</ol>
+<p>缺：</p>
+<ol type="1">
+<li><p>只能推定分界點附近<strong>受到呈階梯狀變化誘因影響的主體</strong></p></li>
+<li><p>假設更難證明成立</p></li>
+</ol>
 </section>
-<section id="英文學術寫作-english-academic-writing" class="level1">
-<h1>英文學術寫作 English Academic Writing</h1>
-<p><strong>Basic</strong></p>
+</section>
+<section id="縱橫資料分析" class="level2">
+<h2 class="anchored" data-anchor-id="縱橫資料分析">縱橫資料分析</h2>
+<p>一樣在 RCT 無法使用時使用，假設政府/企業實施某項政策/措施時，有的群組有受到影響，有的沒有，此時：</p>
 <ul>
-<li><a href="https://web.math.ku.dk/~susanne/BSc/masterguide.pdf">Guideline to Writing a Master’s Thesis in Statistics (PDF)</a></li>
+<li><p>有受到政策/措施影響的群組為介入組</p></li>
+<li><p>沒有受到影響的為比較組</p></li>
 </ul>
-<p><strong>Thesis statement</strong></p>
+<p>此外也有這兩個群組實施前跟實施後不同時間點的資料，就可以做縱橫資料分析，求出介入組在沒有介入(實施某項政策/措施)時的可能效果，進而得出此項政策/措施的介入效果(=實際介入效果-沒有介入時的可能效果)</p>
+<section id="假設-3" class="level3">
+<h3 class="anchored" data-anchor-id="假設-3">假設</h3>
+<p>平行趨勢假設：</p>
 <ul>
-<li><a href="https://wts.indiana.edu/writing-guides/how-to-write-a-thesis-statement.html">How to Write a Thesis Statement</a></li>
+<li>如果沒有發生介入，介入組的平均結果(<span class="math inline">\(Y_T\)</span>)和比較組的的平均結果(<span class="math inline">\(Y_C\)</span>)就會平行推移</li>
 </ul>
+<p><img src="not_picture.png" class="img-fluid"></p>
+</section>
+<section id="注意點-3" class="level3">
+<h3 class="anchored" data-anchor-id="注意點-3">注意點</h3>
+<p>主張平行趨勢假設成立需要做：</p>
+<ul>
+<li><p>蒐集介入發生以前的資料，調查介入發生之前平行趨勢假設是否存在介入組跟比較組之間</p></li>
+<li><p>仔細檢查介入開始後，有無其他影響因素<strong>只</strong>影響介入組跟比較組中的其中一組</p></li>
+<li><p>若平行趨勢假設成立，就將雙方的平均數推移化成圖表，測定介入效果的平均數</p></li>
+</ul>
+</section>
+<section id="例子-2" class="level3">
+<h3 class="anchored" data-anchor-id="例子-2">例子</h3>
+<ul>
+<li><p>所得稅與移民關係的因果關係</p></li>
+<li><p>實施景氣刺激政策是否只會增加搶購需求</p></li>
+</ul>
+</section>
+<section id="優缺-2" class="level3">
+<h3 class="anchored" data-anchor-id="優缺-2">優缺</h3>
+<p>優：</p>
+<ol type="1">
+<li><p>可應用範圍比 RD 設計跟堆集分析大</p></li>
+<li><p>分析結果易於理解</p></li>
+<li><p>可分析對象跟範圍比 RD 設計跟堆集分析大，可分析主體效果</p></li>
+</ol>
+<p>缺：</p>
+<ol type="1">
+<li>假設很難證明是否成立，也很難成立</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="方法論的限制" class="level1">
+<h1>方法論的限制</h1>
+<ol type="1">
+<li><p>若資料有問題，分析手法再好也無法解決</p></li>
+<li><p>分析結果不一定能推廣到其他群體</p></li>
+<li><p>研究者的主見(偏見)會影響資料選取的對象，進而影響結果的可靠性</p></li>
+<li><p>理論上對介入組實施介入不影響比較組，實務上可能會被推翻</p></li>
+</ol>
+</section>
+<section id="延伸閱讀" class="level1">
+<h1>延伸閱讀</h1>
+<p>Econ 大一 ~ 大三程度</p>
+<ul>
+<li>Introductory Econometrics： A Modern Approach , Jeffrey M. Wooldridge</li>
+</ul>
+<p>Econ 大三大四程度</p>
+<ul>
+<li>Mostly Harmless Econometrics: An Empiricist’s Companion, Angrist, Joshua D., Pischke, Jorn-Steffen</li>
+</ul>
+<p>Econ 研究所程度</p>
+<ul>
+<li>Microeconometrics: Methods and Applications, Cameron, A. Colin, Trivedi, Pravin K</li>
+</ul>
+</section>
+<section id="小心得" class="level1">
+<h1>小心得</h1>
+<p>因為作者是實證經濟學背景，讀起來有熟悉又陌生的感覺，裡面的東西感覺也跟實驗設計有連結。不過因為書籍的內容是設計給高中生閱讀，因此只有通識程度，詳細介紹與細部的數學推導可能還需要靠延伸閱讀裡的書籍介紹。</p>
 
 
 
@@ -438,230 +628,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="cmVhZGluZyUyMG5vdGU=" data-listing-date-sort="1757260800000" data-listing-file-modified-sort="1757314219697" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="155">
-<div class="thumbnail"><a href="./posts/book-review/book-review.html" class="no-external">
 
-<img loading="lazy" src="./posts/book-review/book.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/book-review/book-review.html" class="no-external">讀書筆記-數據分析的力量 Google、Uber都在用的因果關係思考法</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/book-review/book-review.html" class="no-external"></a>
-</div>
-<div class="delink listing-description"><a href="./posts/book-review/book-review.html" class="no-external">
-本書介紹一些實證計量經濟學用過的分析手法與實例，包含： 隨機對照實驗 (RCT)、RD 設計(Regression Discontinuity)、堆集分析(Bunching Analysis)、縱橫資料分析等
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/book-review/book-review.html" class="no-external">
-<div class="listing-date">
-Sep 8, 2025
-</div>
-<div class="listing-author">
-紙魚
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="c2lkZSUyMHByb2plY3QlMkNweXRob24lMkNMU1RN" data-listing-date-sort="1757174400000" data-listing-file-modified-sort="1757318668193" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="356">
-<div class="thumbnail"><a href="./posts/side-project1/side-project1.html" class="no-external">
-
-<img loading="lazy" src="./posts/side-project1/side-project1.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/side-project1/side-project1.html" class="no-external">Side Project - 簡易預估搭乘新竹客運假日從新竹到台中的時間</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/side-project1/side-project1.html" class="no-external"></a>
-</div>
-<div class="delink listing-description"><a href="./posts/side-project1/side-project1.html" class="no-external">
-這個 Side Project 的發想完全來自我個人生活中的需求。
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/side-project1/side-project1.html" class="no-external">
-<div class="listing-date">
-Sep 7, 2025
-</div>
-<div class="listing-author">
-紙魚
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="bm90ZSUyQ3B5dGhvbiUyQ3B5dG9yY2g=" data-listing-date-sort="1756310400000" data-listing-file-modified-sort="1756568576240" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="421">
-<div class="thumbnail"><a href="./posts/pytorch3/pytorch3.html" class="no-external">
-
-<img loading="lazy" src="./posts/pytorch3/image.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/pytorch3/pytorch3.html" class="no-external">重新認識pytorch(3)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/pytorch3/pytorch3.html" class="no-external">LSTM簡介與實作</a>
-</div>
-<div class="delink listing-description"><a href="./posts/pytorch3/pytorch3.html" class="no-external">
-LSTM（Long Short-Term Memory）模型是 RNN 的延伸，主要目的在於改善 RNN 梯度爆炸以及長期依賴的問題。
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/pytorch3/pytorch3.html" class="no-external">
-<div class="listing-date">
-Aug 28, 2025
-</div>
-<div class="listing-author">
-紙魚
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="bm90ZSUyQ3B5dGhvbiUyQ3B5dG9yY2g=" data-listing-date-sort="1755964800000" data-listing-file-modified-sort="1756098085542" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2325">
-<div class="thumbnail"><a href="./posts/pytorch2/pytorch2.html" class="no-external">
-
-<img loading="lazy" src="./posts/pytorch2/image.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/pytorch2/pytorch2.html" class="no-external">重新認識pytorch(2)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/pytorch2/pytorch2.html" class="no-external">了解RNN</a>
-</div>
-<div class="delink listing-description"><a href="./posts/pytorch2/pytorch2.html" class="no-external">
-RNN，全名為循環神經網路(Recurrent Neural Network)，是具有記憶功能的模型。它可以發現樣本彼此之間的相互關係，適合處理 series data 的特徵 ，可應用於處理文字資料分類及time series等。
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/pytorch2/pytorch2.html" class="no-external">
-<div class="listing-date">
-Aug 24, 2025
-</div>
-<div class="listing-author">
-紙魚
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="bm90ZSUyQ3B5dGhvbiUyQ3B5dG9yY2g=" data-listing-date-sort="1755705600000" data-listing-file-modified-sort="1756043930719" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="433">
-<div class="thumbnail"><a href="./posts/pytorch1/pytorch1.html" class="no-external">
-
-<img loading="lazy" src="./posts/pytorch1/image.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/pytorch1/pytorch1.html" class="no-external">重新認識pytorch(1)</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/pytorch1/pytorch1.html" class="no-external">從一個分類問題開始</a>
-</div>
-<div class="delink listing-description"><a href="./posts/pytorch1/pytorch1.html" class="no-external">
-為了研究 LSTM 與神經網路(neural network，以下簡稱 nn)，重新認識 pytorch 。
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/pytorch1/pytorch1.html" class="no-external">
-<div class="listing-date">
-Aug 21, 2025
-</div>
-<div class="listing-author">
-紙魚
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="cHl0aG9uJTJDdG95cw==" data-listing-date-sort="1754668800000" data-listing-file-modified-sort="1756043930715" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="966">
-<div class="thumbnail"><a href="./posts/make-app/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/make-app/image.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/make-app/index.html" class="no-external">使用python做離線倒數計時器</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/make-app/index.html" class="no-external">第一次用python做exe，不會的問AI</a>
-</div>
-<div class="delink listing-description"><a href="./posts/make-app/index.html" class="no-external">
-這篇文章有點流水帳，就是一篇製作玩具的過程隨筆。用AI寫程式可以做到自己以前做不到的，但遇到問題還是要想辦法解決，解決問題還是需要思考跟經驗，所以我想還是紀錄一下，供日後參考囉。
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/make-app/index.html" class="no-external">
-<div class="listing-date">
-Aug 9, 2025
-</div>
-<div class="listing-author">
-紙魚
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="b3RoZXIlMkNweXRob24=" data-listing-date-sort="1753372800000" data-listing-file-modified-sort="1755145708878" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="120">
-<div class="thumbnail"><a href="./posts/jpyterbook/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/jpyterbook/logo.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/jpyterbook/index.html" class="no-external">如何使用 Python jupyter-book 建立一本書</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/jpyterbook/index.html" class="no-external"></a>
-</div>
-<div class="delink listing-description"><a href="./posts/jpyterbook/index.html" class="no-external">
-說到 jupyter-book，可能很多人會想到 Jupyter Notebook，但這裡指的是一個 python 套件，用來建立線上書籍的工具，特別適合用於副檔名為 <code>.ipynb</code> 的 Jupyter Notebook 。最後產出的網站類似 gitbook 或是 bookdown 的靜態網站，適合用來寫教學、筆記或是書籍。也是在我使用…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/jpyterbook/index.html" class="no-external">
-<div class="listing-date">
-Jul 25, 2025
-</div>
-<div class="listing-author">
-紙魚
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="b3RoZXIlMkNxdWFydG8=" data-listing-date-sort="1753200000000" data-listing-file-modified-sort="1757255698674" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="419">
-<div class="thumbnail"><a href="./posts/first-article/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/first-article/image.jpg" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/first-article/index.html" class="no-external">使用 Quarto 建立 Blog</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/first-article/index.html" class="no-external">第一篇文章，來分享這個部落格是怎麼建立的</a>
-</div>
-<div class="delink listing-description"><a href="./posts/first-article/index.html" class="no-external">
-很早以前就想建立自己的小小網站了，雖然在這之前，我用過 Blogger 寫文章，不過用得不是很順手，後來忘記帳密就沒再用了。到近期我才發現自己比較偏好用特定指令寫文章，這件事還是因為要寫數學筆記辦了 hackmd 才發現的。
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/first-article/index.html" class="no-external">
-<div class="listing-date">
-Jul 23, 2025
-</div>
-<div class="listing-author">
-紙魚
-</div>
-</a>
-</div>
-</div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->

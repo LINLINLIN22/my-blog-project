@@ -182,18 +182,53 @@
     "text": "發布網站（選擇性）\n可以把 _build/html 上傳到 GitHub Pages、Netlify、Vercel 等平台，或用 GitHub Actions 自動部署。"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "紙魚ㄉ部落格",
+    "objectID": "posts/book-review/book-review.html",
+    "href": "posts/book-review/book-review.html",
+    "title": "讀書筆記-數據分析的力量 Google、Uber都在用的因果關係思考法",
     "section": "",
-    "text": "來寫 Blog 吧！\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSide Project - 簡易預估搭乘新竹客運假日從新竹到台中的時間\n\n\n\n\n\n\nside project\n\npython\n\nLSTM\n\n\n\n\n\n\n\n\n\nSep 7, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n重新認識pytorch(3)\n\n\nLSTM簡介與實作\n\n\n\nnote\n\npython\n\npytorch\n\n\n\n\n\n\n\n\n\nAug 28, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n重新認識pytorch(2)\n\n\n了解RNN\n\n\n\nnote\n\npython\n\npytorch\n\n\n\n\n\n\n\n\n\nAug 24, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n重新認識pytorch(1)\n\n\n從一個分類問題開始\n\n\n\nnote\n\npython\n\npytorch\n\n\n\n\n\n\n\n\n\nAug 21, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n使用python做離線倒數計時器\n\n\n第一次用python做exe，不會的問AI\n\n\n\npython\n\ntoys\n\n\n\n\n\n\n\n\n\nAug 9, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n如何使用 Python jupyter-book 建立一本書\n\n\n\n\n\n\nother\n\npython\n\n\n\n\n\n\n\n\n\nJul 25, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n使用 Quarto 建立 Blog\n\n\n第一篇文章，來分享這個部落格是怎麼建立的\n\n\n\nother\n\nquarto\n\n\n\n\n\n\n\n\n\nJul 23, 2025\n\n\n紙魚\n\n\n\n\n\nNo matching items"
+    "text": "數據分析的力量 Google、Uber都在用的因果關係思考法\nbook information"
+  },
+  {
+    "objectID": "posts/book-review/book-review.html#隨機對照實驗-rct",
+    "href": "posts/book-review/book-review.html#隨機對照實驗-rct",
+    "title": "讀書筆記-數據分析的力量 Google、Uber都在用的因果關係思考法",
+    "section": "隨機對照實驗 (RCT)",
+    "text": "隨機對照實驗 (RCT)\n將實驗區分為介入組跟比較組，藉由探究兩者的介入效果(Treatment Effect)，即：有介入的組-沒有介入的組的效果\n\n介入組：有受到政策/措施影響的組別\n比較組：沒有受到政策/措施影響的組別\n\n\n在商業領域，RCT = A/B test\n\n\n假設\n\n如果沒有介入(政策/措施的影響)，比較組的平均 \\(Y_C\\) 會與介入組的平均 \\(Y_T\\) 相同\n\n\n\n注意點\n\n妥善建立群組\n一定要隨機分組\n各組樣本數需充足\n\n\n\n優缺點\n優\n\n因果關係強\n分析手法與結果具透明性\n\n缺\n\n實施成本高昂"
+  },
+  {
+    "objectID": "posts/book-review/book-review.html#rd-設計",
+    "href": "posts/book-review/book-review.html#rd-設計",
+    "title": "讀書筆記-數據分析的力量 Google、Uber都在用的因果關係思考法",
+    "section": "RD 設計",
+    "text": "RD 設計\n\n當 RCT 無法使用時使用，可將 RD 設計想成在界線附近自然發生的 RCT。\n利用自然實驗(= 猶如人工作出實驗的自然發生情況)分析\n\n\n假設\n\n如果 \\(X\\) 未在界線上變動，\\(Y\\) 就不會在界線上發生跳躍\n\n\n實務上是個不容易證實的假設\n\n\n\n注意點\n\n要先找出「界線」上，僅因一種因素(\\(X\\))發生不連續變化的情況\n需要檢驗其他因素是否也會導致 \\(Y\\) 在界線上發生跳躍，如果會，那 RD 假設就不成立，結果解釋會不準確。\n\n\n\n優缺\n優：\n\n只要不違反假設就可以證實因果關係\n實施成本比 RCT 低廉\n\n缺：\n\n只能測試在界線附近的人之因果關係，離界線很遠的人，需要加上其他假設，否則無法解釋\n\n\n\n例子\n\n南北地理界線的電價差異是否導致家庭用電量變動"
+  },
+  {
+    "objectID": "posts/book-review/book-review.html#堆集分析bunching-analysis",
+    "href": "posts/book-review/book-review.html#堆集分析bunching-analysis",
+    "title": "讀書筆記-數據分析的力量 Google、Uber都在用的因果關係思考法",
+    "section": "堆集分析(Bunching Analysis)",
+    "text": "堆集分析(Bunching Analysis)\n一樣在 RCT 無法使用時使用，利用資料階梯狀的變化分析因果關係\n\n假設\n\n如果 \\(X\\) 並未呈階梯狀變化，\\(Y\\)分布會平滑，不會在界線上堆集。\n\n\n\n注意點\n\n評估某個呈階梯狀變化的因素是否能用於分析\n導致資料呈階梯狀變化的因素只有一個，沒有其他人\n需要分析誘因大幅變化的分界點上發生的堆集，檢驗人 or 企業對誘因變化有甚麼反應/因果關係\n\n\n\n例子\n\n汽車越大台，油耗規定是否越寬鬆\n所得稅的稅率是否影響工作方式\n\n\n\n優缺\n優：\n\n假設成立，效果便近似 RCT\n分析結果易於理解\n\n缺：\n\n只能推定分界點附近受到呈階梯狀變化誘因影響的主體\n假設更難證明成立"
+  },
+  {
+    "objectID": "posts/book-review/book-review.html#縱橫資料分析",
+    "href": "posts/book-review/book-review.html#縱橫資料分析",
+    "title": "讀書筆記-數據分析的力量 Google、Uber都在用的因果關係思考法",
+    "section": "縱橫資料分析",
+    "text": "縱橫資料分析\n一樣在 RCT 無法使用時使用，假設政府/企業實施某項政策/措施時，有的群組有受到影響，有的沒有，此時：\n\n有受到政策/措施影響的群組為介入組\n沒有受到影響的為比較組\n\n此外也有這兩個群組實施前跟實施後不同時間點的資料，就可以做縱橫資料分析，求出介入組在沒有介入(實施某項政策/措施)時的可能效果，進而得出此項政策/措施的介入效果(=實際介入效果-沒有介入時的可能效果)\n\n假設\n平行趨勢假設：\n\n如果沒有發生介入，介入組的平均結果(\\(Y_T\\))和比較組的的平均結果(\\(Y_C\\))就會平行推移\n\n\n\n\n注意點\n主張平行趨勢假設成立需要做：\n\n蒐集介入發生以前的資料，調查介入發生之前平行趨勢假設是否存在介入組跟比較組之間\n仔細檢查介入開始後，有無其他影響因素只影響介入組跟比較組中的其中一組\n若平行趨勢假設成立，就將雙方的平均數推移化成圖表，測定介入效果的平均數\n\n\n\n例子\n\n所得稅與移民關係的因果關係\n實施景氣刺激政策是否只會增加搶購需求\n\n\n\n優缺\n優：\n\n可應用範圍比 RD 設計跟堆集分析大\n分析結果易於理解\n可分析對象跟範圍比 RD 設計跟堆集分析大，可分析主體效果\n\n缺：\n\n假設很難證明是否成立，也很難成立"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About Me",
     "section": "",
-    "text": "有一天同事在我桌上放了零食，上面貼了一張便利貼，便利貼上面畫著一隻魚。所以我的部落格叫紙魚😊\n\n\n\n\n\n\n\n\n\n\n\nSide Project - 簡易預估搭乘新竹客運假日從新竹到台中的時間\n\n\n\n\n\n\n\n\n\n\n\nSep 7, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n重新認識pytorch(3)\n\n\nLSTM簡介與實作\n\n\n\n\n\n\n\n\nAug 28, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n重新認識pytorch(2)\n\n\n了解RNN\n\n\n\n\n\n\n\n\nAug 24, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n重新認識pytorch(1)\n\n\n從一個分類問題開始\n\n\n\n\n\n\n\n\nAug 21, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n使用python做離線倒數計時器\n\n\n第一次用python做exe，不會的問AI\n\n\n\n\n\n\n\n\nAug 9, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n如何使用 Python jupyter-book 建立一本書\n\n\n\n\n\n\n\n\n\n\n\nJul 25, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n使用 Quarto 建立 Blog\n\n\n第一篇文章，來分享這個部落格是怎麼建立的\n\n\n\n\n\n\n\n\nJul 23, 2025\n\n\n紙魚\n\n\n\n\n\nNo matching items"
+    "text": "有一天同事在我桌上放了零食，上面貼了一張便利貼，便利貼上面畫著一隻魚。所以我的部落格叫紙魚😊\n\n\n\n\n\n\n\n\n\n\n\n讀書筆記-數據分析的力量 Google、Uber都在用的因果關係思考法\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\nSide Project - 簡易預估搭乘新竹客運假日從新竹到台中的時間\n\n\n\n\n\n\n\n\n\n\n\nSep 7, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n重新認識pytorch(3)\n\n\nLSTM簡介與實作\n\n\n\n\n\n\n\n\nAug 28, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n重新認識pytorch(2)\n\n\n了解RNN\n\n\n\n\n\n\n\n\nAug 24, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n重新認識pytorch(1)\n\n\n從一個分類問題開始\n\n\n\n\n\n\n\n\nAug 21, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n使用python做離線倒數計時器\n\n\n第一次用python做exe，不會的問AI\n\n\n\n\n\n\n\n\nAug 9, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n如何使用 Python jupyter-book 建立一本書\n\n\n\n\n\n\n\n\n\n\n\nJul 25, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n使用 Quarto 建立 Blog\n\n\n第一篇文章，來分享這個部落格是怎麼建立的\n\n\n\n\n\n\n\n\nJul 23, 2025\n\n\n紙魚\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "紙魚ㄉ部落格",
+    "section": "",
+    "text": "來寫 Blog 吧！\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n讀書筆記-數據分析的力量 Google、Uber都在用的因果關係思考法\n\n\n\n\n\n\nreading note\n\n\n\n\n\n\n\n\n\nSep 8, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\nSide Project - 簡易預估搭乘新竹客運假日從新竹到台中的時間\n\n\n\n\n\n\nside project\n\npython\n\nLSTM\n\n\n\n\n\n\n\n\n\nSep 7, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n重新認識pytorch(3)\n\n\nLSTM簡介與實作\n\n\n\nnote\n\npython\n\npytorch\n\n\n\n\n\n\n\n\n\nAug 28, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n重新認識pytorch(2)\n\n\n了解RNN\n\n\n\nnote\n\npython\n\npytorch\n\n\n\n\n\n\n\n\n\nAug 24, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n重新認識pytorch(1)\n\n\n從一個分類問題開始\n\n\n\nnote\n\npython\n\npytorch\n\n\n\n\n\n\n\n\n\nAug 21, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n使用python做離線倒數計時器\n\n\n第一次用python做exe，不會的問AI\n\n\n\npython\n\ntoys\n\n\n\n\n\n\n\n\n\nAug 9, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n如何使用 Python jupyter-book 建立一本書\n\n\n\n\n\n\nother\n\npython\n\n\n\n\n\n\n\n\n\nJul 25, 2025\n\n\n紙魚\n\n\n\n\n\n\n\n\n\n\n\n\n使用 Quarto 建立 Blog\n\n\n第一篇文章，來分享這個部落格是怎麼建立的\n\n\n\nother\n\nquarto\n\n\n\n\n\n\n\n\n\nJul 23, 2025\n\n\n紙魚\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/first-article/index.html",
@@ -347,7 +382,7 @@
     "href": "posts/side-project1/side-project1.html#資料來源簡介",
     "title": "Side Project - 簡易預估搭乘新竹客運假日從新竹到台中的時間",
     "section": "資料來源簡介",
-    "text": "資料來源簡介\n使用來源為交通度高公局交通資料庫的開放資料，網址。\n我使用的欄位有：\n\nSectionID\nTravel_Speed\n\n以及在檔名擷取時間。"
+    "text": "資料來源簡介\n使用來源為交通度高公局交通資料庫的開放資料，網址。\n我使用的欄位有：\n\nSectionID\nTravel_Speed\n\n以及在檔名擷取時間。\n我的訓練資料為 2024 年屬於國定假日範圍的資料，其中有 10 % 的資料屬於訓練階段的 valid set ， 其餘 90% 為 training set；用來測試模型的 test set 為 2025年上半年國定假日範圍的資料，期間為 1/1 ~ 8/30 。"
   },
   {
     "objectID": "posts/side-project1/side-project1.html#清資料",
@@ -361,6 +396,20 @@
     "href": "posts/side-project1/side-project1.html#訓練資料",
     "title": "Side Project - 簡易預估搭乘新竹客運假日從新竹到台中的時間",
     "section": "訓練資料",
-    "text": "訓練資料\n流程：\n\n區分 training set, valid set，test set 為2025上半年的資料。\n訓練模型\n計算valid set RMSE、畫圖觀察\n確認OK後，拿 test set 試試\n計算test set RMSE、畫圖觀察\n\n確認都可以後再依 section 產出預測資料。\n\n指定 LSTM 的原因\n因為我想玩還有我很懶，原先在指定 LSTM 之前，有先考慮過使用 ARIMA 或是 SARIMA 模型來進行預測，不過指定這種經典的統計模型的缺點是滿吃對資料的觀察能力，我太菜了，沒有人在旁邊指導我撞牆可能會撞很久。此外，一直以來有耳聞過 LSTM 的用於 series data 的強大，也有看過一些與其他模型的預測能力比較的論文，神經網路家族的模型雖然複雜，但沒有特殊的統計假設，因此考慮後決定用 LSTM 模型來進行預測。\n\n\n模型架構\n試了好幾個參數後，得出的最好的模型架構與效果為\nclass LSTMModel(nn.Module):\n    def __init__(self, input_size=4, hidden_layer_size=16, output_size=1, num_layers=1):\n        super().__init__()\n        self.hidden_layer_size = hidden_layer_size\n        self.num_layers = num_layers\n\n        self.lstm = nn.LSTM(input_size, hidden_layer_size, num_layers, batch_first=True)\n        self.linear = nn.Linear(hidden_layer_size, output_size)\n\n    def forward(self, input_seq):\n        batch_size = input_seq.size(0)\n        h0 = torch.zeros(self.num_layers, batch_size, self.hidden_layer_size).to(input_seq.device)\n        c0 = torch.zeros(self.num_layers, batch_size, self.hidden_layer_size).to(input_seq.device)\n\n        lstm_out, _ = self.lstm(input_seq, (h0, c0))\n        out = self.linear(lstm_out[:, -1, :])\n        return out\n\n\n模型參數設定\n基本參數為\n# 訓練參數\nseq_length = 15\npredict_step = 15 #一次預測15分鐘\nepochs = 30\npatience = 5 # early stop\n# Early stopping at epoch 12.\nLSTM模型指定參數為\nLSTMModel(\n  (lstm): LSTM(4, 16, batch_first=True)\n  (linear): Linear(in_features=16, out_features=1, bias=True)\n)\ndevice = torch.device('cuda' if torch.cuda.is_available() else 'cpu')\nmodel = LSTMModel().to(device)\nloss_function = nn.MSELoss()\noptimizer = torch.optim.Adam(model.parameters(), lr=0.001)\n\n\n相關訓練數據\nRMSE 部分：\n\n\n\nset\nRMSE\n\n\n\n\nvalid set\n3.0401\n\n\ntest set\n6.0785\n\n\n\n ▲ valid set 前 200 筆真實值(藍線)跟預測值(橘線)觀察圖\n ▲ test set 真實值(藍線)跟預測值(橘線)觀察圖，可以看到除了部分超過速限的資料外，整體還行。"
+    "text": "訓練資料\n流程：\n\n區分 training set, valid set，test set 為2025上半年的資料。\n訓練模型\n計算valid set RMSE、畫圖觀察\n確認OK後，拿 test set 試試\n計算test set RMSE、畫圖觀察\n\n確認都可以後再依 section 產出預測資料。\n\n指定 LSTM 的原因\n因為我想玩還有我很懶，原先在指定 LSTM 之前，有先考慮過使用 ARIMA 或是 SARIMA 模型來進行預測，不過指定這種經典的統計模型的缺點是滿吃對資料的觀察能力，我太菜了，沒有人在旁邊指導我撞牆可能會撞很久。此外，一直以來有耳聞過 LSTM 的用於 series data 的強大，也有看過一些與其他模型的預測能力比較的論文，像是這篇。\n神經網路家族的模型雖然複雜，但沒有特殊的統計假設；而且 LSTM 模型適合預測沒有突發事件影響的資料，我的資料搜查範圍僅限假日，基本上沒有突發事件影響。因此考慮後決定用 LSTM 模型來進行預測。\n\n\n模型架構\n試了好幾個參數後，得出的最好的模型架構與效果為\nclass LSTMModel(nn.Module):\n    def __init__(self, input_size=4, hidden_layer_size=16, output_size=1, num_layers=1):\n        super().__init__()\n        self.hidden_layer_size = hidden_layer_size\n        self.num_layers = num_layers\n\n        self.lstm = nn.LSTM(input_size, hidden_layer_size, num_layers, batch_first=True)\n        self.linear = nn.Linear(hidden_layer_size, output_size)\n\n    def forward(self, input_seq):\n        batch_size = input_seq.size(0)\n        h0 = torch.zeros(self.num_layers, batch_size, self.hidden_layer_size).to(input_seq.device)\n        c0 = torch.zeros(self.num_layers, batch_size, self.hidden_layer_size).to(input_seq.device)\n\n        lstm_out, _ = self.lstm(input_seq, (h0, c0))\n        out = self.linear(lstm_out[:, -1, :])\n        return out\n\n\n模型參數設定\n基本參數為\n# 訓練參數\nseq_length = 15\npredict_step = 15 #一次預測15分鐘\nepochs = 30\npatience = 5 # early stop\n# Early stopping at epoch 12.\n最終設定的 LSTM 模型指定參數為\nLSTMModel(\n  (lstm): LSTM(4, 16, batch_first=True)\n  (linear): Linear(in_features=16, out_features=1, bias=True)\n)\ndevice = torch.device('cuda' if torch.cuda.is_available() else 'cpu')\nmodel = LSTMModel().to(device)\nloss_function = nn.MSELoss()\noptimizer = torch.optim.Adam(model.parameters(), lr=0.001)\n\n\n相關訓練數據\nRMSE 部分：\n\n\n\nset\nRMSE\n\n\n\n\nvalid set\n3.0401\n\n\ntest set\n6.0785\n\n\n\n ▲ valid set 前 200 筆真實值(藍線)跟預測值(橘線)觀察圖\n ▲ test set 真實值(藍線)跟預測值(橘線)觀察圖，可以看到除了部分超過速限的資料外，整體還行。\n無論是 valid set 還是 test set 的 RMSE 跟繪圖結果，看起來都相當不錯，但實際執行預測下半年的資料後，還是覺得有些問題。"
+  },
+  {
+    "objectID": "posts/side-project1/side-project1.html#模型預測部分",
+    "href": "posts/side-project1/side-project1.html#模型預測部分",
+    "title": "Side Project - 簡易預估搭乘新竹客運假日從新竹到台中的時間",
+    "section": "模型預測部分",
+    "text": "模型預測部分\n雖然 LSTM 模型的表現從數據看起來相當不錯，不過實際預測結果的 TravelSpeed 卻經常保持在平穩的線上，這跟我實際搭車的經驗不太符合，細想後我認為有 2 個原因：\n\nTravelSpeed 的定義跟搭乘客運的時速沒有關係\nLSTM 模型適合預測沒有遭遇突發重大變化的資料，反過來說當沒有太大變化的資料時間步細分成數分鐘時，LSTM 模型的預測也不會有太大的變化\n\n其中 1. 可能是主要原因，只能說搞清楚資料定義真的真的很重要QQ"
+  },
+  {
+    "objectID": "posts/side-project1/side-project1.html#uiux-設計",
+    "href": "posts/side-project1/side-project1.html#uiux-設計",
+    "title": "Side Project - 簡易預估搭乘新竹客運假日從新竹到台中的時間",
+    "section": "UIUX 設計",
+    "text": "UIUX 設計\n目前將資料部署在 streamlit 平台上，雖然有不用切換程式語言、使用語言直觀簡潔、不用自己重新設計 UIUX 等優點，但實際部署後網路載入速度實在是太慢了，而且也沒有 RWD 設計。再來是日期及時間表單的選擇，原先我希望能顯示只有我已經預測好的時間區間，但實際發現他的日期跟時間套件沒有這樣選，如果要做到我要的效果，可能需要從現有的 streamlit 輸入元件指令中找一個最符合我想像的，再轉換資料型別成 date time 格式以利後續處理資料。"
   }
 ]
