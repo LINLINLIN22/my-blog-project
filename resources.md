@@ -70,6 +70,14 @@ format:
 
 - [CS224N: Natural Language Processing with Deep Learning](https://web.stanford.edu/class/cs224n/index.html)
 
+
+
+**NLP Essential**
+
+- 高宏宇推薦教材，[來源](https://github.com/IKMLab/course_material/blob/master/PyTorch-%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD.ipynb)
+
+- [Speech and Language Processing (3rd ed. draft)](https://web.stanford.edu/~jurafsky/slp3/)
+
  
 ## Computer science
 
