@@ -470,14 +470,16 @@ window.Quarto = {
 <p>因為這次使用的資料類型為 single time series，<del>加上懶得去找其他變量的關係</del>，所以完全沒有做特徵工程。</p>
 <section id="資料來源簡介" class="level2">
 <h2 class="anchored" data-anchor-id="資料來源簡介">資料來源簡介</h2>
-<p>使用來源為交通度高公局交通資料庫的開放資料，<a href="https://tisvcloud.freeway.gov.tw/history/motc20/Section/">網址</a>。</p>
+<p>使用來源為交通度高公局交通資料庫的開放資料，<a href="https://tisvcloud.freeway.gov.tw/history/motc20/Section/">網址</a>。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>我使用的欄位有：</p>
 <ul>
-<li><p>SectionID</p></li>
-<li><p>Travel_Speed</p></li>
+<li>SectionID : 機關發布路段代碼<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
+</ul>
+<ul>
+<li>Travel_Speed :依據路況資訊蒐集起始時間至結束時間區間,計算期間所蒐集資料所得之平均旅行速度。(單位:km/h)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
 </ul>
 <p>以及在檔名擷取時間。</p>
-<p>我的訓練資料為 2024 年屬於國定假日範圍的資料，其中有 10 % 的資料屬於訓練階段的 valid set ， 其餘 90% 為 training set；用來測試模型的 test set 為 2025年上半年國定假日範圍的資料，期間為 1/1 ~ 8/30 。</p>
+<p>訓練資料為 2024 年屬於國定假日範圍的資料，其中有 10 % 的資料屬於訓練階段的 valid set ， 其餘 90% 為 training set；用來測試模型的 test set 為 2025年上半年國定假日範圍的資料，期間為 1/1 ~ 8/30 。</p>
 </section>
 <section id="清資料" class="level2">
 <h2 class="anchored" data-anchor-id="清資料">清資料</h2>
@@ -580,7 +582,7 @@ window.Quarto = {
 <li><p>TravelSpeed 的定義跟搭乘客運的時速沒有關係</p></li>
 <li><p>LSTM 模型適合預測沒有遭遇突發重大變化的資料，反過來說當沒有太大變化的資料時間步細分成數分鐘時，LSTM 模型的預測也不會有太大的變化</p></li>
 </ol>
-<p>其中 1. 可能是主要原因，只能說搞清楚資料定義真的真的很重要QQ</p>
+<p>其中 1. 可能是主要原因，原先我假定一個路段間的車速也相當於客運開車的時速，但細想起來，<strong>小型車的數量會多過包含客運在內的大型車，而他們的平均時速通常都會比大型車快</strong>，也就是說我估出來的資料可能高估，只能說資料定義與想要探究的問題連結真的真的很重要QQ</p>
 </section>
 <section id="uiux-設計及部署" class="level2">
 <h2 class="anchored" data-anchor-id="uiux-設計及部署">UIUX 設計及部署</h2>
@@ -592,12 +594,20 @@ window.Quarto = {
 </section>
 </section>
 
+
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
 
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</div><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>資料庫欄位解釋請參照<a href="https://drive.google.com/file/d/12GzEhuiZa7yJc5zFGVEn8U9UJR22RrGy/view">交通部官方文件</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>交通部官方文件，頁97。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>交通部官方文件，頁97。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
