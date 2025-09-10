@@ -382,7 +382,7 @@
     "href": "posts/side-project1/side-project1.html#資料來源簡介",
     "title": "Side Project - 簡易預估搭乘新竹客運假日從新竹到台中的時間",
     "section": "資料來源簡介",
-    "text": "資料來源簡介\n使用來源為交通度高公局交通資料庫的開放資料，網址。\n我使用的欄位有：\n\nSectionID\nTravel_Speed\n\n以及在檔名擷取時間。\n我的訓練資料為 2024 年屬於國定假日範圍的資料，其中有 10 % 的資料屬於訓練階段的 valid set ， 其餘 90% 為 training set；用來測試模型的 test set 為 2025年上半年國定假日範圍的資料，期間為 1/1 ~ 8/30 。"
+    "text": "資料來源簡介\n使用來源為交通度高公局交通資料庫的開放資料，網址。1\n我使用的欄位有：\n\nSectionID : 機關發布路段代碼2\n\n\nTravel_Speed :依據路況資訊蒐集起始時間至結束時間區間,計算期間所蒐集資料所得之平均旅行速度。(單位:km/h)3\n\n以及在檔名擷取時間。\n訓練資料為 2024 年屬於國定假日範圍的資料，其中有 10 % 的資料屬於訓練階段的 valid set ， 其餘 90% 為 training set；用來測試模型的 test set 為 2025年上半年國定假日範圍的資料，期間為 1/1 ~ 8/30 。"
   },
   {
     "objectID": "posts/side-project1/side-project1.html#清資料",
@@ -403,7 +403,7 @@
     "href": "posts/side-project1/side-project1.html#模型預測部分",
     "title": "Side Project - 簡易預估搭乘新竹客運假日從新竹到台中的時間",
     "section": "模型預測部分",
-    "text": "模型預測部分\n雖然 LSTM 模型的表現從數據看起來相當不錯，不過實際預測結果的 TravelSpeed 卻經常保持在平穩的線上，這跟我實際搭車的經驗不太符合，細想後我認為有 2 個原因：\n\nTravelSpeed 的定義跟搭乘客運的時速沒有關係\nLSTM 模型適合預測沒有遭遇突發重大變化的資料，反過來說當沒有太大變化的資料時間步細分成數分鐘時，LSTM 模型的預測也不會有太大的變化\n\n其中 1. 可能是主要原因，只能說搞清楚資料定義真的真的很重要QQ"
+    "text": "模型預測部分\n雖然 LSTM 模型的表現從數據看起來相當不錯，不過實際預測結果的 TravelSpeed 卻經常保持在平穩的線上，這跟我實際搭車的經驗不太符合，細想後我認為有 2 個原因：\n\nTravelSpeed 的定義跟搭乘客運的時速沒有關係\nLSTM 模型適合預測沒有遭遇突發重大變化的資料，反過來說當沒有太大變化的資料時間步細分成數分鐘時，LSTM 模型的預測也不會有太大的變化\n\n其中 1. 可能是主要原因，原先我假定一個路段間的車速也相當於客運開車的時速，但細想起來，小型車的數量會多過包含客運在內的大型車，而他們的平均時速通常都會比大型車快，也就是說我估出來的資料可能高估，只能說資料定義與想要探究的問題連結真的真的很重要QQ"
   },
   {
     "objectID": "posts/side-project1/side-project1.html#uiux-設計及部署",
@@ -411,5 +411,12 @@
     "title": "Side Project - 簡易預估搭乘新竹客運假日從新竹到台中的時間",
     "section": "UIUX 設計及部署",
     "text": "UIUX 設計及部署\n目前將資料部署在 streamlit 平台上，雖然有不用切換程式語言、使用語言直觀簡潔、不用自己重新設計 UIUX 等優點，但實際部署後網路載入速度實在是太慢了，而且 RWD 設計也很陽春。\n此外，streamlit could app 會將太久沒有人造訪的網站休眠，頻率大概是超過一天就不行，對我這種使用率低的app來說不是很有利。目前背後的處理資料原理也可以用 javascrip 完成，未來用 GitHub Page 部署會更好。"
+  },
+  {
+    "objectID": "posts/side-project1/side-project1.html#footnotes",
+    "href": "posts/side-project1/side-project1.html#footnotes",
+    "title": "Side Project - 簡易預估搭乘新竹客運假日從新竹到台中的時間",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\n資料庫欄位解釋請參照交通部官方文件↩︎\n交通部官方文件，頁97。↩︎\n交通部官方文件，頁97。↩︎"
   }
 ]
