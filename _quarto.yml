@@ -9,6 +9,8 @@ listing:
 
 format:
   html:
+    mermaid: 
+      enabled: true
     theme:
       light: flatly
       dark: darkly
