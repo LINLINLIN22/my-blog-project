@@ -41,13 +41,13 @@ image: "side-project1.png"
 
 ```{mermaid}
 graph TD
-    A[下載交通部資料] --> B[清洗資料]
-    B --> C[補齊缺失資料]
-    C --> D[區分 training set、valid set、test set]
-    D --> E[LSTM 模型建模]
-    E --> F[產出資料(依路段)]
-    F --> G[計算到達所需時間]
-    G --> H[Web 呈現]
+    A["下載交通部資料"] --> B["清洗資料"]
+    B --> C["補齊缺失資料"]
+    C --> D["區分 training set、valid set、test set"]
+    D --> E["LSTM 模型建模"]
+    E --> F["依路段產出資料"]
+    F --> G["計算到達所需時間"]
+    G --> H["Web 呈現"]
 ```
 
  因為這次使用的資料類型為 single time series，~~加上懶得去找其他變量的關係~~，所以完全沒有做特徵工程。
