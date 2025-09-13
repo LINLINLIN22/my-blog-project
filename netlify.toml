@@ -1,6 +1,3 @@
 [build]
-  command = "bash install-quarto.sh && quarto render"
+  command = "echo 'no build step, just deploy _site'"
   publish = "docs"  # ← 根據你的 Quarto 輸出資料夾修改
-
-[build.environment]
-  NODE_VERSION = "18"
